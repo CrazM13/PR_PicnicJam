@@ -9,6 +9,7 @@ public partial class PhysicsObject : AnimatableBody2D {
 	public Vector2 Velocity { get; set; }
 
 	[Export] private float gravityScale = 1f;
+	[Export] public float Mass { get; set; } = 1f;
 
 	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
@@ -22,13 +23,17 @@ public partial class PhysicsObject : AnimatableBody2D {
 			EmitSignal(SignalName.Collision, collision, Velocity);
 
 			if (collision.GetCollider() is PhysicsObject otherBody) {
-				otherBody.Velocity += Velocity;
+				otherBody.Velocity += Velocity * otherBody.Mass;
 			}
 			Velocity = this.PhysicsMaterialOverride.Bounce * Velocity.Bounce(collision.GetNormal());
 
 			EmitSignal(SignalName.PostCollision, collision, Velocity);
 		}
 
+	}
+
+	public void AddForce(Vector2 force) {
+		Velocity += force / Mass;
 	}
 
 }

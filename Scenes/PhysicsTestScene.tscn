@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://ieaqbgxb8j1x"]
 
-[ext_resource type="Script" uid="uid://cskofiiqoiimd" path="res://Scripts/PhysicsObject.cs" id="1_5lt6y"]
-[ext_resource type="Script" uid="uid://dfuy5xgnpomws" path="res://Scripts/PlayerController.cs" id="1_8k7wh"]
-[ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="1_b5ayd"]
-[ext_resource type="Script" uid="uid://c87x72c3rkjg" path="res://Scripts/PhysicsSpring.cs" id="4_iufkg"]
+[ext_resource type="Script" uid="uid://dfuy5xgnpomws" path="res://Scripts/PlayerController.cs" id="1_i6ba1"]
+[ext_resource type="Script" uid="uid://cskofiiqoiimd" path="res://Scripts/PhysicsObject.cs" id="2_n5bcs"]
+[ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="3_jk5ua"]
+[ext_resource type="Script" uid="uid://c87x72c3rkjg" path="res://Scripts/PhysicsSpring.cs" id="4_wqjca"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0r02p"]
 distance = -650.77
@@ -42,7 +42,7 @@ shape = SubResource("WorldBoundaryShape2D_5lt6y")
 shape = SubResource("WorldBoundaryShape2D_8k7wh")
 
 [node name="Player2" type="Node2D" parent="." node_paths=PackedStringArray("downSpring", "upSpring", "leftSpring", "rightSpring")]
-script = ExtResource("1_8k7wh")
+script = ExtResource("1_i6ba1")
 downSpring = NodePath("BottomSpring")
 upSpring = NodePath("UpSpring")
 leftSpring = NodePath("LeftSpring")
@@ -52,65 +52,69 @@ rightSpring = NodePath("RightSpring")
 position = Vector2(602, 283)
 physics_material_override = SubResource("PhysicsMaterial_5lt6y")
 sync_to_physics = false
-script = ExtResource("1_5lt6y")
+script = ExtResource("2_n5bcs")
 gravityScale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/Player"]
 shape = SubResource("RectangleShape2D_8k7wh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player2/Player"]
-texture = ExtResource("1_b5ayd")
+texture = ExtResource("3_jk5ua")
 
 [node name="BottomPad" type="AnimatableBody2D" parent="Player2"]
 position = Vector2(604, 436)
 physics_material_override = SubResource("PhysicsMaterial_5lt6y")
 sync_to_physics = false
-script = ExtResource("1_5lt6y")
+script = ExtResource("2_n5bcs")
+Mass = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/BottomPad"]
 shape = SubResource("RectangleShape2D_8k7wh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player2/BottomPad"]
-texture = ExtResource("1_b5ayd")
+texture = ExtResource("3_jk5ua")
 
 [node name="LeftPad" type="AnimatableBody2D" parent="Player2"]
 position = Vector2(452, 286)
 physics_material_override = SubResource("PhysicsMaterial_5lt6y")
 sync_to_physics = false
-script = ExtResource("1_5lt6y")
+script = ExtResource("2_n5bcs")
+Mass = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/LeftPad"]
 shape = SubResource("RectangleShape2D_8k7wh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player2/LeftPad"]
-texture = ExtResource("1_b5ayd")
+texture = ExtResource("3_jk5ua")
 
 [node name="RightPad" type="AnimatableBody2D" parent="Player2"]
 position = Vector2(758, 282)
 physics_material_override = SubResource("PhysicsMaterial_5lt6y")
 sync_to_physics = false
-script = ExtResource("1_5lt6y")
+script = ExtResource("2_n5bcs")
+Mass = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/RightPad"]
 shape = SubResource("RectangleShape2D_8k7wh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player2/RightPad"]
-texture = ExtResource("1_b5ayd")
+texture = ExtResource("3_jk5ua")
 
 [node name="UpPad" type="AnimatableBody2D" parent="Player2"]
 position = Vector2(601, 108)
 physics_material_override = SubResource("PhysicsMaterial_5lt6y")
 sync_to_physics = false
-script = ExtResource("1_5lt6y")
+script = ExtResource("2_n5bcs")
+Mass = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/UpPad"]
 shape = SubResource("RectangleShape2D_8k7wh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player2/UpPad"]
-texture = ExtResource("1_b5ayd")
+texture = ExtResource("3_jk5ua")
 
 [node name="BottomSpring" type="Node2D" parent="Player2" node_paths=PackedStringArray("source", "attachment")]
-script = ExtResource("4_iufkg")
+script = ExtResource("4_wqjca")
 damping = 0.5
 source = NodePath("../Player")
 sourceOffset1 = Vector2(64, 64)
@@ -121,7 +125,7 @@ attachmentOffset2 = Vector2(64, -64)
 RestLength = 200.0
 
 [node name="LeftSpring" type="Node2D" parent="Player2" node_paths=PackedStringArray("source", "attachment")]
-script = ExtResource("4_iufkg")
+script = ExtResource("4_wqjca")
 damping = 0.5
 source = NodePath("../Player")
 sourceOffset1 = Vector2(-64, 64)
@@ -132,7 +136,7 @@ attachmentOffset2 = Vector2(64, 64)
 RestLength = 200.0
 
 [node name="RightSpring" type="Node2D" parent="Player2" node_paths=PackedStringArray("source", "attachment")]
-script = ExtResource("4_iufkg")
+script = ExtResource("4_wqjca")
 damping = 0.5
 source = NodePath("../Player")
 sourceOffset1 = Vector2(64, 64)
@@ -143,7 +147,7 @@ attachmentOffset2 = Vector2(-64, 64)
 RestLength = 200.0
 
 [node name="UpSpring" type="Node2D" parent="Player2" node_paths=PackedStringArray("source", "attachment")]
-script = ExtResource("4_iufkg")
+script = ExtResource("4_wqjca")
 stiffness = 2.0
 damping = 0.5
 source = NodePath("../Player")
