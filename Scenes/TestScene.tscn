@@ -1,3 +1,155 @@
-[gd_scene format=3 uid="uid://ieaqbgxb8j1x"]
+[gd_scene load_steps=11 format=3 uid="uid://ieaqbgxb8j1x"]
+
+[ext_resource type="Script" uid="uid://cskofiiqoiimd" path="res://Scripts/PhysicsObject.cs" id="1_5lt6y"]
+[ext_resource type="Script" uid="uid://dfuy5xgnpomws" path="res://Scripts/PlayerController.cs" id="1_8k7wh"]
+[ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="1_b5ayd"]
+[ext_resource type="Script" uid="uid://c87x72c3rkjg" path="res://Scripts/PhysicsSpring.cs" id="4_iufkg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0r02p"]
+distance = -650.77
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5ayd"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5lt6y"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8k7wh"]
+normal = Vector2(-1, 0)
+distance = -1153.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5lt6y"]
+friction = 0.0
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8k7wh"]
+size = Vector2(128, 128)
 
 [node name="TestScene" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_0r02p")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_b5ayd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_5lt6y")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_8k7wh")
+
+[node name="Player2" type="Node2D" parent="." node_paths=PackedStringArray("downSpring", "upSpring", "leftSpring", "rightSpring")]
+script = ExtResource("1_8k7wh")
+downSpring = NodePath("BottomSpring")
+upSpring = NodePath("UpSpring")
+leftSpring = NodePath("LeftSpring")
+rightSpring = NodePath("RightSpring")
+
+[node name="Player" type="AnimatableBody2D" parent="Player2"]
+position = Vector2(602, 283)
+physics_material_override = SubResource("PhysicsMaterial_5lt6y")
+sync_to_physics = false
+script = ExtResource("1_5lt6y")
+gravityScale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/Player"]
+shape = SubResource("RectangleShape2D_8k7wh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2/Player"]
+texture = ExtResource("1_b5ayd")
+
+[node name="BottomPad" type="AnimatableBody2D" parent="Player2"]
+position = Vector2(604, 436)
+physics_material_override = SubResource("PhysicsMaterial_5lt6y")
+sync_to_physics = false
+script = ExtResource("1_5lt6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/BottomPad"]
+shape = SubResource("RectangleShape2D_8k7wh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2/BottomPad"]
+texture = ExtResource("1_b5ayd")
+
+[node name="LeftPad" type="AnimatableBody2D" parent="Player2"]
+position = Vector2(452, 286)
+physics_material_override = SubResource("PhysicsMaterial_5lt6y")
+sync_to_physics = false
+script = ExtResource("1_5lt6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/LeftPad"]
+shape = SubResource("RectangleShape2D_8k7wh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2/LeftPad"]
+texture = ExtResource("1_b5ayd")
+
+[node name="RightPad" type="AnimatableBody2D" parent="Player2"]
+position = Vector2(758, 282)
+physics_material_override = SubResource("PhysicsMaterial_5lt6y")
+sync_to_physics = false
+script = ExtResource("1_5lt6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/RightPad"]
+shape = SubResource("RectangleShape2D_8k7wh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2/RightPad"]
+texture = ExtResource("1_b5ayd")
+
+[node name="UpPad" type="AnimatableBody2D" parent="Player2"]
+position = Vector2(601, 108)
+physics_material_override = SubResource("PhysicsMaterial_5lt6y")
+sync_to_physics = false
+script = ExtResource("1_5lt6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/UpPad"]
+shape = SubResource("RectangleShape2D_8k7wh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2/UpPad"]
+texture = ExtResource("1_b5ayd")
+
+[node name="BottomSpring" type="Node2D" parent="Player2" node_paths=PackedStringArray("source", "attachment")]
+script = ExtResource("4_iufkg")
+damping = 0.5
+source = NodePath("../Player")
+sourceOffset1 = Vector2(64, 64)
+sourceOffset2 = Vector2(-64, 64)
+attachment = NodePath("../BottomPad")
+attachmentOffset1 = Vector2(-64, -64)
+attachmentOffset2 = Vector2(64, -64)
+RestLength = 200.0
+
+[node name="LeftSpring" type="Node2D" parent="Player2" node_paths=PackedStringArray("source", "attachment")]
+script = ExtResource("4_iufkg")
+damping = 0.5
+source = NodePath("../Player")
+sourceOffset1 = Vector2(-64, 64)
+sourceOffset2 = Vector2(-64, -64)
+attachment = NodePath("../LeftPad")
+attachmentOffset1 = Vector2(64, -64)
+attachmentOffset2 = Vector2(64, 64)
+RestLength = 200.0
+
+[node name="RightSpring" type="Node2D" parent="Player2" node_paths=PackedStringArray("source", "attachment")]
+script = ExtResource("4_iufkg")
+damping = 0.5
+source = NodePath("../Player")
+sourceOffset1 = Vector2(64, 64)
+sourceOffset2 = Vector2(64, -64)
+attachment = NodePath("../RightPad")
+attachmentOffset1 = Vector2(-64, -64)
+attachmentOffset2 = Vector2(-64, 64)
+RestLength = 200.0
+
+[node name="UpSpring" type="Node2D" parent="Player2" node_paths=PackedStringArray("source", "attachment")]
+script = ExtResource("4_iufkg")
+stiffness = 2.0
+damping = 0.5
+source = NodePath("../Player")
+sourceOffset1 = Vector2(64, -64)
+sourceOffset2 = Vector2(-64, -64)
+attachment = NodePath("../UpPad")
+attachmentOffset1 = Vector2(-64, 64)
+attachmentOffset2 = Vector2(64, 64)
+RestLength = 200.0
