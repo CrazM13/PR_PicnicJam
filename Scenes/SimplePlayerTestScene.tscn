@@ -75,7 +75,7 @@ frame = 4
 polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64)
 
 [node name="Triangle" type="StaticBody2D" parent="."]
-position = Vector2(79, 577)
+position = Vector2(58, 593)
 
 [node name="Sprite2D" type="Sprite2D" parent="Triangle"]
 texture = ExtResource("4_bmkjr")
@@ -99,7 +99,7 @@ frame = 2
 shape = SubResource("RectangleShape2D_bmkjr")
 
 [node name="SpinningBlades" type="AnimatableBody2D" parent="."]
-position = Vector2(1150, 19)
+position = Vector2(310, 441)
 scale = Vector2(3, 3)
 script = ExtResource("5_n2slp")
 

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://wdo661q1wrk7" path="res://Scripts/HeldObjectArea.cs" id="3_m0ojv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3iclq"]
-friction = 0.5
+friction = 0.25
 bounce = 0.75
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pylva"]
@@ -92,21 +92,22 @@ shape = SubResource("RectangleShape2D_n2slp")
 
 [node name="UpRay" type="RayCast2D" parent="."]
 position = Vector2(0, -64)
-target_position = Vector2(0, -50)
+target_position = Vector2(0, -60)
 hit_from_inside = true
 
 [node name="DownRay" type="RayCast2D" parent="."]
 position = Vector2(0, 64)
+target_position = Vector2(0, 60)
 hit_from_inside = true
 
 [node name="LeftRay" type="RayCast2D" parent="."]
 position = Vector2(-64, 0)
-target_position = Vector2(-50, 0)
+target_position = Vector2(-60, 0)
 hit_from_inside = true
 
 [node name="RightRay" type="RayCast2D" parent="."]
 position = Vector2(64, 0)
-target_position = Vector2(50, 0)
+target_position = Vector2(60, 0)
 hit_from_inside = true
 
 [node name="Area2D" type="Area2D" parent="."]
