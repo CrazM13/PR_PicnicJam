@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=3 uid="uid://c5xnjc82lv7ht"]
+
+[ext_resource type="Script" uid="uid://cqgkb27xoej3o" path="res://Scripts/SimplePlayerController.cs" id="1_ebihn"]
+[ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_x4ukv"]
+[ext_resource type="Script" uid="uid://wdo661q1wrk7" path="res://Scripts/HeldObjectArea.cs" id="3_m0ojv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3iclq"]
+friction = 0.5
+bounce = 0.75
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pwq28"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pylva"]
+size = Vector2(128, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3scd"]
+size = Vector2(20, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mbfp"]
+size = Vector2(70, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwq28"]
+size = Vector2(32, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3iclq"]
+size = Vector2(32, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmkjr"]
+size = Vector2(100, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2slp"]
+size = Vector2(100, 32)
+
+[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("upRay", "downRay", "leftRay", "rightRay", "upCollider", "downCollider", "leftCollider", "rightCollider")]
+collision_layer = 64
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_3iclq")
+gravity_scale = 2.0
+lock_rotation = true
+script = ExtResource("1_ebihn")
+springForce = 200.0
+upRay = NodePath("UpRay")
+downRay = NodePath("DownRay")
+leftRay = NodePath("LeftRay")
+rightRay = NodePath("RightRay")
+upCollider = NodePath("UpSpringShape")
+downCollider = NodePath("DownSpringShape")
+leftCollider = NodePath("LeftSpringShape")
+rightCollider = NodePath("RightSpringShape")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x4ukv")
+
+[node name="Basket" type="StaticBody2D" parent="."]
+collision_layer = 128
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_pwq28")
+
+[node name="BasketBottom" type="CollisionShape2D" parent="Basket"]
+z_index = 1
+position = Vector2(0, 57)
+shape = SubResource("RectangleShape2D_pylva")
+
+[node name="BasketSideRight" type="CollisionShape2D" parent="Basket"]
+z_index = 1
+position = Vector2(57, 0)
+shape = SubResource("RectangleShape2D_s3scd")
+
+[node name="BasketSideLeft" type="CollisionShape2D" parent="Basket"]
+z_index = 1
+position = Vector2(-57, 0)
+shape = SubResource("RectangleShape2D_s3scd")
+
+[node name="Area2D" type="Area2D" parent="Basket"]
+collision_layer = 16
+collision_mask = 16
+gravity_space_override = 1
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 40.0
+script = ExtResource("3_m0ojv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basket/Area2D"]
+shape = SubResource("RectangleShape2D_1mbfp")
+
+[node name="UpSpringShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_pwq28")
+
+[node name="DownSpringShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_3iclq")
+
+[node name="LeftSpringShape" type="CollisionShape2D" parent="."]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_bmkjr")
+
+[node name="RightSpringShape" type="CollisionShape2D" parent="."]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_n2slp")
+
+[node name="UpRay" type="RayCast2D" parent="."]
+position = Vector2(0, -64)
+target_position = Vector2(0, -50)
+hit_from_inside = true
+
+[node name="DownRay" type="RayCast2D" parent="."]
+position = Vector2(0, 64)
+hit_from_inside = true
+
+[node name="LeftRay" type="RayCast2D" parent="."]
+position = Vector2(-64, 0)
+target_position = Vector2(-50, 0)
+hit_from_inside = true
+
+[node name="RightRay" type="RayCast2D" parent="."]
+position = Vector2(64, 0)
+target_position = Vector2(50, 0)
+hit_from_inside = true

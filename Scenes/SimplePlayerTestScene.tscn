@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://dy4g4mvw1rfqk"]
+[gd_scene load_steps=13 format=3 uid="uid://dy4g4mvw1rfqk"]
 
+[ext_resource type="PackedScene" uid="uid://c5xnjc82lv7ht" path="res://Assets/Prefabs/player.tscn" id="1_3iclq"]
 [ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_3iclq"]
-[ext_resource type="Script" uid="uid://cqgkb27xoej3o" path="res://Scripts/SimplePlayerController.cs" id="2_bmkjr"]
-[ext_resource type="Script" uid="uid://wdo661q1wrk7" path="res://Scripts/HeldObjectArea.cs" id="2_n2slp"]
 [ext_resource type="Script" uid="uid://c74heej8g33b4" path="res://Scripts/HeldObject.cs" id="3_3iclq"]
+[ext_resource type="Texture2D" uid="uid://dqe46l80eupuk" path="res://Assets/Textures/Testing/TestShapes.png" id="4_bmkjr"]
+[ext_resource type="Script" uid="uid://c2i8j7eo4v2d" path="res://Scripts/SpinningNode2D.cs" id="5_n2slp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bmkjr"]
 distance = -650.77
@@ -18,35 +19,14 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 distance = -1153.0
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3iclq"]
-friction = 0.5
-bounce = 0.75
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pwq28"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pylva"]
-size = Vector2(128, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3scd"]
-size = Vector2(20, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mbfp"]
-size = Vector2(114, 114)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwq28"]
-size = Vector2(32, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3iclq"]
-size = Vector2(32, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmkjr"]
-size = Vector2(100, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2slp"]
-size = Vector2(100, 32)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwq28"]
 radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmkjr"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2slp"]
+size = Vector2(128, 128)
 
 [node name="SimplePlayerTestScene" type="Node2D"]
 
@@ -64,94 +44,8 @@ shape = SubResource("WorldBoundaryShape2D_pylva")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_s3scd")
 
-[node name="Player" type="RigidBody2D" parent="." node_paths=PackedStringArray("upRay", "downRay", "leftRay", "rightRay", "upCollider", "downCollider", "leftCollider", "rightCollider")]
+[node name="Player" parent="." instance=ExtResource("1_3iclq")]
 position = Vector2(121, 260)
-collision_layer = 64
-mass = 0.1
-physics_material_override = SubResource("PhysicsMaterial_3iclq")
-gravity_scale = 2.0
-lock_rotation = true
-script = ExtResource("2_bmkjr")
-springForce = 20000.0
-upRay = NodePath("UpRay")
-downRay = NodePath("DownRay")
-leftRay = NodePath("LeftRay")
-rightRay = NodePath("RightRay")
-upCollider = NodePath("UpSpringShape")
-downCollider = NodePath("DownSpringShape")
-leftCollider = NodePath("LeftSpringShape")
-rightCollider = NodePath("RightSpringShape")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("2_3iclq")
-
-[node name="Basket" type="StaticBody2D" parent="Player"]
-collision_layer = 128
-collision_mask = 17
-physics_material_override = SubResource("PhysicsMaterial_pwq28")
-
-[node name="BasketBottom" type="CollisionShape2D" parent="Player/Basket"]
-z_index = 1
-position = Vector2(0, 57)
-shape = SubResource("RectangleShape2D_pylva")
-
-[node name="BasketSideRight" type="CollisionShape2D" parent="Player/Basket"]
-z_index = 1
-position = Vector2(57, 0)
-shape = SubResource("RectangleShape2D_s3scd")
-
-[node name="BasketSideLeft" type="CollisionShape2D" parent="Player/Basket"]
-z_index = 1
-position = Vector2(-57, 0)
-shape = SubResource("RectangleShape2D_s3scd")
-
-[node name="Area2D" type="Area2D" parent="Player/Basket"]
-collision_layer = 16
-collision_mask = 16
-gravity_space_override = 1
-gravity_point = true
-gravity_point_center = Vector2(0, 0)
-gravity_direction = Vector2(0, 0)
-gravity = 40.0
-script = ExtResource("2_n2slp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Basket/Area2D"]
-shape = SubResource("RectangleShape2D_1mbfp")
-
-[node name="UpSpringShape" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -64)
-shape = SubResource("RectangleShape2D_pwq28")
-
-[node name="DownSpringShape" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 64)
-shape = SubResource("RectangleShape2D_3iclq")
-
-[node name="LeftSpringShape" type="CollisionShape2D" parent="Player"]
-position = Vector2(-64, 0)
-shape = SubResource("RectangleShape2D_bmkjr")
-
-[node name="RightSpringShape" type="CollisionShape2D" parent="Player"]
-position = Vector2(64, 0)
-shape = SubResource("RectangleShape2D_n2slp")
-
-[node name="UpRay" type="RayCast2D" parent="Player"]
-position = Vector2(0, -64)
-target_position = Vector2(0, -50)
-hit_from_inside = true
-
-[node name="DownRay" type="RayCast2D" parent="Player"]
-position = Vector2(0, 64)
-hit_from_inside = true
-
-[node name="LeftRay" type="RayCast2D" parent="Player"]
-position = Vector2(-64, 0)
-target_position = Vector2(-50, 0)
-hit_from_inside = true
-
-[node name="RightRay" type="RayCast2D" parent="Player"]
-position = Vector2(64, 0)
-target_position = Vector2(50, 0)
-hit_from_inside = true
 
 [node name="RigidBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(117, 98)
@@ -167,3 +61,64 @@ region_rect = Rect2(27.476, 50.495, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_pwq28")
+
+[node name="Ramp" type="StaticBody2D" parent="."]
+position = Vector2(1101, 581)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ramp"]
+texture = ExtResource("4_bmkjr")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ramp"]
+polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64)
+
+[node name="Triangle" type="StaticBody2D" parent="."]
+position = Vector2(1074, 438)
+
+[node name="Sprite2D" type="Sprite2D" parent="Triangle"]
+texture = ExtResource("4_bmkjr")
+hframes = 4
+vframes = 2
+frame = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Triangle"]
+polygon = PackedVector2Array(64, 64, 0, -64, -64, 64)
+
+[node name="Box" type="StaticBody2D" parent="."]
+position = Vector2(1080, 281)
+
+[node name="Sprite2D" type="Sprite2D" parent="Box"]
+texture = ExtResource("4_bmkjr")
+hframes = 4
+vframes = 2
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+shape = SubResource("RectangleShape2D_bmkjr")
+
+[node name="SpinningBlades" type="AnimatableBody2D" parent="."]
+position = Vector2(1150, 19)
+scale = Vector2(3, 3)
+script = ExtResource("5_n2slp")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpinningBlades"]
+texture = ExtResource("4_bmkjr")
+hframes = 4
+vframes = 2
+frame = 6
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpinningBlades"]
+polygon = PackedVector2Array(0, 64, 12, 12, 64, 0, 12, -12, 0, -64, -12, -12, -64, 0, -12, 12, 0, 64)
+
+[node name="MoveableBox" type="RigidBody2D" parent="."]
+position = Vector2(738, 261)
+
+[node name="Sprite2D" type="Sprite2D" parent="MoveableBox"]
+texture = ExtResource("4_bmkjr")
+hframes = 4
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveableBox"]
+shape = SubResource("RectangleShape2D_n2slp")
