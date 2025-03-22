@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://c5xnjc82lv7ht"]
 
-[ext_resource type="Script" uid="uid://cqgkb27xoej3o" path="res://Scripts/SimplePlayerController.cs" id="1_ebihn"]
+[ext_resource type="Script" uid="uid://cqgkb27xoej3o" path="res://Scripts/Entity/SimplePlayerController.cs" id="1_ebihn"]
 [ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_x4ukv"]
-[ext_resource type="Script" uid="uid://wdo661q1wrk7" path="res://Scripts/HeldObjectArea.cs" id="3_m0ojv"]
+[ext_resource type="Script" uid="uid://wdo661q1wrk7" path="res://Scripts/Entity/HeldObjectArea.cs" id="3_m0ojv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3iclq"]
 friction = 0.25
@@ -32,7 +32,7 @@ size = Vector2(100, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mbfp"]
 size = Vector2(70, 80)
 
-[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("upRay", "downRay", "leftRay", "rightRay", "upCollider", "downCollider", "leftCollider", "rightCollider")]
+[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("Basket", "upRay", "downRay", "leftRay", "rightRay", "upCollider", "downCollider", "leftCollider", "rightCollider")]
 collision_layer = 64
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_3iclq")
@@ -40,6 +40,7 @@ gravity_scale = 2.0
 lock_rotation = true
 script = ExtResource("1_ebihn")
 springForce = 200.0
+Basket = NodePath("Area2D")
 upRay = NodePath("UpRay")
 downRay = NodePath("DownRay")
 leftRay = NodePath("LeftRay")
@@ -119,6 +120,8 @@ gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
 gravity = 40.0
 script = ExtResource("3_m0ojv")
+
+[node name="Container" type="Node2D" parent="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_1mbfp")

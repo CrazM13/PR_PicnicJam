@@ -7,19 +7,11 @@ public partial class HeldObjectArea : Area2D {
 		base._Ready();
 
 		this.BodyEntered += this.OnBodyEnter;
-		//this.BodyExited += this.OnBodyExit;
-
-	}
-
-	private void OnBodyExit(Node2D body) {
-		if (body is HeldObject heldObj) {
-			CallDeferred("RemoveFromChildren", heldObj);
-		}
 	}
 
 	private void OnBodyEnter(Node2D body) {
 		if (body is HeldObject heldObj) {
-			CallDeferred("AddToChildren", heldObj);
+			if (heldObj.IsCollectable) CallDeferred("AddToChildren", heldObj);
 		}
 	}
 
@@ -27,17 +19,31 @@ public partial class HeldObjectArea : Area2D {
 		if (heldObj.GetParent() != this) {
 			Vector2 gPos = heldObj.GlobalPosition;
 			heldObj.GetParent().RemoveChild(heldObj);
-			AddChild(heldObj);
+			GetChild(0).AddChild(heldObj);
 			heldObj.GlobalPosition = gPos;
+
+			heldObj.IsCollectable = false;
 		}
 	}
 
 	private void RemoveFromChildren(HeldObject heldObj) {
-		if (heldObj.GetParent() == this) {
+		if (heldObj.GetParent() == GetChild(0)) {
 			Vector2 gPos = heldObj.GlobalPosition;
-			this.RemoveChild(heldObj);
+			GetChild(0).RemoveChild(heldObj);
 			GetTree().CurrentScene.AddChild(heldObj);
 			heldObj.GlobalPosition = gPos;
 		}
+	}
+
+	public void EjectContents() {
+		Node2D container = GetChild<Node2D>(0);
+
+		if (container.GetChildCount() > 0) {
+			if (container.GetChild(0) is HeldObject heldObj) {
+				CallDeferred("RemoveFromChildren", heldObj);
+				heldObj.Velocity += Vector2.Up * 1000;
+			}
+		}
+
 	}
 }

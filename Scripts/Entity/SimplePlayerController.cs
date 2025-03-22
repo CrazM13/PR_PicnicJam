@@ -6,6 +6,8 @@ public partial class SimplePlayerController : RigidBody2D {
 	[Export] private float springForce = 1000f;
 
 	[ExportGroup("References")]
+	[Export] public HeldObjectArea Basket { get; private set; }
+
 	[ExportSubgroup("Raycasts")]
 	[Export] private RayCast2D upRay;
 	[Export] private RayCast2D downRay;
@@ -78,6 +80,10 @@ public partial class SimplePlayerController : RigidBody2D {
 			}
 		}
 
+		if (Input.IsActionJustPressed("ui_accept")) {
+			Basket.EjectContents();
+		}
+
 		QueueRedraw();
 
 	}
@@ -86,6 +92,10 @@ public partial class SimplePlayerController : RigidBody2D {
 		if (ray.GetCollider() is Node collider) {
 			if (collider is RigidBody2D body) {
 				body.ApplyImpulse(-ray.TargetPosition.Normalized() * springForce * power, ray.GetCollisionPoint());
+			}
+
+			if (collider is EnemyBase enemy) {
+				enemy.Velocity += -ray.TargetPosition.Normalized() * springForce * power;
 			}
 
 			ApplyCentralImpulse(-ray.TargetPosition.Normalized() * springForce * power);

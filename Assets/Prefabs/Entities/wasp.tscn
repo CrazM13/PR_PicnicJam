@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://da8yvwoaxgyy4"]
+
+[ext_resource type="Script" uid="uid://cmv0rymnyx2df" path="res://Scripts/Entity/Enemy/EnemyBase.cs" id="1_4ykri"]
+[ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_mr6ow"]
+[ext_resource type="Script" uid="uid://dcj5asn4jceh8" path="res://Scripts/Entity/Enemy/BirdController.cs" id="3_muu2e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1mbfp"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n1u3k"]
+radius = 256.0
+
+[node name="Wasp" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 161
+script = ExtResource("1_4ykri")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mr6ow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1mbfp")
+
+[node name="AI" type="Area2D" parent="." node_paths=PackedStringArray("enemy")]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("3_muu2e")
+enemy = NodePath("..")
+speed = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AI"]
+shape = SubResource("CircleShape2D_n1u3k")

@@ -1,10 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dy4g4mvw1rfqk"]
+[gd_scene load_steps=15 format=3 uid="uid://dy4g4mvw1rfqk"]
 
-[ext_resource type="PackedScene" uid="uid://c5xnjc82lv7ht" path="res://Assets/Prefabs/player.tscn" id="1_3iclq"]
+[ext_resource type="PackedScene" uid="uid://c5xnjc82lv7ht" path="res://Assets/Prefabs/Entities/player.tscn" id="1_3iclq"]
 [ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_3iclq"]
-[ext_resource type="Script" uid="uid://c74heej8g33b4" path="res://Scripts/HeldObject.cs" id="3_3iclq"]
-[ext_resource type="Texture2D" uid="uid://dqe46l80eupuk" path="res://Assets/Textures/Testing/TestShapes.png" id="4_bmkjr"]
-[ext_resource type="Script" uid="uid://c2i8j7eo4v2d" path="res://Scripts/SpinningNode2D.cs" id="5_n2slp"]
+[ext_resource type="Script" uid="uid://c74heej8g33b4" path="res://Scripts/Entity/HeldObject.cs" id="3_3iclq"]
+[ext_resource type="PackedScene" uid="uid://c24sshhqtr0b5" path="res://Assets/Prefabs/Game Objects/ramp.tscn" id="4_1mbfp"]
+[ext_resource type="PackedScene" uid="uid://sqv1qm5asxnv" path="res://Assets/Prefabs/Game Objects/triangle.tscn" id="5_ytf0q"]
+[ext_resource type="PackedScene" uid="uid://b2iklat0xsrs2" path="res://Assets/Prefabs/Game Objects/box.tscn" id="6_n1u3k"]
+[ext_resource type="PackedScene" uid="uid://crgkownqvx72k" path="res://Assets/Prefabs/Game Objects/spinning_blades.tscn" id="7_h8su0"]
+[ext_resource type="PackedScene" uid="uid://b4v0es1p4o255" path="res://Assets/Prefabs/Game Objects/moveable_box.tscn" id="8_wsips"]
+[ext_resource type="PackedScene" uid="uid://da8yvwoaxgyy4" path="res://Assets/Prefabs/Entities/wasp.tscn" id="9_ytf0q"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bmkjr"]
 distance = -650.77
@@ -21,12 +25,6 @@ distance = -1153.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwq28"]
 radius = 16.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmkjr"]
-size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2slp"]
-size = Vector2(128, 128)
 
 [node name="SimplePlayerTestScene" type="Node2D"]
 
@@ -62,63 +60,20 @@ region_rect = Rect2(27.476, 50.495, 32, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_pwq28")
 
-[node name="Ramp" type="StaticBody2D" parent="."]
+[node name="Ramp" parent="." instance=ExtResource("4_1mbfp")]
 position = Vector2(1101, 581)
 
-[node name="Sprite2D" type="Sprite2D" parent="Ramp"]
-texture = ExtResource("4_bmkjr")
-hframes = 4
-vframes = 2
-frame = 4
+[node name="Triangle" parent="." instance=ExtResource("5_ytf0q")]
+position = Vector2(941, 587)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ramp"]
-polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64)
-
-[node name="Triangle" type="StaticBody2D" parent="."]
-position = Vector2(58, 593)
-
-[node name="Sprite2D" type="Sprite2D" parent="Triangle"]
-texture = ExtResource("4_bmkjr")
-hframes = 4
-vframes = 2
-frame = 3
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Triangle"]
-polygon = PackedVector2Array(64, 64, 0, -64, -64, 64)
-
-[node name="Box" type="StaticBody2D" parent="."]
+[node name="Box" parent="." instance=ExtResource("6_n1u3k")]
 position = Vector2(1080, 281)
 
-[node name="Sprite2D" type="Sprite2D" parent="Box"]
-texture = ExtResource("4_bmkjr")
-hframes = 4
-vframes = 2
-frame = 2
+[node name="SpinningBlades" parent="." instance=ExtResource("7_h8su0")]
+position = Vector2(1158, -4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
-shape = SubResource("RectangleShape2D_bmkjr")
-
-[node name="SpinningBlades" type="AnimatableBody2D" parent="."]
-position = Vector2(310, 441)
-scale = Vector2(3, 3)
-script = ExtResource("5_n2slp")
-
-[node name="Sprite2D" type="Sprite2D" parent="SpinningBlades"]
-texture = ExtResource("4_bmkjr")
-hframes = 4
-vframes = 2
-frame = 6
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpinningBlades"]
-polygon = PackedVector2Array(0, 64, 12, 12, 64, 0, 12, -12, 0, -64, -12, -12, -64, 0, -12, 12, 0, 64)
-
-[node name="MoveableBox" type="RigidBody2D" parent="."]
+[node name="MoveableBox" parent="." instance=ExtResource("8_wsips")]
 position = Vector2(738, 261)
 
-[node name="Sprite2D" type="Sprite2D" parent="MoveableBox"]
-texture = ExtResource("4_bmkjr")
-hframes = 4
-vframes = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveableBox"]
-shape = SubResource("RectangleShape2D_n2slp")
+[node name="Wasp" parent="." instance=ExtResource("9_ytf0q")]
+position = Vector2(499, 246)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://crgkownqvx72k"]
+
+[ext_resource type="Script" uid="uid://c2i8j7eo4v2d" path="res://Scripts/SpinningNode2D.cs" id="1_xat32"]
+[ext_resource type="Texture2D" uid="uid://dqe46l80eupuk" path="res://Assets/Textures/Testing/TestShapes.png" id="2_pedcu"]
+
+[node name="SpinningBlades" type="AnimatableBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_xat32")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pedcu")
+hframes = 4
+vframes = 2
+frame = 6
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 64, 12, 12, 64, 0, 12, -12, 0, -64, -12, -12, -64, 0, -12, 12, 0, 64)
