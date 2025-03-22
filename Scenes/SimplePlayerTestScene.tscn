@@ -71,6 +71,7 @@ position = Vector2(1080, 281)
 
 [node name="SpinningBlades" parent="." instance=ExtResource("7_h8su0")]
 position = Vector2(1158, -4)
+speed = 10.0
 
 [node name="MoveableBox" parent="." instance=ExtResource("8_wsips")]
 position = Vector2(738, 261)

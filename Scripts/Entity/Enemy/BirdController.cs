@@ -29,6 +29,7 @@ public partial class BirdController : Area2D {
 
 	private void OnCollideWithLevel(KinematicCollision2D collision) {
 		enemy.Velocity += collision.GetNormal() * speed;
+		this.player = null;
 	}
 
 	public override void _Process(double delta) {
