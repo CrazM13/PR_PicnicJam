@@ -85,12 +85,12 @@ public partial class SimplePlayerController : RigidBody2D {
 	private void CheckSpring(RayCast2D ray, float power) {
 		if (ray.GetCollider() is Node collider) {
 			if (collider is RigidBody2D body) {
-				body.ApplyImpulse(-ray.TargetPosition.Normalized() * springForce * power * 4, ray.GetCollisionPoint());
-			} else {
-				ApplyCentralImpulse(ray.TargetPosition.Normalized() * springForce * power);
+				body.ApplyImpulse(-ray.TargetPosition.Normalized() * springForce * power, ray.GetCollisionPoint());
 			}
+
+			ApplyCentralImpulse(-ray.TargetPosition.Normalized() * springForce * power);
 		} else {
-			ApplyCentralImpulse(-ray.TargetPosition.Normalized() * springForce * power * 0.5f);
+			ApplyCentralImpulse(-ray.TargetPosition.Normalized() * springForce * power * 0.25f);
 		}
 	}
 

@@ -75,7 +75,7 @@ frame = 4
 polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64)
 
 [node name="Triangle" type="StaticBody2D" parent="."]
-position = Vector2(1074, 438)
+position = Vector2(79, 577)
 
 [node name="Sprite2D" type="Sprite2D" parent="Triangle"]
 texture = ExtResource("4_bmkjr")
