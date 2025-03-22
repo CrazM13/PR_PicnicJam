@@ -43,6 +43,8 @@ public partial class HeldObjectArea : Area2D {
 				CallDeferred("RemoveFromChildren", heldObj);
 				heldObj.Velocity += Vector2.Up * 1000;
 			}
+		} else {
+			SceneManager.Instance.ReloadScene();
 		}
 
 	}
