@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dy4g4mvw1rfqk"]
+[gd_scene load_steps=16 format=3 uid="uid://dy4g4mvw1rfqk"]
 
 [ext_resource type="PackedScene" uid="uid://c5xnjc82lv7ht" path="res://Assets/Prefabs/Entities/player.tscn" id="1_3iclq"]
 [ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_3iclq"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://crgkownqvx72k" path="res://Assets/Prefabs/Game Objects/spinning_blades.tscn" id="7_h8su0"]
 [ext_resource type="PackedScene" uid="uid://b4v0es1p4o255" path="res://Assets/Prefabs/Game Objects/moveable_box.tscn" id="8_wsips"]
 [ext_resource type="PackedScene" uid="uid://da8yvwoaxgyy4" path="res://Assets/Prefabs/Entities/wasp.tscn" id="9_ytf0q"]
+[ext_resource type="PackedScene" uid="uid://3um3aluyef4x" path="res://Assets/Prefabs/Game Objects/button_level_object.tscn" id="10_n1u3k"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bmkjr"]
 distance = -650.77
@@ -78,3 +79,6 @@ position = Vector2(738, 261)
 
 [node name="Wasp" parent="." instance=ExtResource("9_ytf0q")]
 position = Vector2(499, 246)
+
+[node name="ButtonLO" parent="." instance=ExtResource("10_n1u3k")]
+position = Vector2(118, 594)

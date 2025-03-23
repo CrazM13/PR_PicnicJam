@@ -3,7 +3,8 @@ using System;
 
 public partial class SimplePlayerController : RigidBody2D {
 
-	[Export] private float springForce = 1000f;
+	[Export] private float springCollisionForce = 1000f;
+	[Export] private float springEmptyForce = 1000f;
 
 	[ExportGroup("References")]
 	[Export] public HeldObjectArea Basket { get; private set; }
@@ -34,11 +35,11 @@ public partial class SimplePlayerController : RigidBody2D {
 				shape.Size = new Vector2(32, 100 * (1 - downPullback));
 			}
 		} else if (Input.IsActionJustReleased("ui_down")) {
-			CheckSpring(downRay, downPullback);
-			downPullback = 0;
 			if (downCollider.Shape is RectangleShape2D shape) {
 				shape.Size = new Vector2(32, 100);
 			}
+			CheckSpring(downRay, downPullback);
+			downPullback = 0;
 		}
 
 		if (Input.IsActionPressed("ui_up")) {
@@ -47,11 +48,11 @@ public partial class SimplePlayerController : RigidBody2D {
 				shape.Size = new Vector2(32, 100 * (1 - upPullback));
 			}
 		} else if (Input.IsActionJustReleased("ui_up")) {
-			CheckSpring(upRay, upPullback);
-			upPullback = 0;
 			if (upCollider.Shape is RectangleShape2D shape) {
 				shape.Size = new Vector2(32, 100);
 			}
+			CheckSpring(upRay, upPullback);
+			upPullback = 0;
 		}
 
 		if (Input.IsActionPressed("ui_left")) {
@@ -60,11 +61,11 @@ public partial class SimplePlayerController : RigidBody2D {
 				shape.Size = new Vector2(100 * (1 - leftPullback), 32);
 			}
 		} else if (Input.IsActionJustReleased("ui_left")) {
-			CheckSpring(leftRay, leftPullback);
-			leftPullback = 0;
 			if (leftCollider.Shape is RectangleShape2D shape) {
 				shape.Size = new Vector2(100, 32);
 			}
+			CheckSpring(leftRay, leftPullback);
+			leftPullback = 0;
 		}
 
 		if (Input.IsActionPressed("ui_right")) {
@@ -73,11 +74,11 @@ public partial class SimplePlayerController : RigidBody2D {
 				shape.Size = new Vector2(100 * (1 - rightPullback), 32);
 			}
 		} else if (Input.IsActionJustReleased("ui_right")) {
-			CheckSpring(rightRay, rightPullback);
-			rightPullback = 0;
 			if (rightCollider.Shape is RectangleShape2D shape) {
 				shape.Size = new Vector2(100, 32);
 			}
+			CheckSpring(rightRay, rightPullback);
+			rightPullback = 0;
 		}
 
 		if (Input.IsActionJustPressed("ui_accept")) {
@@ -91,16 +92,16 @@ public partial class SimplePlayerController : RigidBody2D {
 	private void CheckSpring(RayCast2D ray, float power) {
 		if (ray.GetCollider() is Node collider) {
 			if (collider is RigidBody2D body) {
-				body.ApplyImpulse(-ray.TargetPosition.Normalized() * springForce * power, ray.GetCollisionPoint());
+				body.ApplyImpulse(-ray.TargetPosition.Normalized() * springCollisionForce * power, ray.GetCollisionPoint());
 			}
 
 			if (collider is EnemyBase enemy) {
-				enemy.Velocity += -ray.TargetPosition.Normalized() * springForce * power;
+				enemy.Velocity += -ray.TargetPosition.Normalized() * springCollisionForce * power;
 			}
 
-			ApplyCentralImpulse(-ray.TargetPosition.Normalized() * springForce * power);
+			ApplyCentralImpulse(-ray.TargetPosition.Normalized() * springCollisionForce * power);
 		} else {
-			ApplyCentralImpulse(-ray.TargetPosition.Normalized() * springForce * power * 0.25f);
+			ApplyCentralImpulse(-ray.TargetPosition.Normalized() * springEmptyForce * power);
 		}
 	}
 

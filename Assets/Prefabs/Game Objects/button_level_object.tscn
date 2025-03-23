@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://3um3aluyef4x"]
+
+[ext_resource type="Script" uid="uid://c7pe7yae6hhcs" path="res://Scripts/LevelObjects/LevelObjectRouting.cs" id="1_ao1tu"]
+[ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_lbmlk"]
+[ext_resource type="Script" uid="uid://b6tfyaidj4eqx" path="res://Scripts/LevelObjects/LevelObjectButton.cs" id="3_gaqwm"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n1u3k"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytf0q"]
+size = Vector2(128, 128)
+
+[node name="ButtonLO" type="Node2D" node_paths=PackedStringArray("levelObjects")]
+script = ExtResource("1_ao1tu")
+levelObjects = []
+
+[node name="Mask" type="Sprite2D" parent="."]
+clip_children = 1
+texture = SubResource("PlaceholderTexture2D_n1u3k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mask"]
+texture = ExtResource("2_lbmlk")
+
+[node name="ButtonController" type="Area2D" parent="." node_paths=PackedStringArray("router", "sprite")]
+collision_mask = 192
+script = ExtResource("3_gaqwm")
+router = NodePath("..")
+sprite = NodePath("../Mask/Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonController"]
+shape = SubResource("RectangleShape2D_ytf0q")
