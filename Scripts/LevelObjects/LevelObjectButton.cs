@@ -19,7 +19,7 @@ public partial class LevelObjectButton : Area2D {
 		level--;
 
 		if (level == 0) {
-			router.SetPower(false);
+			router.SetPower(false, 0);
 			sprite.Offset = Vector2.Zero;
 		}
 	}
@@ -27,7 +27,7 @@ public partial class LevelObjectButton : Area2D {
 	private void OnBodyEnter(Node2D body) {
 		level++;
 
-		router.SetPower(true);
+		router.SetPower(true, 0);
 		sprite.Offset = sprite.Offset = new Vector2(0, 64);
 	}
 

@@ -14,7 +14,13 @@ public partial class LevelObjectRouting : LevelObject {
 
 	private void OnPowerChange(LevelObject _) {
 		foreach (LevelObject lo in levelObjects) {
-			lo.SetPower(IsPowered);
+			lo.SetPower(IsPowered, ID);
+		}
+
+		for (int i = 0; i < GetChildCount(); i++) {
+			if (GetChild(i) is LevelObject lo) {
+				lo.SetPower(IsPowered, ID);
+			}
 		}
 
 		QueueRedraw();
