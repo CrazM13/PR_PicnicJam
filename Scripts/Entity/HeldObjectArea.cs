@@ -41,7 +41,7 @@ public partial class HeldObjectArea : Area2D {
 	public void EjectContents() {
 		Node2D container = GetChild<Node2D>(0);
 
-		if (container.GetChildCount() > 0) {
+		if (container.GetChildCount() > 1) {
 			if (container.GetChild(0) is HeldObject heldObj) {
 				CallDeferred("RemoveFromChildren", heldObj);
 				heldObj.Velocity += Vector2.Up * 1000;

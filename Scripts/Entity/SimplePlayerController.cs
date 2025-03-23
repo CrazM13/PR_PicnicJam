@@ -139,4 +139,8 @@ public partial class SimplePlayerController : RigidBody2D {
 		iTimer = invincibilityTimer;
 	}
 
+	public int GetRemainingHealth() {
+		return Basket.GetChild(0).GetChildCount();
+	}
+
 }

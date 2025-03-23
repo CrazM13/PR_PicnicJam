@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://6qcc5ewrobb7"]
+
+[ext_resource type="Texture2D" uid="uid://33axk5uuj268" path="res://Assets/Textures/Testing/Star.png" id="1_kinnm"]
+[ext_resource type="Script" uid="uid://nvbsryrw31lt" path="res://Scripts/Menus/ScoreStar.cs" id="2_42ghx"]
+[ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="3_5lcmk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kinnm"]
+font_size = 64
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
+
+[node name="ScoreScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.173513, 0.16198, 0.258818, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "You Win!"
+label_settings = SubResource("LabelSettings_kinnm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_kinnm")
+script = ExtResource("2_42ghx")
+minScore = 1
+
+[node name="SpaceL" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_kinnm")
+script = ExtResource("2_42ghx")
+minScore = 2
+
+[node name="SpaceR" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_kinnm")
+script = ExtResource("2_42ghx")
+minScore = 3
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Play Again"
+script = ExtResource("3_5lcmk")
+
+[node name="SpaceL" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Main Menu"
+script = ExtResource("3_5lcmk")
+
+[node name="SpaceR" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Next Level"
+script = ExtResource("3_5lcmk")
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Button" to="CenterContainer/VBoxContainer/HBoxContainer2/Button" method="NavToLastLevel"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Button3" to="CenterContainer/VBoxContainer/HBoxContainer2/Button3" method="NavToNextLevel"]
