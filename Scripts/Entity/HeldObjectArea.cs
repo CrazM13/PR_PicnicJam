@@ -23,6 +23,7 @@ public partial class HeldObjectArea : Area2D {
 			heldObj.GlobalPosition = gPos;
 
 			heldObj.IsCollectable = false;
+			heldObj.IsRunningPhysics = false;
 		}
 	}
 
@@ -32,6 +33,8 @@ public partial class HeldObjectArea : Area2D {
 			GetChild(0).RemoveChild(heldObj);
 			GetTree().CurrentScene.AddChild(heldObj);
 			heldObj.GlobalPosition = gPos;
+
+			heldObj.IsRunningPhysics = true;
 		}
 	}
 

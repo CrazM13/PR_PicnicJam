@@ -30,7 +30,7 @@ size = Vector2(32, 100)
 size = Vector2(32, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mbfp"]
-size = Vector2(70, 80)
+size = Vector2(96, 96)
 
 [node name="Player" type="RigidBody2D" node_paths=PackedStringArray("Basket", "upRay", "downRay", "leftRay", "rightRay", "upCollider", "downCollider", "leftCollider", "rightCollider")]
 collision_layer = 64
@@ -51,24 +51,33 @@ downCollider = NodePath("DownSpringShape")
 leftCollider = NodePath("LeftSpringShape")
 rightCollider = NodePath("RightSpringShape")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Basket" type="StaticBody2D" parent="."]
 collision_layer = 128
 collision_mask = 17
 
-[node name="BasketBottom" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="BasketBottom" type="CollisionShape2D" parent="Basket"]
 z_index = 1
 position = Vector2(0, 57)
 shape = SubResource("RectangleShape2D_pylva")
 
-[node name="BasketSideRight" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="BasketSideRight" type="CollisionShape2D" parent="Basket"]
 z_index = 1
 position = Vector2(57, 0)
 shape = SubResource("RectangleShape2D_s3scd")
 
-[node name="BasketSideLeft" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="BasketSideLeft" type="CollisionShape2D" parent="Basket"]
 z_index = 1
 position = Vector2(-57, 0)
 shape = SubResource("RectangleShape2D_s3scd")
+
+[node name="BasketLid" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 32
+
+[node name="BasketTop" type="CollisionShape2D" parent="BasketLid"]
+z_index = 1
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_pylva")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_x4ukv")
@@ -126,7 +135,6 @@ hit_from_inside = true
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 16
-gravity_space_override = 1
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)

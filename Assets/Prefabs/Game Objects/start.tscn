@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://cam3y2ededhf5"]
+
+[ext_resource type="PackedScene" uid="uid://c5xnjc82lv7ht" path="res://Assets/Prefabs/Entities/player.tscn" id="1_22o35"]
+[ext_resource type="Script" uid="uid://c74heej8g33b4" path="res://Scripts/Entity/HeldObject.cs" id="2_i5ukv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hqaqg"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hqaqg"]
+radius = 16.0
+
+[node name="Start" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_22o35")]
+
+[node name="HeldObject" type="CharacterBody2D" parent="."]
+position = Vector2(0, -256)
+collision_layer = 16
+collision_mask = 145
+platform_on_leave = 2
+script = ExtResource("2_i5ukv")
+
+[node name="Sprite2D" type="Sprite2D" parent="HeldObject"]
+texture_filter = 3
+texture_repeat = 2
+texture = SubResource("PlaceholderTexture2D_hqaqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeldObject"]
+shape = SubResource("CircleShape2D_hqaqg")
+
+[node name="HeldObject2" type="CharacterBody2D" parent="."]
+position = Vector2(32, -320)
+collision_layer = 16
+collision_mask = 145
+platform_on_leave = 2
+script = ExtResource("2_i5ukv")
+
+[node name="Sprite2D" type="Sprite2D" parent="HeldObject2"]
+texture_filter = 3
+texture_repeat = 2
+texture = SubResource("PlaceholderTexture2D_hqaqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeldObject2"]
+shape = SubResource("CircleShape2D_hqaqg")
+
+[node name="HeldObject3" type="CharacterBody2D" parent="."]
+position = Vector2(-32, -384)
+collision_layer = 16
+collision_mask = 145
+platform_on_leave = 2
+script = ExtResource("2_i5ukv")
+
+[node name="Sprite2D" type="Sprite2D" parent="HeldObject3"]
+texture_filter = 3
+texture_repeat = 2
+texture = SubResource("PlaceholderTexture2D_hqaqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeldObject3"]
+shape = SubResource("CircleShape2D_hqaqg")

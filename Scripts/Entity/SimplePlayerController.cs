@@ -5,6 +5,7 @@ public partial class SimplePlayerController : RigidBody2D {
 
 	[Export] private float springCollisionForce = 1000f;
 	[Export] private float springEmptyForce = 1000f;
+	[Export] private float invincibilityTimer = 2.5f;
 
 	[ExportGroup("References")]
 	[Export] public HeldObjectArea Basket { get; private set; }
@@ -25,6 +26,21 @@ public partial class SimplePlayerController : RigidBody2D {
 	float downPullback = 0;
 	float leftPullback = 0;
 	float rightPullback = 0;
+
+	private float iTimer = 0;
+
+	public override void _Process(double delta) {
+		base._Process(delta);
+
+		if (iTimer > 0) {
+			iTimer -= (float) delta;
+
+			if (iTimer <= 0) {
+				this.Modulate = Colors.White;
+			}
+		}
+
+	}
 
 	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
@@ -113,6 +129,14 @@ public partial class SimplePlayerController : RigidBody2D {
 		DrawRect(new Rect2(leftRay.Position - new Vector2(50 * (1 - leftPullback), 16), new Vector2(50 * (1 - leftPullback), 32)), Colors.Gray);
 		DrawRect(new Rect2(rightRay.Position - new Vector2(0, 16), new Vector2(50 * (1 - rightPullback), 32)), Colors.Gray);
 
+	}
+
+	public void AttemptHurt() {
+		if (iTimer > 0) return;
+		Basket.EjectContents();
+
+		this.Modulate = new Color(1, 1, 1, 0.5f);
+		iTimer = invincibilityTimer;
 	}
 
 }

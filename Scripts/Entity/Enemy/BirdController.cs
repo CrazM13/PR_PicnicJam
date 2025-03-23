@@ -23,7 +23,7 @@ public partial class BirdController : Area2D {
 
 	private void OnCollideWithPlayer(KinematicCollision2D collision, SimplePlayerController player) {
 		enemy.Velocity += collision.GetNormal() * speed;
-		player.Basket.EjectContents();
+		player.AttemptHurt();
 		this.player = null;
 	}
 
