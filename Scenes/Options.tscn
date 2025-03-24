@@ -1,0 +1,151 @@
+[gd_scene load_steps=4 format=3 uid="uid://bej1o6i7ouvvm"]
+
+[ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_qqnya"]
+[ext_resource type="Script" uid="uid://d25544hwlrkbu" path="res://Scripts/Menus/VolumeSlider.cs" id="2_hg628"]
+[ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="3_5hy3q"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qqnya")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.173513, 0.16198, 0.258818, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Audio" type="Control" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelBar" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/LabelBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/LabelBar"]
+layout_mode = 2
+text = "Volume"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/LabelBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MasterVolumeBox" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_hg628")
+
+[node name="MusicVolumeBox" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+text = "┖ Music"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_hg628")
+bus = &"Music"
+
+[node name="SFXVolumeBox" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+text = "┖ SFX"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_hg628")
+bus = &"SFX"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+script = ExtResource("3_5hy3q")
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="VBoxContainer/HBoxContainer/Button" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]

@@ -14,6 +14,10 @@ config/name="PR_PicnicJam"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://018cooqj03mt"
+
 [autoload]
 
 SceneController="*res://Assets/Prefabs/scene_controller.tscn"

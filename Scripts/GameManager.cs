@@ -27,16 +27,22 @@ public class GameManager {
 			nextLevelPath = thisLevelPath;
 		}
 
-		if (!levelData.ContainsKey(thisLevelPath)) {
-			levelData.Add(thisLevelPath, new LevelData() {
-				ScenePath = thisLevelPath,
-				NextLevelPath = nextLevelPath,
+		UnlockLevel(thisLevelPath);
+		levelData[thisLevelPath].ScenePath = thisLevelPath;
+		levelData[thisLevelPath].NextLevelPath = nextLevelPath;
+
+		lastLevelName = thisLevelPath;
+	}
+
+	public void UnlockLevel(string levelPath) {
+		if (!levelData.ContainsKey(levelPath)) {
+			levelData.Add(levelPath, new LevelData() {
+				ScenePath = levelPath,
+				NextLevelPath = levelPath,
 				Score = 0,
 				WasWon = false
 			});
 		}
-
-		lastLevelName = thisLevelPath;
 	}
 
 	public void CompleteLevel(string thisLevelPath, SimplePlayerController player) {
@@ -44,11 +50,25 @@ public class GameManager {
 		level.Score = player.GetRemainingHealth();
 		level.WasWon = true;
 
+		UnlockLevel(level.NextLevelPath);
+
 		lastLevelName = thisLevelPath;
 	}
 
 	public LevelData GetLastLevelData() {
 		return levelData[lastLevelName];
+	}
+
+	public int GetUnlockedLevelCount() {
+		return levelData.Count;
+	}
+
+	public LevelData[] GetAllLevelData() {
+
+		LevelData[] levels = new LevelData[levelData.Count];
+		levelData.Values.CopyTo(levels, 0);
+		return levels;
+
 	}
 
 }

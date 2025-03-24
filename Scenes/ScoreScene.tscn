@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://6qcc5ewrobb7"]
+[gd_scene load_steps=6 format=3 uid="uid://6qcc5ewrobb7"]
 
+[ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_1fdw2"]
 [ext_resource type="Texture2D" uid="uid://33axk5uuj268" path="res://Assets/Textures/Testing/Star.png" id="1_kinnm"]
 [ext_resource type="Script" uid="uid://nvbsryrw31lt" path="res://Scripts/Menus/ScoreStar.cs" id="2_42ghx"]
 [ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="3_5lcmk"]
@@ -19,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1fdw2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -42,9 +44,9 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "You Win!"
+text = "    Y o u  W i n !    "
 label_settings = SubResource("LabelSettings_kinnm")
-horizontal_alignment = 1
+horizontal_alignment = 3
 vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
@@ -53,6 +55,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -88,6 +91,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Play Again"
@@ -98,6 +102,7 @@ custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
 [node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Main Menu"
@@ -108,10 +113,12 @@ custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
 [node name="Button3" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Next Level"
 script = ExtResource("3_5lcmk")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Button" to="CenterContainer/VBoxContainer/HBoxContainer2/Button" method="NavToLastLevel"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Button2" to="CenterContainer/VBoxContainer/HBoxContainer2/Button2" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Button3" to="CenterContainer/VBoxContainer/HBoxContainer2/Button3" method="NavToNextLevel"]

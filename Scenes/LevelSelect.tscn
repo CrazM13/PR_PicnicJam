@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh6fod6uihi8w"]
+
+[ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_chbko"]
+[ext_resource type="Script" uid="uid://d26tlfkv3g4dl" path="res://Scripts/Menus/LevelSelectScroll.cs" id="2_1qomi"]
+[ext_resource type="Script" uid="uid://bckjtmcsdgyu2" path="res://Scripts/Menus/ListLevels.cs" id="2_fo23m"]
+[ext_resource type="PackedScene" uid="uid://c8q1cr1ml3qm0" path="res://Assets/Prefabs/UI/LevelOption.tscn" id="3_1cx81"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1qomi"]
+size = Vector2(256, 256)
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_chbko")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.173513, 0.16198, 0.258818, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "   L e v e l   S e l e c t   "
+horizontal_alignment = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Left" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "<"
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer"]
+clip_children = 1
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_1qomi")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+script = ExtResource("2_1qomi")
+speed = 400.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+script = ExtResource("2_fo23m")
+levelPrefab = ExtResource("3_1cx81")
+
+[node name="Control2" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="Right" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = ">"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Left" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollLast"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Right" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollNext"]

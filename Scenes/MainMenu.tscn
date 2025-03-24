@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://qstt55birmxg"]
+
+[ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_tt5f1"]
+[ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="2_853f1"]
+[ext_resource type="Script" uid="uid://c07ekkm567x63" path="res://Scripts/Menus/ButtonLockOnNewGame.cs" id="3_8saeu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_853f1"]
+font_size = 128
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(8, 8)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tt5f1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.173513, 0.16198, 0.258818, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+
+[node name="LBox" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/LBox"]
+layout_mode = 2
+text = "Game
+    Title"
+label_settings = SubResource("LabelSettings_853f1")
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="RBox" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+script = ExtResource("2_853f1")
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/RBox"]
+layout_mode = 2
+text = "Play"
+
+[node name="Button2" type="Button" parent="CenterContainer/HBoxContainer/RBox"]
+layout_mode = 2
+text = "Level Select"
+script = ExtResource("3_8saeu")
+
+[node name="Button3" type="Button" parent="CenterContainer/HBoxContainer/RBox"]
+layout_mode = 2
+text = "Options"
+
+[node name="Button4" type="Button" parent="CenterContainer/HBoxContainer/RBox"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Button5" type="Button" parent="CenterContainer/HBoxContainer/RBox"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Button2" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/LevelSelect.tscn"]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Button3" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/Options.tscn"]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Button4" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/CreditsMenu.tscn"]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Button5" to="CenterContainer/HBoxContainer/RBox" method="Quit"]
