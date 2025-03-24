@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd38cr4nwv1ii"]
+
+[ext_resource type="PackedScene" uid="uid://b2iklat0xsrs2" path="res://Assets/Prefabs/Game Objects/box.tscn" id="1_g0d0n"]
+[ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="2_dc0xu"]
+[ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="3_2hp7s"]
+
+[node name="TestLevelI" type="Node2D"]
+
+[node name="Level" type="CanvasGroup" parent="."]
+
+[node name="Box" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(0, 640)
+
+[node name="Box2" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(128, 640)
+
+[node name="Box3" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(256, 640)
+
+[node name="Box4" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(384, 640)
+
+[node name="Box5" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(512, 640)
+
+[node name="Box6" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(640, 640)
+
+[node name="Box7" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(768, 640)
+
+[node name="Box8" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(896, 640)
+
+[node name="Box9" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(1024, 640)
+
+[node name="Box10" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(1152, 640)
+
+[node name="Box11" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(1280, 640)
+
+[node name="Box12" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(1408, 640)
+
+[node name="Box13" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(1536, 640)
+
+[node name="Box14" parent="Level" instance=ExtResource("1_g0d0n")]
+position = Vector2(0, 512)
+
+[node name="Goal" parent="." instance=ExtResource("2_dc0xu")]
+position = Vector2(1472, 448)
+nextScene = "res://Scenes/Levels/TestLevelJ.tscn"
+
+[node name="Start" parent="." instance=ExtResource("3_2hp7s")]
+position = Vector2(160, 416)

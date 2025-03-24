@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8q1cr1ml3qm0"]
+[gd_scene load_steps=6 format=3 uid="uid://c8q1cr1ml3qm0"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_ancb7"]
+[ext_resource type="Script" uid="uid://dtbj3ukkbrkxi" path="res://Scripts/Menus/LevelDisplay.cs" id="2_k57r1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ancb7"]
 content_margin_left = 16.0
@@ -20,21 +21,32 @@ corner_radius_bottom_left = 64
 shadow_color = Color(1, 1, 1, 1)
 shadow_size = 2
 
-[node name="LevelOption" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-pivot_offset = Vector2(128, 64)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k57r1"]
+blend_mode = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_k57r1"]
+font_size = 35
+font_color = Color(1, 1, 0, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
+
+[node name="LevelOption" type="CenterContainer" node_paths=PackedStringArray("title", "stars")]
+custom_minimum_size = Vector2(256, 128)
+offset_right = 256.0
+offset_bottom = 128.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 theme = ExtResource("1_ancb7")
+script = ExtResource("2_k57r1")
+title = NodePath("Panel/VBoxContainer/Label")
+stars = NodePath("Panel/VBoxContainer/MarginContainer/Label2")
 
 [node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(256, 128)
-layout_mode = 0
-offset_left = -128.0
-offset_top = -64.0
-offset_right = 128.0
-offset_bottom = 64.0
+custom_minimum_size = Vector2(250, 128)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ancb7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
@@ -45,18 +57,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Control2" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
 [node name="Label" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 48)
 layout_mode = 2
 size_flags_vertical = 6
 text = "Level Name"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer/MarginContainer2"]
+material = SubResource("CanvasItemMaterial_k57r1")
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "  ★ ★ ★  "
+size_flags_vertical = 3
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "★ ★ ★"
+label_settings = SubResource("LabelSettings_k57r1")
 horizontal_alignment = 3
 
 [node name="Control" type="Control" parent="Panel/VBoxContainer"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh6fod6uihi8w"]
+[gd_scene load_steps=7 format=3 uid="uid://bh6fod6uihi8w"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_chbko"]
 [ext_resource type="Script" uid="uid://d26tlfkv3g4dl" path="res://Scripts/Menus/LevelSelectScroll.cs" id="2_1qomi"]
 [ext_resource type="Script" uid="uid://bckjtmcsdgyu2" path="res://Scripts/Menus/ListLevels.cs" id="2_fo23m"]
 [ext_resource type="PackedScene" uid="uid://c8q1cr1ml3qm0" path="res://Assets/Prefabs/UI/LevelOption.tscn" id="3_1cx81"]
+[ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="5_8sr8g"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1qomi"]
 size = Vector2(256, 256)
@@ -78,7 +79,7 @@ speed = 400.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(512, 256)
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 script = ExtResource("2_fo23m")
 levelPrefab = ExtResource("3_1cx81")
@@ -92,5 +93,33 @@ layout_mode = 2
 size_flags_vertical = 4
 text = ">"
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+script = ExtResource("5_8sr8g")
+
+[node name="Control2" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Play"
+
+[node name="Control3" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Left" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollLast"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Right" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollNext"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Button" to="CenterContainer/VBoxContainer/HBoxContainer2/Button" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Button2" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="LoadLevel"]

@@ -11,7 +11,9 @@ public partial class ListLevels : Control {
 		CallDeferred("AdjustSize");
 
 		foreach (LevelData level in GameManager.Instance.GetAllLevelData()) {
-			Control levelNode = levelPrefab.Instantiate<Control>();
+			LevelDisplay levelNode = levelPrefab.Instantiate<LevelDisplay>();
+
+			levelNode.SetData(level);
 
 			AddChild(levelNode);
 		}
@@ -19,7 +21,7 @@ public partial class ListLevels : Control {
 	}
 
 	private void AdjustSize() {
-		this.Size = new Vector2(256 * GameManager.Instance.GetUnlockedLevelCount(), 256);
+		this.CustomMinimumSize = new Vector2(256 * GameManager.Instance.GetUnlockedLevelCount(), 256);
 	}
 
 }
