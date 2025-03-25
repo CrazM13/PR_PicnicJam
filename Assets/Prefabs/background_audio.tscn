@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw5h552kx7hjf"]
+
+[ext_resource type="Script" uid="uid://dneyw3q1uavn2" path="res://Scripts/BackgroundMusic.cs" id="1_mpyn2"]
+[ext_resource type="AudioStream" uid="uid://0mfryuuj323i" path="res://Assets/Audio/Music/SpringChirp.wav" id="2_3ild8"]
+
+[node name="BackgroundAudio" type="Node" node_paths=PackedStringArray("mainTrack", "backupTrack")]
+process_mode = 3
+script = ExtResource("1_mpyn2")
+mainTrack = NodePath("MainTrack")
+backupTrack = NodePath("BackupTrack")
+
+[node name="MainTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3ild8")
+autoplay = true
+bus = &"Music"
+
+[node name="BackupTrack" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

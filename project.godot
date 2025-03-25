@@ -21,6 +21,7 @@ buses/default_bus_layout="uid://018cooqj03mt"
 [autoload]
 
 SceneController="*res://Assets/Prefabs/scene_controller.tscn"
+BackgroundAudio="*res://Assets/Prefabs/background_audio.tscn"
 
 [dotnet]
 
