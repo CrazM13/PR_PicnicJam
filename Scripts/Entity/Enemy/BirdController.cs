@@ -3,9 +3,13 @@ using System;
 
 public partial class BirdController : Area2D {
 
-	[Export] private EnemyBase enemy;
-
 	[Export] private float speed = 1000;
+
+	[ExportGroup("References")]
+	[Export] private EnemyBase enemy;
+	[ExportSubgroup("Audio")]
+	[Export] private AudioStreamPlayer2D ambient;
+	[Export] private AudioStreamPlayer2D attack;
 
 	private SimplePlayerController player;
 
@@ -19,10 +23,13 @@ public partial class BirdController : Area2D {
 		enemy.CollisionWithPlayer += this.OnCollideWithPlayer;
 
 		enemy.Velocity += Vector2.Right * speed;
+
+		ambient.Play(((0.3f * this.GlobalPosition.X) + (0.7f * this.GlobalPosition.Y)) % 1);
 	}
 
 	private void OnCollideWithPlayer(KinematicCollision2D collision, SimplePlayerController player) {
 		enemy.Velocity += collision.GetNormal() * speed;
+		attack.Play();
 		player.AttemptHurt();
 		this.player = null;
 	}

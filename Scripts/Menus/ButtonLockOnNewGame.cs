@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class ButtonLockOnNewGame : BaseButton {
+public partial class ButtonLockOnNewGame : BetterButton {
 
 	public override void _Ready() {
 		base._Ready();

@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bej1o6i7ouvvm"]
+[gd_scene load_steps=11 format=3 uid="uid://bej1o6i7ouvvm"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_qqnya"]
+[ext_resource type="Script" uid="uid://do4q8u63uhe47" path="res://Scripts/Menus/BetterTabMenu.cs" id="2_bdxpv"]
 [ext_resource type="Script" uid="uid://d25544hwlrkbu" path="res://Scripts/Menus/VolumeSlider.cs" id="2_hg628"]
 [ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="3_5hy3q"]
+[ext_resource type="AudioStream" uid="uid://blmsi75mudt3u" path="res://Assets/Audio/SFX/Click On.wav" id="3_q4at1"]
+[ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="4_cbhj7"]
+[ext_resource type="AudioStream" uid="uid://bqv0ix4gvsko5" path="res://Assets/Audio/SFX/Click Off.wav" id="6_6f4k2"]
+[ext_resource type="Script" uid="uid://bsb3kjhxhknt0" path="res://Scripts/Menus/MuteBusButton.cs" id="6_cja8r"]
+[ext_resource type="Texture2D" uid="uid://b1ehvou7latts" path="res://Assets/Textures/Icons/volume-x.svg" id="7_pke3u"]
+[ext_resource type="Texture2D" uid="uid://bwhiutndow34t" path="res://Assets/Textures/Icons/volume-2.svg" id="8_kfnrp"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -30,10 +37,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer" node_paths=PackedStringArray("clickSFX", "hoverSFX")]
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
+script = ExtResource("2_bdxpv")
+clickSFX = NodePath("../../TabAudioContainer/OnClick")
+hoverSFX = NodePath("../../TabAudioContainer/OnHover")
 
 [node name="Audio" type="Control" parent="VBoxContainer/TabContainer"]
 layout_mode = 2
@@ -81,13 +91,48 @@ custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 text = "Master"
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox" node_paths=PackedStringArray("audio")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
 script = ExtResource("2_hg628")
+audio = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox/HSlider"]
+stream = ExtResource("3_q4at1")
+
+[node name="BetterButton" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox" node_paths=PackedStringArray("slider", "icon") instance=ExtResource("4_cbhj7")]
+custom_minimum_size = Vector2(47, 48)
+layout_mode = 2
+toggle_mode = true
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(0, 0, 0, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":2,"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":ExtResource("8_kfnrp"),"expand_mode":0,"stretch_mode":0,"flip_h":false,"flip_v":false,"script":null)
+
+icon_alignment = 1
+script = ExtResource("6_cja8r")
+bus = &"Master"
+slider = NodePath("../HSlider")
+icon = NodePath("MarginContainer/TextureRect")
+muteIcon = ExtResource("7_pke3u")
+unmuteIcon = ExtResource("8_kfnrp")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox/BetterButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox/BetterButton/MarginContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("8_kfnrp")
 
 [node name="MusicVolumeBox" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -101,7 +146,7 @@ custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 text = "┖ Music"
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox" node_paths=PackedStringArray("audio")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -109,6 +154,42 @@ max_value = 1.0
 step = 0.01
 script = ExtResource("2_hg628")
 bus = &"Music"
+audio = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox/HSlider"]
+stream = ExtResource("3_q4at1")
+bus = &"Music"
+
+[node name="BetterButton" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox" node_paths=PackedStringArray("slider", "icon") instance=ExtResource("4_cbhj7")]
+custom_minimum_size = Vector2(47, 48)
+layout_mode = 2
+toggle_mode = true
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(0, 0, 0, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":2,"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":ExtResource("8_kfnrp"),"expand_mode":0,"stretch_mode":0,"flip_h":false,"flip_v":false,"script":null)
+
+icon_alignment = 1
+script = ExtResource("6_cja8r")
+bus = &"Music"
+slider = NodePath("../HSlider")
+icon = NodePath("MarginContainer/TextureRect")
+muteIcon = ExtResource("7_pke3u")
+unmuteIcon = ExtResource("8_kfnrp")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox/BetterButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox/BetterButton/MarginContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("8_kfnrp")
 
 [node name="SFXVolumeBox" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -122,7 +203,7 @@ custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 text = "┖ SFX"
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox" node_paths=PackedStringArray("audio")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -130,22 +211,75 @@ max_value = 1.0
 step = 0.01
 script = ExtResource("2_hg628")
 bus = &"SFX"
+audio = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox/HSlider"]
+stream = ExtResource("3_q4at1")
+bus = &"SFX"
+
+[node name="BetterButton" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox" node_paths=PackedStringArray("slider", "icon") instance=ExtResource("4_cbhj7")]
+custom_minimum_size = Vector2(47, 48)
+layout_mode = 2
+toggle_mode = true
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(0, 0, 0, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":2,"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":ExtResource("8_kfnrp"),"expand_mode":0,"stretch_mode":0,"flip_h":false,"flip_v":false,"script":null)
+
+icon_alignment = 1
+script = ExtResource("6_cja8r")
+bus = &"SFX"
+slider = NodePath("../HSlider")
+icon = NodePath("MarginContainer/TextureRect")
+muteIcon = ExtResource("7_pke3u")
+unmuteIcon = ExtResource("8_kfnrp")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox/BetterButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox/BetterButton/MarginContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("8_kfnrp")
+
+[node name="Controls" type="Control" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+script = ExtResource("3_5hy3q")
 
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="BetterButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource("4_cbhj7")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back"
-script = ExtResource("3_5hy3q")
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="VBoxContainer/HBoxContainer/Button" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]
+[node name="TabAudioContainer" type="Node" parent="."]
+
+[node name="OnClick" type="AudioStreamPlayer" parent="TabAudioContainer"]
+stream = ExtResource("3_q4at1")
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="OnHover" type="AudioStreamPlayer" parent="TabAudioContainer"]
+stream = ExtResource("6_6f4k2")
+max_polyphony = 10
+bus = &"SFX"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BetterButton" to="VBoxContainer/HBoxContainer" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]

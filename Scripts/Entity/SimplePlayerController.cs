@@ -10,6 +10,10 @@ public partial class SimplePlayerController : RigidBody2D {
 	[ExportGroup("References")]
 	[Export] public HeldObjectArea Basket { get; private set; }
 
+	[ExportSubgroup("Audio")]
+	[Export] private AudioStreamPlayer2D springLaunch;
+	[Export] private AudioStreamPlayer2D springBounce;
+
 	[ExportSubgroup("Raycasts")]
 	[Export] private RayCast2D upRay;
 	[Export] private RayCast2D downRay;
@@ -39,6 +43,16 @@ public partial class SimplePlayerController : RigidBody2D {
 			IsReadingInputs = true;
 		};
 
+		this.BodyEntered += this.OnCollision;
+
+	}
+
+	private void OnCollision(Node body) {
+		if (body is CollisionObject2D pBody) {
+			if (pBody.GetCollisionLayerValue(1)) {
+				springBounce.Play();
+			}
+		}
 	}
 
 	public override void _Process(double delta) {
@@ -126,8 +140,12 @@ public partial class SimplePlayerController : RigidBody2D {
 			}
 
 			ApplyCentralImpulse(-ray.TargetPosition.Normalized() * springCollisionForce * power);
+
+			springLaunch.Play();
 		} else {
 			ApplyCentralImpulse(-ray.TargetPosition.Normalized() * springEmptyForce * power);
+
+			springLaunch.Play();
 		}
 	}
 

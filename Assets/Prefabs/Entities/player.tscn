@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5xnjc82lv7ht"]
+[gd_scene load_steps=15 format=3 uid="uid://c5xnjc82lv7ht"]
 
 [ext_resource type="Script" uid="uid://cqgkb27xoej3o" path="res://Scripts/Entity/SimplePlayerController.cs" id="1_ebihn"]
+[ext_resource type="AudioStream" uid="uid://fx1a224r8yrm" path="res://Assets/Audio/SFX/SpringLaunchSFX.wav" id="2_bvj5f"]
 [ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_x4ukv"]
+[ext_resource type="AudioStream" uid="uid://byg75pnlpp73c" path="res://Assets/Audio/SFX/Sprong.wav" id="3_lhlxe"]
 [ext_resource type="Script" uid="uid://wdo661q1wrk7" path="res://Scripts/Entity/HeldObjectArea.cs" id="3_m0ojv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3iclq"]
@@ -32,16 +34,20 @@ size = Vector2(32, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mbfp"]
 size = Vector2(96, 96)
 
-[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("Basket", "upRay", "downRay", "leftRay", "rightRay", "upCollider", "downCollider", "leftCollider", "rightCollider")]
+[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("Basket", "springLaunch", "springBounce", "upRay", "downRay", "leftRay", "rightRay", "upCollider", "downCollider", "leftCollider", "rightCollider")]
 collision_layer = 64
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_3iclq")
 gravity_scale = 2.0
 lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 50
 script = ExtResource("1_ebihn")
 springCollisionForce = 300.0
 springEmptyForce = 50.0
 Basket = NodePath("Area2D")
+springLaunch = NodePath("Audio/SpringLaunch")
+springBounce = NodePath("Audio/SpringBounce")
 upRay = NodePath("UpRay")
 downRay = NodePath("DownRay")
 leftRay = NodePath("LeftRay")
@@ -50,6 +56,20 @@ upCollider = NodePath("UpSpringShape")
 downCollider = NodePath("DownSpringShape")
 leftCollider = NodePath("LeftSpringShape")
 rightCollider = NodePath("RightSpringShape")
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="SpringBounce" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("2_bvj5f")
+volume_db = 5.0
+max_polyphony = 8
+bus = &"SFX"
+
+[node name="SpringLaunch" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("3_lhlxe")
+volume_db = 10.0
+max_polyphony = 8
+bus = &"SFX"
 
 [node name="Basket" type="StaticBody2D" parent="."]
 collision_layer = 128

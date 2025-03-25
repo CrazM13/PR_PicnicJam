@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://3um3aluyef4x"]
+[gd_scene load_steps=8 format=3 uid="uid://3um3aluyef4x"]
 
 [ext_resource type="Script" uid="uid://c7pe7yae6hhcs" path="res://Scripts/LevelObjects/LevelObjectRouting.cs" id="1_ao1tu"]
 [ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_lbmlk"]
 [ext_resource type="Script" uid="uid://b6tfyaidj4eqx" path="res://Scripts/LevelObjects/LevelObjectButton.cs" id="3_gaqwm"]
+[ext_resource type="AudioStream" uid="uid://blmsi75mudt3u" path="res://Assets/Audio/SFX/Click On.wav" id="4_gaqwm"]
+[ext_resource type="AudioStream" uid="uid://bqv0ix4gvsko5" path="res://Assets/Audio/SFX/Click Off.wav" id="5_1ee61"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n1u3k"]
 size = Vector2(128, 128)
@@ -21,11 +23,21 @@ texture = SubResource("PlaceholderTexture2D_n1u3k")
 [node name="Sprite2D" type="Sprite2D" parent="Mask"]
 texture = ExtResource("2_lbmlk")
 
-[node name="ButtonController" type="Area2D" parent="." node_paths=PackedStringArray("router", "sprite")]
+[node name="ButtonController" type="Area2D" parent="." node_paths=PackedStringArray("router", "sprite", "audioOn", "audioOff")]
 collision_mask = 248
 script = ExtResource("3_gaqwm")
 router = NodePath("..")
 sprite = NodePath("../Mask/Sprite2D")
+audioOn = NodePath("OnAudio")
+audioOff = NodePath("OffAudio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonController"]
 shape = SubResource("RectangleShape2D_ytf0q")
+
+[node name="OnAudio" type="AudioStreamPlayer2D" parent="ButtonController"]
+stream = ExtResource("4_gaqwm")
+bus = &"SFX"
+
+[node name="OffAudio" type="AudioStreamPlayer2D" parent="ButtonController"]
+stream = ExtResource("5_1ee61")
+bus = &"SFX"

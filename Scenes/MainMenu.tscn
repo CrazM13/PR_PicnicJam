@@ -3,14 +3,7 @@
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_tt5f1"]
 [ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="2_853f1"]
 [ext_resource type="Script" uid="uid://c07ekkm567x63" path="res://Scripts/Menus/ButtonLockOnNewGame.cs" id="3_8saeu"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_853f1"]
-font_size = 128
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 16
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(8, 8)
+[ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="3_ghw46"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -46,11 +39,15 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/LBox"]
+[node name="Label" type="RichTextLabel" parent="CenterContainer/HBoxContainer/LBox"]
 layout_mode = 2
-text = "Game
-    Title"
-label_settings = SubResource("LabelSettings_853f1")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[tornado radius=1.0 freq=10] Game
+    Title[/tornado]"
+fit_content = true
+shortcut_keys_enabled = false
+justification_flags = 0
 
 [node name="VSeparator" type="VSeparator" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -62,28 +59,28 @@ size_flags_horizontal = 3
 alignment = 1
 script = ExtResource("2_853f1")
 
-[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/RBox"]
+[node name="Play" parent="CenterContainer/HBoxContainer/RBox" instance=ExtResource("3_ghw46")]
 layout_mode = 2
 text = "Play"
 
-[node name="Button2" type="Button" parent="CenterContainer/HBoxContainer/RBox"]
+[node name="LevelSelect" parent="CenterContainer/HBoxContainer/RBox" instance=ExtResource("3_ghw46")]
 layout_mode = 2
 text = "Level Select"
 script = ExtResource("3_8saeu")
 
-[node name="Button3" type="Button" parent="CenterContainer/HBoxContainer/RBox"]
+[node name="Options" parent="CenterContainer/HBoxContainer/RBox" instance=ExtResource("3_ghw46")]
 layout_mode = 2
 text = "Options"
 
-[node name="Button4" type="Button" parent="CenterContainer/HBoxContainer/RBox"]
+[node name="Credits" parent="CenterContainer/HBoxContainer/RBox" instance=ExtResource("3_ghw46")]
 layout_mode = 2
 text = "Credits"
 
-[node name="Button5" type="Button" parent="CenterContainer/HBoxContainer/RBox"]
+[node name="Quit" parent="CenterContainer/HBoxContainer/RBox" instance=ExtResource("3_ghw46")]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Button2" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/LevelSelect.tscn"]]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Button3" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/Options.tscn"]]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Button4" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/CreditsMenu.tscn"]]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Button5" to="CenterContainer/HBoxContainer/RBox" method="Quit"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/LevelSelect" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/LevelSelect.tscn"]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Options" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/Options.tscn"]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Credits" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/CreditsMenu.tscn"]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Quit" to="CenterContainer/HBoxContainer/RBox" method="Quit"]
