@@ -59,7 +59,7 @@ process_mode = 3
 layer = 100
 script = ExtResource("1_su7rh")
 animation = NodePath("AnimationPlayer")
-transitionDuration = 2.0
+transitionDuration = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

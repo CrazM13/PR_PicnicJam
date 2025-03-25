@@ -18,9 +18,15 @@ public partial class GoalArea : Area2D {
 
 	private void OnBodyEntered(Node2D body) {
 		if (body is SimplePlayerController player) {
+			player.IsReadingInputs = false;
 			GameManager.Instance.CompleteLevel(levelName, player);
+			Engine.TimeScale = 0.05f;
 
-			SceneManager.Instance.LoadScene("res://Scenes/ScoreScene.tscn");
+			GetTree().CreateTimer(0.05f).Timeout += () => {
+				Engine.TimeScale = 1f;
+				SceneManager.Instance.LoadScene("res://Scenes/ScoreScene.tscn");
+			};
+			
 		}
 	}
 }

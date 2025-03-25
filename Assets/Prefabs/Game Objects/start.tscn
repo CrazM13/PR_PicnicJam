@@ -14,7 +14,7 @@ radius = 16.0
 [node name="Player" parent="." instance=ExtResource("1_22o35")]
 
 [node name="HeldObject" type="CharacterBody2D" parent="."]
-position = Vector2(0, -256)
+position = Vector2(0, -128)
 collision_layer = 16
 collision_mask = 145
 platform_on_leave = 2
@@ -29,7 +29,7 @@ texture = SubResource("PlaceholderTexture2D_hqaqg")
 shape = SubResource("CircleShape2D_hqaqg")
 
 [node name="HeldObject2" type="CharacterBody2D" parent="."]
-position = Vector2(32, -320)
+position = Vector2(32, -192)
 collision_layer = 16
 collision_mask = 145
 platform_on_leave = 2
@@ -44,7 +44,7 @@ texture = SubResource("PlaceholderTexture2D_hqaqg")
 shape = SubResource("CircleShape2D_hqaqg")
 
 [node name="HeldObject3" type="CharacterBody2D" parent="."]
-position = Vector2(-32, -384)
+position = Vector2(-32, -256)
 collision_layer = 16
 collision_mask = 145
 platform_on_leave = 2

@@ -29,6 +29,18 @@ public partial class SimplePlayerController : RigidBody2D {
 
 	private float iTimer = 0;
 
+	public bool IsReadingInputs { get; set; }
+
+	public override void _Ready() {
+		base._Ready();
+
+		iTimer = 0.5f;
+		GetTree().CreateTimer(0.5f).Timeout += () => {
+			IsReadingInputs = true;
+		};
+
+	}
+
 	public override void _Process(double delta) {
 		base._Process(delta);
 
@@ -45,60 +57,58 @@ public partial class SimplePlayerController : RigidBody2D {
 	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
 
-		if (Input.IsActionPressed("ui_down")) {
-			downPullback = Mathf.MoveToward(downPullback, 1, (float) delta);
-			if (downCollider.Shape is RectangleShape2D shape) {
-				shape.Size = new Vector2(32, 100 * (1 - downPullback));
+		if (IsReadingInputs) {
+			if (Input.IsActionPressed("ui_down")) {
+				downPullback = Mathf.MoveToward(downPullback, 1, (float) delta);
+				if (downCollider.Shape is RectangleShape2D shape) {
+					shape.Size = new Vector2(32, 100 * (1 - downPullback));
+				}
+			} else if (Input.IsActionJustReleased("ui_down")) {
+				if (downCollider.Shape is RectangleShape2D shape) {
+					shape.Size = new Vector2(32, 100);
+				}
+				CheckSpring(downRay, downPullback);
+				downPullback = 0;
 			}
-		} else if (Input.IsActionJustReleased("ui_down")) {
-			if (downCollider.Shape is RectangleShape2D shape) {
-				shape.Size = new Vector2(32, 100);
-			}
-			CheckSpring(downRay, downPullback);
-			downPullback = 0;
-		}
 
-		if (Input.IsActionPressed("ui_up")) {
-			upPullback = Mathf.MoveToward(upPullback, 1, (float) delta);
-			if (upCollider.Shape is RectangleShape2D shape) {
-				shape.Size = new Vector2(32, 100 * (1 - upPullback));
+			if (Input.IsActionPressed("ui_up")) {
+				upPullback = Mathf.MoveToward(upPullback, 1, (float) delta);
+				if (upCollider.Shape is RectangleShape2D shape) {
+					shape.Size = new Vector2(32, 100 * (1 - upPullback));
+				}
+			} else if (Input.IsActionJustReleased("ui_up")) {
+				if (upCollider.Shape is RectangleShape2D shape) {
+					shape.Size = new Vector2(32, 100);
+				}
+				CheckSpring(upRay, upPullback);
+				upPullback = 0;
 			}
-		} else if (Input.IsActionJustReleased("ui_up")) {
-			if (upCollider.Shape is RectangleShape2D shape) {
-				shape.Size = new Vector2(32, 100);
-			}
-			CheckSpring(upRay, upPullback);
-			upPullback = 0;
-		}
 
-		if (Input.IsActionPressed("ui_left")) {
-			leftPullback = Mathf.MoveToward(leftPullback, 1, (float) delta);
-			if (leftCollider.Shape is RectangleShape2D shape) {
-				shape.Size = new Vector2(100 * (1 - leftPullback), 32);
+			if (Input.IsActionPressed("ui_left")) {
+				leftPullback = Mathf.MoveToward(leftPullback, 1, (float) delta);
+				if (leftCollider.Shape is RectangleShape2D shape) {
+					shape.Size = new Vector2(100 * (1 - leftPullback), 32);
+				}
+			} else if (Input.IsActionJustReleased("ui_left")) {
+				if (leftCollider.Shape is RectangleShape2D shape) {
+					shape.Size = new Vector2(100, 32);
+				}
+				CheckSpring(leftRay, leftPullback);
+				leftPullback = 0;
 			}
-		} else if (Input.IsActionJustReleased("ui_left")) {
-			if (leftCollider.Shape is RectangleShape2D shape) {
-				shape.Size = new Vector2(100, 32);
-			}
-			CheckSpring(leftRay, leftPullback);
-			leftPullback = 0;
-		}
 
-		if (Input.IsActionPressed("ui_right")) {
-			rightPullback = Mathf.MoveToward(rightPullback, 1, (float) delta);
-			if (rightCollider.Shape is RectangleShape2D shape) {
-				shape.Size = new Vector2(100 * (1 - rightPullback), 32);
+			if (Input.IsActionPressed("ui_right")) {
+				rightPullback = Mathf.MoveToward(rightPullback, 1, (float) delta);
+				if (rightCollider.Shape is RectangleShape2D shape) {
+					shape.Size = new Vector2(100 * (1 - rightPullback), 32);
+				}
+			} else if (Input.IsActionJustReleased("ui_right")) {
+				if (rightCollider.Shape is RectangleShape2D shape) {
+					shape.Size = new Vector2(100, 32);
+				}
+				CheckSpring(rightRay, rightPullback);
+				rightPullback = 0;
 			}
-		} else if (Input.IsActionJustReleased("ui_right")) {
-			if (rightCollider.Shape is RectangleShape2D shape) {
-				shape.Size = new Vector2(100, 32);
-			}
-			CheckSpring(rightRay, rightPullback);
-			rightPullback = 0;
-		}
-
-		if (Input.IsActionJustPressed("ui_accept")) {
-			Basket.EjectContents();
 		}
 
 		QueueRedraw();
