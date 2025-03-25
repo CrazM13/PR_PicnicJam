@@ -16,3 +16,6 @@ bus = &"Music"
 
 [node name="BackupTrack" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
+
+[connection signal="finished" from="MainTrack" to="MainTrack" method="play" binds= [0.0]]
+[connection signal="finished" from="BackupTrack" to="BackupTrack" method="play" binds= [0.0]]

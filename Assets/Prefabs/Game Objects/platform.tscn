@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://6k27jgawopbf"]
+
+[ext_resource type="Texture2D" uid="uid://c8dmhx4pb314a" path="res://Assets/Textures/Testing/Square.png" id="1_14o4u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmkjr"]
+size = Vector2(1024, 128)
+
+[node name="Platform" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_14o4u")
+region_enabled = true
+region_rect = Rect2(0, 0, 1024, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bmkjr")

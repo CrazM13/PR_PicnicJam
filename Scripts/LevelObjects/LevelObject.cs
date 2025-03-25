@@ -32,6 +32,7 @@ public partial class LevelObject : Node2D {
 
 		PowerSources = new Dictionary<uint, bool>();
 
+		UpdatePowerState();
 	}
 
 	public void SetPower(bool powered, uint id) {
