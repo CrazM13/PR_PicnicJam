@@ -8,7 +8,7 @@ public partial class ScoreStar : TextureRect {
 	public override void _Ready() {
 		base._Ready();
 
-		this.SelfModulate = GameManager.Instance.GetLastLevelData().Score >= minScore ? Colors.White : Colors.Black;
+		this.SelfModulate = GameManager.Instance.GetLastLevelData().Score >= minScore ? Colors.White : new Color(Colors.Black, 0);
 
 	}
 

@@ -1,12 +1,123 @@
 [gd_scene load_steps=11 format=3 uid="uid://6qcc5ewrobb7"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_1fdw2"]
-[ext_resource type="Texture2D" uid="uid://33axk5uuj268" path="res://Assets/Textures/Testing/Star.png" id="1_kinnm"]
 [ext_resource type="Script" uid="uid://nvbsryrw31lt" path="res://Scripts/Menus/ScoreStar.cs" id="2_42ghx"]
+[ext_resource type="Texture2D" uid="uid://c17611jy4gaqm" path="res://Assets/Textures/UI/NewStar.png" id="2_y8mp6"]
 [ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="3_5lcmk"]
 [ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="5_ieecb"]
 [ext_resource type="AudioStream" uid="uid://chow7vj3c1kwn" path="res://Assets/Audio/SFX/StarGlisten.wav" id="6_y8mp6"]
 [ext_resource type="AudioStream" uid="uid://dwjq2kmhva354" path="res://Assets/Audio/SFX/StarGain.wav" id="7_epf2j"]
+
+[sub_resource type="Animation" id="Animation_ly3pp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer2/BetterButton:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer2/BetterButton2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer2/BetterButton3:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer1/Star1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer2/Star2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer3/Star3:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer1/Star1:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer2/Star2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer3/Star3:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ieecb"]
 resource_name = "start_anim"
@@ -160,117 +271,6 @@ tracks/10/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_ly3pp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer2/BetterButton:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer2/BetterButton2:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer2/BetterButton3:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer1/Star1:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer2/Star2:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer3/Star3:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer1/Star1:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer2/Star2:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StarContainer3/Star3:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y8mp6"]
 _data = {
 &"RESET": SubResource("Animation_ly3pp"),
@@ -333,12 +333,23 @@ layout_mode = 2
 
 [node name="Star1" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/StarContainer1"]
 layout_mode = 2
-offset_right = 141.0
+offset_right = 128.0
 offset_bottom = 128.0
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("1_kinnm")
+texture = ExtResource("2_y8mp6")
+stretch_mode = 5
 script = ExtResource("2_42ghx")
 minScore = 1
+
+[node name="Star2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/StarContainer1"]
+self_modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_y8mp6")
+stretch_mode = 5
 
 [node name="SpaceL" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -350,12 +361,23 @@ layout_mode = 2
 
 [node name="Star2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/StarContainer2"]
 layout_mode = 2
-offset_right = 141.0
+offset_right = 128.0
 offset_bottom = 128.0
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("1_kinnm")
+texture = ExtResource("2_y8mp6")
+stretch_mode = 5
 script = ExtResource("2_42ghx")
 minScore = 2
+
+[node name="Star3" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/StarContainer2"]
+self_modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_y8mp6")
+stretch_mode = 5
 
 [node name="SpaceR" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -367,12 +389,23 @@ layout_mode = 2
 
 [node name="Star3" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/StarContainer3"]
 layout_mode = 2
-offset_right = 141.0
+offset_right = 128.0
 offset_bottom = 128.0
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("1_kinnm")
+texture = ExtResource("2_y8mp6")
+stretch_mode = 5
 script = ExtResource("2_42ghx")
 minScore = 3
+
+[node name="Star4" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/StarContainer3"]
+self_modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_y8mp6")
+stretch_mode = 5
 
 [node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
