@@ -1,17 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://bej1o6i7ouvvm"]
+[gd_scene load_steps=14 format=3 uid="uid://bej1o6i7ouvvm"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_qqnya"]
-[ext_resource type="Script" uid="uid://do4q8u63uhe47" path="res://Scripts/Menus/BetterTabMenu.cs" id="2_bdxpv"]
+[ext_resource type="Script" uid="uid://do4q8u63uhe47" path="res://Scripts/Menus/Buttons/BetterTabMenu.cs" id="2_bdxpv"]
 [ext_resource type="Script" uid="uid://d25544hwlrkbu" path="res://Scripts/Menus/VolumeSlider.cs" id="2_hg628"]
+[ext_resource type="Script" uid="uid://bcxnfwwxa5g3o" path="res://Scripts/Menus/SetGameSettings.cs" id="2_ksf6h"]
 [ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="3_5hy3q"]
 [ext_resource type="AudioStream" uid="uid://blmsi75mudt3u" path="res://Assets/Audio/SFX/Click On.wav" id="3_q4at1"]
 [ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="4_cbhj7"]
 [ext_resource type="AudioStream" uid="uid://bqv0ix4gvsko5" path="res://Assets/Audio/SFX/Click Off.wav" id="6_6f4k2"]
-[ext_resource type="Script" uid="uid://bsb3kjhxhknt0" path="res://Scripts/Menus/MuteBusButton.cs" id="6_cja8r"]
+[ext_resource type="Script" uid="uid://bsb3kjhxhknt0" path="res://Scripts/Menus/Buttons/MuteBusButton.cs" id="6_cja8r"]
 [ext_resource type="Texture2D" uid="uid://b1ehvou7latts" path="res://Assets/Textures/Icons/volume-x.svg" id="7_pke3u"]
 [ext_resource type="Texture2D" uid="uid://bwhiutndow34t" path="res://Assets/Textures/Icons/volume-2.svg" id="8_kfnrp"]
+[ext_resource type="Script" uid="uid://oghw808aostu" path="res://Scripts/Menus/Buttons/BetterOptionButton.cs" id="10_34to5"]
+[ext_resource type="AudioStream" uid="uid://chyk5470gn71m" path="res://Assets/Audio/SFX/Click Failed.wav" id="10_ksf6h"]
 
-[node name="Options" type="Control"]
+[node name="Options" type="Control" node_paths=PackedStringArray("invertControls")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +22,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_qqnya")
+script = ExtResource("2_ksf6h")
+invertControls = NodePath("VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -40,12 +45,13 @@ grow_vertical = 2
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer" node_paths=PackedStringArray("clickSFX", "hoverSFX")]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 1
 script = ExtResource("2_bdxpv")
 clickSFX = NodePath("../../TabAudioContainer/OnClick")
 hoverSFX = NodePath("../../TabAudioContainer/OnHover")
 
 [node name="Audio" type="Control" parent="VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -249,9 +255,82 @@ layout_mode = 2
 texture = ExtResource("8_kfnrp")
 
 [node name="Controls" type="Control" parent="VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Controls/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelBar" type="HBoxContainer" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/LabelBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/LabelBar"]
+layout_mode = 2
+text = "Controls"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/LabelBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Invert Controls"
+
+[node name="BetterButton" type="OptionButton" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("clickSFX", "hoverSFX", "clickDisabledSFX", "hoverDisabledSFX")]
+layout_mode = 2
+theme = ExtResource("1_qqnya")
+toggle_mode = false
+selected = 0
+item_count = 4
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Horizontal"
+popup/item_1/id = 1
+popup/item_2/text = "Vertical"
+popup/item_2/id = 2
+popup/item_3/text = "Both"
+popup/item_3/id = 3
+script = ExtResource("10_34to5")
+clickSFX = NodePath("OnClick")
+hoverSFX = NodePath("OnHover")
+clickDisabledSFX = NodePath("OnClickDiabled")
+hoverDisabledSFX = NodePath("OnHoverDisabled")
+
+[node name="OnClick" type="AudioStreamPlayer" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton"]
+stream = ExtResource("3_q4at1")
+bus = &"SFX"
+
+[node name="OnClickDiabled" type="AudioStreamPlayer" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton"]
+stream = ExtResource("10_ksf6h")
+bus = &"SFX"
+
+[node name="OnHover" type="AudioStreamPlayer" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton"]
+stream = ExtResource("6_6f4k2")
+bus = &"SFX"
+
+[node name="OnHoverDisabled" type="AudioStreamPlayer" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton"]
+stream = ExtResource("10_ksf6h")
+bus = &"SFX"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -282,4 +361,5 @@ stream = ExtResource("6_6f4k2")
 max_polyphony = 10
 bus = &"SFX"
 
+[connection signal="item_selected" from="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton" to="." method="ChangeControlsInvert"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BetterButton" to="VBoxContainer/HBoxContainer" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]

@@ -15,11 +15,19 @@ public class GameManager {
 	}
 	#endregion
 
+	public class GameSettings {
+		public bool InvertUpDown { get; set; } = false;
+		public bool InvertLeftRight { get; set; } = false;
+	}
+
 	private Dictionary<string, LevelData> levelData;
 	private string lastLevelName;
 
+	public GameSettings Settings { get; set; }
+
 	private GameManager() {
 		levelData = new Dictionary<string, LevelData>();
+		Settings = new GameSettings();
 	}
 
 	public void StartLevel(string thisLevelPath, string nextLevelPath) {

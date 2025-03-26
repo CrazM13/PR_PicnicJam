@@ -72,12 +72,12 @@ public partial class SimplePlayerController : RigidBody2D {
 		base._PhysicsProcess(delta);
 
 		if (IsReadingInputs) {
-			if (Input.IsActionPressed("ui_down")) {
+			if (Input.IsActionPressed(GetDownInput())) {
 				downPullback = Mathf.MoveToward(downPullback, 1, (float) delta);
 				if (downCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(32, 100 * (1 - downPullback));
 				}
-			} else if (Input.IsActionJustReleased("ui_down")) {
+			} else if (Input.IsActionJustReleased(GetDownInput())) {
 				if (downCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(32, 100);
 				}
@@ -85,12 +85,12 @@ public partial class SimplePlayerController : RigidBody2D {
 				downPullback = 0;
 			}
 
-			if (Input.IsActionPressed("ui_up")) {
+			if (Input.IsActionPressed(GetUpInput())) {
 				upPullback = Mathf.MoveToward(upPullback, 1, (float) delta);
 				if (upCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(32, 100 * (1 - upPullback));
 				}
-			} else if (Input.IsActionJustReleased("ui_up")) {
+			} else if (Input.IsActionJustReleased(GetUpInput())) {
 				if (upCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(32, 100);
 				}
@@ -98,12 +98,12 @@ public partial class SimplePlayerController : RigidBody2D {
 				upPullback = 0;
 			}
 
-			if (Input.IsActionPressed("ui_left")) {
+			if (Input.IsActionPressed(GetLeftInput())) {
 				leftPullback = Mathf.MoveToward(leftPullback, 1, (float) delta);
 				if (leftCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(100 * (1 - leftPullback), 32);
 				}
-			} else if (Input.IsActionJustReleased("ui_left")) {
+			} else if (Input.IsActionJustReleased(GetLeftInput())) {
 				if (leftCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(100, 32);
 				}
@@ -111,12 +111,12 @@ public partial class SimplePlayerController : RigidBody2D {
 				leftPullback = 0;
 			}
 
-			if (Input.IsActionPressed("ui_right")) {
+			if (Input.IsActionPressed(GetRightInput())) {
 				rightPullback = Mathf.MoveToward(rightPullback, 1, (float) delta);
 				if (rightCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(100 * (1 - rightPullback), 32);
 				}
-			} else if (Input.IsActionJustReleased("ui_right")) {
+			} else if (Input.IsActionJustReleased(GetRightInput())) {
 				if (rightCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(100, 32);
 				}
@@ -169,6 +169,22 @@ public partial class SimplePlayerController : RigidBody2D {
 
 	public int GetRemainingHealth() {
 		return Basket.GetChild(0).GetChildCount();
+	}
+
+	private string GetUpInput() {
+		return GameManager.Instance.Settings.InvertUpDown ? "move_down" : "move_up";
+	}
+
+	private string GetDownInput() {
+		return GameManager.Instance.Settings.InvertUpDown ? "move_up" : "move_down";
+	}
+
+	private string GetLeftInput() {
+		return GameManager.Instance.Settings.InvertLeftRight ? "move_right" : "move_left";
+	}
+
+	private string GetRightInput() {
+		return GameManager.Instance.Settings.InvertLeftRight ? "move_left" : "move_right";
 	}
 
 }
