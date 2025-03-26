@@ -50,6 +50,13 @@ public partial class SceneManager : Node {
 	}
 
 	public void Quit() {
-		GetTree().Quit();
+
+		TransitionEffect transition = ResourceLoader.Load<PackedScene>(transitionPath).Instantiate<TransitionEffect>();
+
+		transition.TransitionInComplete += () => GetTree().Quit();
+
+		GetTree().Root.AddChild(transition);
+
+		transition.PlayTransitionIn();
 	}
 }

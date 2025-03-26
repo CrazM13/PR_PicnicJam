@@ -3,6 +3,8 @@ using System;
 
 public partial class GoalArea : Area2D {
 
+	[Export] private AudioStream levelMusic;
+	[Export] private AudioStream scoreMusic;
 	[Export] private string nextScene;
 
 	private string levelName;
@@ -14,6 +16,7 @@ public partial class GoalArea : Area2D {
 
 		levelName = GetTree().CurrentScene.SceneFilePath;
 		GameManager.Instance.StartLevel(levelName, nextScene);
+		BackgroundMusic.Instance.ChangeTrack(levelMusic);
 	}
 
 	private void OnBodyEntered(Node2D body) {
@@ -21,6 +24,7 @@ public partial class GoalArea : Area2D {
 			player.IsReadingInputs = false;
 			GameManager.Instance.CompleteLevel(levelName, player);
 			Engine.TimeScale = 0.05f;
+			BackgroundMusic.Instance.ChangeTrack(scoreMusic);
 
 			GetTree().CreateTimer(0.05f).Timeout += () => {
 				Engine.TimeScale = 1f;

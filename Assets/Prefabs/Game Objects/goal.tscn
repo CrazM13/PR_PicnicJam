@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://chl8pnamccmpf"]
+[gd_scene load_steps=6 format=3 uid="uid://chl8pnamccmpf"]
 
 [ext_resource type="Script" uid="uid://brx1df2cf7j65" path="res://Scripts/GoalArea.cs" id="1_g7lvs"]
 [ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_s3ero"]
+[ext_resource type="AudioStream" uid="uid://cmmp1fwa5uy80" path="res://Assets/Audio/Music/Quiz.wav" id="2_tmplu"]
+[ext_resource type="AudioStream" uid="uid://0mfryuuj323i" path="res://Assets/Audio/Music/SpringChirp.wav" id="3_tmplu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqaqg"]
 size = Vector2(256, 256)
@@ -11,6 +13,8 @@ z_index = -1
 collision_layer = 2
 collision_mask = 192
 script = ExtResource("1_g7lvs")
+levelMusic = ExtResource("2_tmplu")
+scoreMusic = ExtResource("3_tmplu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
