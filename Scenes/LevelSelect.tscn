@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh6fod6uihi8w"]
+[gd_scene load_steps=8 format=3 uid="uid://bh6fod6uihi8w"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_chbko"]
 [ext_resource type="Script" uid="uid://d26tlfkv3g4dl" path="res://Scripts/Menus/LevelSelectScroll.cs" id="2_1qomi"]
+[ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="2_045ii"]
 [ext_resource type="Script" uid="uid://bckjtmcsdgyu2" path="res://Scripts/Menus/ListLevels.cs" id="2_fo23m"]
 [ext_resource type="PackedScene" uid="uid://c8q1cr1ml3qm0" path="res://Assets/Prefabs/UI/LevelOption.tscn" id="3_1cx81"]
 [ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="5_8sr8g"]
@@ -46,7 +47,7 @@ horizontal_alignment = 3
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Left" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="BetterButton" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_045ii")]
 layout_mode = 2
 size_flags_vertical = 4
 text = "<"
@@ -88,29 +89,29 @@ levelPrefab = ExtResource("3_1cx81")
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
-[node name="Right" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="BetterButton2" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_045ii")]
 layout_mode = 2
 size_flags_vertical = 4
 text = ">"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+script = ExtResource("5_8sr8g")
 
 [node name="Control" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+[node name="BetterButton" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_045ii")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back"
-script = ExtResource("5_8sr8g")
 
 [node name="Control2" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+[node name="BetterButton2" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_045ii")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Play"
@@ -119,7 +120,7 @@ text = "Play"
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Left" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollLast"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Right" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollNext"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Button" to="CenterContainer/VBoxContainer/HBoxContainer2/Button" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Button2" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="LoadLevel"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/BetterButton" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollLast"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/BetterButton2" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollNext"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/BetterButton" to="CenterContainer/VBoxContainer/HBoxContainer2" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/BetterButton2" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="LoadLevel"]
