@@ -21,5 +21,7 @@ public partial class VolumeSlider : HSlider {
 	private void OnValueChanged(double value) {
 		AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex(bus), (float) value);
 		audio.Play();
+
+		GameManager.Instance.SaveSettings();
 	}
 }

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpqr6efngubae"
-path="res://.godot/imported/lock.svg-192c027933bd91c7ccbcb5c97e66c463.ctex"
+uid="uid://cu2xrn0nxeaxf"
+path="res://.godot/imported/folder.svg-21bf7abd2985ad77aa0b0d4703f77fd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Icons/lock.svg"
-dest_files=["res://.godot/imported/lock.svg-192c027933bd91c7ccbcb5c97e66c463.ctex"]
+source_file="res://Assets/Textures/Icons/folder.svg"
+dest_files=["res://.godot/imported/folder.svg-21bf7abd2985ad77aa0b0d4703f77fd1.ctex"]
 
 [params]
 

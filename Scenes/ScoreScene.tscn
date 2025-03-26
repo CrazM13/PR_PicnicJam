@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6qcc5ewrobb7"]
+[gd_scene load_steps=15 format=3 uid="uid://6qcc5ewrobb7"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_1fdw2"]
 [ext_resource type="Script" uid="uid://nvbsryrw31lt" path="res://Scripts/Menus/ScoreStar.cs" id="2_42ghx"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="5_ieecb"]
 [ext_resource type="AudioStream" uid="uid://chow7vj3c1kwn" path="res://Assets/Audio/SFX/StarGlisten.wav" id="6_y8mp6"]
 [ext_resource type="AudioStream" uid="uid://dwjq2kmhva354" path="res://Assets/Audio/SFX/StarGain.wav" id="7_epf2j"]
+[ext_resource type="Script" uid="uid://bnh424i3vithq" path="res://Scripts/Menus/Toasts/ToastContainer.cs" id="8_epf2j"]
+[ext_resource type="PackedScene" uid="uid://3bk12b2ixl7o" path="res://Assets/Prefabs/UI/Toast.tscn" id="9_ngg20"]
+[ext_resource type="Script" uid="uid://cytij3y1yomcn" path="res://Scripts/Menus/Toasts/SendToast.cs" id="9_plu5i"]
+[ext_resource type="Texture2D" uid="uid://nkdkequldbrb" path="res://Assets/Textures/Icons/save.svg" id="11_72tyu"]
 
 [sub_resource type="Animation" id="Animation_ly3pp"]
 length = 0.001
@@ -454,6 +458,25 @@ bus = &"SFX"
 stream = ExtResource("7_epf2j")
 max_polyphony = 3
 bus = &"SFX"
+
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("container")]
+script = ExtResource("9_plu5i")
+message = "Autosaved"
+icon = ExtResource("11_72tyu")
+container = NodePath("../Toast Container")
+sendOnStart = true
+
+[node name="Toast Container" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("8_epf2j")
+toastPrefab = ExtResource("9_ngg20")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/BetterButton" to="CenterContainer/VBoxContainer/HBoxContainer2" method="NavToLastLevel"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/BetterButton2" to="CenterContainer/VBoxContainer/HBoxContainer2" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]

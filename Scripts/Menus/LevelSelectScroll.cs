@@ -23,14 +23,14 @@ public partial class LevelSelectScroll : ScrollContainer {
 	public void ScrollNext() {
 		float maxVal = (float) this.GetHScrollBar().MaxValue;
 		if (targetScroll + 300 < maxVal) {
-			targetScroll += 256;
+			targetScroll += 260;
 			index++;
 		}
 	}
 
 	public void ScrollLast() {
 		if (targetScroll > 0) {
-			targetScroll -= 256;
+			targetScroll -= 260;
 			index--;
 		}
 	}

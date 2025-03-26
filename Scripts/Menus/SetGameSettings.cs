@@ -43,6 +43,16 @@ public partial class SetGameSettings : Node {
 			settings.InvertUpDown = true;
 			settings.InvertLeftRight = true;
 		}
+
+		GameManager.Instance.SaveSettings();
+	}
+
+	public void ResetSettings() {
+		GameManager.Instance.DeleteSavedSettings();
+	}
+
+	public void ResetGame() {
+		GameManager.Instance.DeleteSavedGame();
 	}
 
 }

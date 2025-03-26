@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bej1o6i7ouvvm"]
+[gd_scene load_steps=19 format=3 uid="uid://bej1o6i7ouvvm"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_qqnya"]
 [ext_resource type="Script" uid="uid://do4q8u63uhe47" path="res://Scripts/Menus/Buttons/BetterTabMenu.cs" id="2_bdxpv"]
@@ -13,6 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://bwhiutndow34t" path="res://Assets/Textures/Icons/volume-2.svg" id="8_kfnrp"]
 [ext_resource type="Script" uid="uid://oghw808aostu" path="res://Scripts/Menus/Buttons/BetterOptionButton.cs" id="10_34to5"]
 [ext_resource type="AudioStream" uid="uid://chyk5470gn71m" path="res://Assets/Audio/SFX/Click Failed.wav" id="10_ksf6h"]
+[ext_resource type="Script" uid="uid://bnh424i3vithq" path="res://Scripts/Menus/Toasts/ToastContainer.cs" id="14_mrk6e"]
+[ext_resource type="PackedScene" uid="uid://3bk12b2ixl7o" path="res://Assets/Prefabs/UI/Toast.tscn" id="15_oa66i"]
+[ext_resource type="Script" uid="uid://cytij3y1yomcn" path="res://Scripts/Menus/Toasts/SendToast.cs" id="16_viydq"]
+[ext_resource type="Texture2D" uid="uid://cu2xrn0nxeaxf" path="res://Assets/Textures/Icons/folder.svg" id="17_oa66i"]
+[ext_resource type="Texture2D" uid="uid://bg32hq42kst3a" path="res://Assets/Textures/Icons/x.svg" id="18_oa66i"]
 
 [node name="Options" type="Control" node_paths=PackedStringArray("invertControls")]
 layout_mode = 3
@@ -332,6 +337,85 @@ bus = &"SFX"
 stream = ExtResource("10_ksf6h")
 bus = &"SFX"
 
+[node name="Game Data" type="Control" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Game Data"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Game Data/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelBar" type="HBoxContainer" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/LabelBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/LabelBar"]
+layout_mode = 2
+text = "Game Data"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/LabelBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_5hy3q")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Open Save Data"
+
+[node name="BetterButton" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_cbhj7")]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Open Folder"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(1, 0.585611, 0.524716, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset Settings to Default"
+
+[node name="BetterButton" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_cbhj7")]
+self_modulate = Color(1, 0.584314, 0.52549, 1)
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Reset"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer3"]
+self_modulate = Color(1, 0.585611, 0.524716, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete Save Data"
+
+[node name="BetterButton" parent="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_cbhj7")]
+self_modulate = Color(1, 0.584314, 0.52549, 1)
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Delete"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 script = ExtResource("3_5hy3q")
@@ -361,5 +445,51 @@ stream = ExtResource("6_6f4k2")
 max_polyphony = 10
 bus = &"SFX"
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Toast Container" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("14_mrk6e")
+toastPrefab = ExtResource("15_oa66i")
+
+[node name="OpenedFolderToast" type="Node" parent="Control" node_paths=PackedStringArray("container")]
+script = ExtResource("16_viydq")
+message = "Opened Folder"
+icon = ExtResource("17_oa66i")
+container = NodePath("../Toast Container")
+
+[node name="ResetSettings" type="Node" parent="Control" node_paths=PackedStringArray("container")]
+script = ExtResource("16_viydq")
+message = "Reset Settings"
+icon = ExtResource("18_oa66i")
+container = NodePath("../Toast Container")
+
+[node name="DeletedSaveData" type="Node" parent="Control" node_paths=PackedStringArray("container")]
+script = ExtResource("16_viydq")
+message = "Deleted"
+icon = ExtResource("18_oa66i")
+container = NodePath("../Toast Container")
+
 [connection signal="item_selected" from="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton" to="." method="ChangeControlsInvert"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer/BetterButton" to="Control/OpenedFolderToast" method="SendNewToast"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer/BetterButton" to="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer" method="NavToFileDialogue" binds= ["user://vaults"]]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer2/BetterButton" to="." method="ResetSettings"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer2/BetterButton" to="Control/ResetSettings" method="SendNewToast"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer3/BetterButton" to="." method="ResetGame"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer3/BetterButton" to="Control/DeletedSaveData" method="SendNewToast"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BetterButton" to="VBoxContainer/HBoxContainer" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]

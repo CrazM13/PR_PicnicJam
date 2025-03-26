@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://3bk12b2ixl7o"]
+
+[ext_resource type="Script" uid="uid://bv8t5ayplatgi" path="res://Scripts/Menus/Toasts/Toast.cs" id="1_8ca53"]
+
+[sub_resource type="Curve" id="Curve_8ca53"]
+_limits = [0.0, 600.0, 0.0, 1.0]
+_data = [Vector2(0, 600), 0.0, 0.0, 0, 0, Vector2(0.25, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 0), 0.0, 0.0, 0, 0, Vector2(1, 600), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="ToastContainer" type="Control" node_paths=PackedStringArray("icon", "text")]
+custom_minimum_size = Vector2(512, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_8ca53")
+icon = NodePath("Toast/HBoxContainer/TextureRect")
+text = NodePath("Toast/HBoxContainer/Label")
+offset = SubResource("Curve_8ca53")
+
+[node name="Toast" type="Panel" parent="."]
+custom_minimum_size = Vector2(512, 64)
+layout_mode = 1
+offset_right = 512.0
+offset_bottom = 64.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Toast"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Toast/HBoxContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Toast/HBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1

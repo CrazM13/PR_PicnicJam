@@ -27,5 +27,9 @@ public partial class SceneNavButton : Control {
 		SceneManager.Instance.Quit();
 	}
 
+	public void NavToFileDialogue(string path) {
+		OS.ShellShowInFileManager(ProjectSettings.GlobalizePath(path));
+	}
+
 
 }
