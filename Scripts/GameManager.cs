@@ -121,9 +121,16 @@ public class GameManager {
 		settingsVault.SetValue("volume_master", AudioServer.GetBusVolumeLinear(AudioServer.GetBusIndex("Master")));
 		settingsVault.SetValue("volume_music", AudioServer.GetBusVolumeLinear(AudioServer.GetBusIndex("Music")));
 		settingsVault.SetValue("volume_sfx", AudioServer.GetBusVolumeLinear(AudioServer.GetBusIndex("SFX")));
+		settingsVault.SetValue("volume_sfx_ui", AudioServer.GetBusVolumeLinear(AudioServer.GetBusIndex("UI SFX")));
+		settingsVault.SetValue("volume_sfx_player", AudioServer.GetBusVolumeLinear(AudioServer.GetBusIndex("Player SFX")));
+		settingsVault.SetValue("volume_sfx_enemy", AudioServer.GetBusVolumeLinear(AudioServer.GetBusIndex("Enemy SFX")));
+
 		settingsVault.SetValue("mute_master", AudioServer.IsBusMute(AudioServer.GetBusIndex("Master")));
 		settingsVault.SetValue("mute_music", AudioServer.IsBusMute(AudioServer.GetBusIndex("Music")));
 		settingsVault.SetValue("mute_sfx", AudioServer.IsBusMute(AudioServer.GetBusIndex("SFX")));
+		settingsVault.SetValue("mute_sfx_ui", AudioServer.IsBusMute(AudioServer.GetBusIndex("UI SFX")));
+		settingsVault.SetValue("mute_sfx_player", AudioServer.IsBusMute(AudioServer.GetBusIndex("Player SFX")));
+		settingsVault.SetValue("mute_sfx_enemy", AudioServer.IsBusMute(AudioServer.GetBusIndex("Enemy SFX")));
 
 		VaultManager.SaveVault("settings");
 	}
@@ -139,10 +146,16 @@ public class GameManager {
 			AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("Master"), settingsVault.GetValue("volume_master").As<float>());
 			AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("Music"), settingsVault.GetValue("volume_music").As<float>());
 			AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("SFX"), settingsVault.GetValue("volume_sfx").As<float>());
+			AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("UI SFX"), settingsVault.GetValue("volume_sfx_ui").As<float>());
+			AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("Player SFX"), settingsVault.GetValue("volume_sfx_player").As<float>());
+			AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("Enemy SFX"), settingsVault.GetValue("volume_sfx_enemy").As<float>());
 
 			AudioServer.SetBusMute(AudioServer.GetBusIndex("Master"), settingsVault.GetValue("mute_master").AsBool());
 			AudioServer.SetBusMute(AudioServer.GetBusIndex("Music"), settingsVault.GetValue("mute_music").AsBool());
 			AudioServer.SetBusMute(AudioServer.GetBusIndex("SFX"), settingsVault.GetValue("mute_sfx").AsBool());
+			AudioServer.SetBusMute(AudioServer.GetBusIndex("UI SFX"), settingsVault.GetValue("mute_sfx_ui").AsBool());
+			AudioServer.SetBusMute(AudioServer.GetBusIndex("Player SFX"), settingsVault.GetValue("mute_sfx_player").AsBool());
+			AudioServer.SetBusMute(AudioServer.GetBusIndex("Enemy SFX"), settingsVault.GetValue("mute_sfx_enemy").AsBool());
 		}
 	}
 
