@@ -68,13 +68,13 @@ rightCollider = NodePath("RightSpringShape")
 stream = ExtResource("2_bvj5f")
 volume_db = 5.0
 max_polyphony = 8
-bus = &"SFX"
+bus = &"Player SFX"
 
 [node name="SpringLaunch" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("3_lhlxe")
 volume_db = 10.0
 max_polyphony = 8
-bus = &"SFX"
+bus = &"Player SFX"
 
 [node name="Basket" type="StaticBody2D" parent="."]
 collision_layer = 128

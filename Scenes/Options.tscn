@@ -96,7 +96,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 
 [node name="Control" type="Control" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox"]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox"]
@@ -151,11 +151,11 @@ texture = ExtResource("8_kfnrp")
 layout_mode = 2
 
 [node name="Control" type="Control" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox"]
-custom_minimum_size = Vector2(128, 0)
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox"]
-custom_minimum_size = Vector2(192, 0)
+custom_minimum_size = Vector2(224, 0)
 layout_mode = 2
 text = "┖ Music"
 
@@ -208,11 +208,11 @@ texture = ExtResource("8_kfnrp")
 layout_mode = 2
 
 [node name="Control" type="Control" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox"]
-custom_minimum_size = Vector2(128, 0)
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox"]
-custom_minimum_size = Vector2(192, 0)
+custom_minimum_size = Vector2(224, 0)
 layout_mode = 2
 text = "┖ SFX"
 
@@ -257,6 +257,177 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox/BetterButton/MarginContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("8_kfnrp")
+
+[node name="UISFXVolumeBox" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UISFXVolumeBox"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UISFXVolumeBox"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+text = "┖ UI"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UISFXVolumeBox" node_paths=PackedStringArray("audio")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_hg628")
+bus = &"UI SFX"
+audio = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UISFXVolumeBox/HSlider"]
+stream = ExtResource("3_q4at1")
+bus = &"UI SFX"
+
+[node name="BetterButton" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UISFXVolumeBox" node_paths=PackedStringArray("slider", "icon") instance=ExtResource("4_cbhj7")]
+custom_minimum_size = Vector2(47, 48)
+layout_mode = 2
+toggle_mode = true
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(0, 0, 0, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":2,"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":ExtResource("8_kfnrp"),"expand_mode":0,"stretch_mode":0,"flip_h":false,"flip_v":false,"script":null)
+
+icon_alignment = 1
+script = ExtResource("6_cja8r")
+bus = &"UI SFX"
+slider = NodePath("../HSlider")
+icon = NodePath("MarginContainer/TextureRect")
+muteIcon = ExtResource("7_pke3u")
+unmuteIcon = ExtResource("8_kfnrp")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UISFXVolumeBox/BetterButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UISFXVolumeBox/BetterButton/MarginContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("8_kfnrp")
+
+[node name="PlayerSFXVolumeBox" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/PlayerSFXVolumeBox"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/PlayerSFXVolumeBox"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+text = "┖ Player"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/PlayerSFXVolumeBox" node_paths=PackedStringArray("audio")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_hg628")
+bus = &"Player SFX"
+audio = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/PlayerSFXVolumeBox/HSlider"]
+stream = ExtResource("3_q4at1")
+bus = &"Player SFX"
+
+[node name="BetterButton" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/PlayerSFXVolumeBox" node_paths=PackedStringArray("slider", "icon") instance=ExtResource("4_cbhj7")]
+custom_minimum_size = Vector2(47, 48)
+layout_mode = 2
+toggle_mode = true
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(0, 0, 0, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":2,"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":ExtResource("8_kfnrp"),"expand_mode":0,"stretch_mode":0,"flip_h":false,"flip_v":false,"script":null)
+
+icon_alignment = 1
+script = ExtResource("6_cja8r")
+bus = &"Player SFX"
+slider = NodePath("../HSlider")
+icon = NodePath("MarginContainer/TextureRect")
+muteIcon = ExtResource("7_pke3u")
+unmuteIcon = ExtResource("8_kfnrp")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/PlayerSFXVolumeBox/BetterButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/PlayerSFXVolumeBox/BetterButton/MarginContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("8_kfnrp")
+
+[node name="EnemySFXVolumeBox" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/EnemySFXVolumeBox"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/EnemySFXVolumeBox"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+text = "┖ Enemy"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/EnemySFXVolumeBox" node_paths=PackedStringArray("audio")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+script = ExtResource("2_hg628")
+bus = &"Enemy SFX"
+audio = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/EnemySFXVolumeBox/HSlider"]
+stream = ExtResource("3_q4at1")
+bus = &"Enemy SFX"
+
+[node name="BetterButton" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/EnemySFXVolumeBox" node_paths=PackedStringArray("slider", "icon") instance=ExtResource("4_cbhj7")]
+custom_minimum_size = Vector2(47, 48)
+layout_mode = 2
+toggle_mode = true
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(0, 0, 0, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":2,"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":ExtResource("8_kfnrp"),"expand_mode":0,"stretch_mode":0,"flip_h":false,"flip_v":false,"script":null)
+
+icon_alignment = 1
+script = ExtResource("6_cja8r")
+bus = &"Enemy SFX"
+slider = NodePath("../HSlider")
+icon = NodePath("MarginContainer/TextureRect")
+muteIcon = ExtResource("7_pke3u")
+unmuteIcon = ExtResource("8_kfnrp")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/EnemySFXVolumeBox/BetterButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/EnemySFXVolumeBox/BetterButton/MarginContainer"]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("8_kfnrp")
@@ -441,12 +612,12 @@ layout_mode = 2
 [node name="OnClick" type="AudioStreamPlayer" parent="TabAudioContainer"]
 stream = ExtResource("3_q4at1")
 max_polyphony = 10
-bus = &"SFX"
+bus = &"UI SFX"
 
 [node name="OnHover" type="AudioStreamPlayer" parent="TabAudioContainer"]
 stream = ExtResource("6_6f4k2")
 max_polyphony = 10
-bus = &"SFX"
+bus = &"UI SFX"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

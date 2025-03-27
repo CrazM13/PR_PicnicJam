@@ -579,12 +579,12 @@ autoplay = "start_anim"
 [node name="StarGlisten" type="AudioStreamPlayer" parent="AnimationPlayer"]
 stream = ExtResource("6_y8mp6")
 max_polyphony = 3
-bus = &"SFX"
+bus = &"UI SFX"
 
 [node name="StarGain" type="AudioStreamPlayer" parent="AnimationPlayer"]
 stream = ExtResource("7_epf2j")
 max_polyphony = 3
-bus = &"SFX"
+bus = &"UI SFX"
 
 [node name="Node" type="Node" parent="." node_paths=PackedStringArray("Container")]
 script = ExtResource("9_plu5i")

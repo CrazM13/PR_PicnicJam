@@ -3,7 +3,7 @@ using System;
 
 public partial class VolumeSlider : HSlider {
 
-	[Export(PropertyHint.EnumSuggestion, "Master,Music,SFX")] private StringName bus = "Master";
+	[Export(PropertyHint.EnumSuggestion, "Master,Music,SFX,UI SFX,Player SFX,Enemy SFX")] private StringName bus = "Master";
 	[Export] private AudioStreamPlayer audio;
 
 	public override void _Ready() {

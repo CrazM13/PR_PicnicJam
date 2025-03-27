@@ -3,7 +3,7 @@ using System;
 
 public partial class MuteBusButton : BetterButton {
 
-	[Export(PropertyHint.EnumSuggestion, "Master,Music,SFX")] private StringName bus = "Master";
+	[Export(PropertyHint.EnumSuggestion, "Master,Music,SFX,UI SFX,Player SFX,Enemy SFX")] private StringName bus = "Master";
 	[Export] private VolumeSlider slider;
 	[Export] private TextureRect icon;
 

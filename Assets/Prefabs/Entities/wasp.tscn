@@ -40,11 +40,11 @@ shape = SubResource("CircleShape2D_n1u3k")
 stream = ExtResource("4_muu2e")
 max_distance = 1000.0
 attenuation = 3.0
-bus = &"SFX"
+bus = &"Enemy SFX"
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_yywu3")
 max_polyphony = 3
-bus = &"SFX"
+bus = &"Enemy SFX"
 
 [connection signal="finished" from="Ambient" to="Ambient" method="play" binds= [0.0]]

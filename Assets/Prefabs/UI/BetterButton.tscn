@@ -21,16 +21,16 @@ hoverDisabledSFX = NodePath("OnHoverDisabled")
 
 [node name="OnClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_okk3t")
-bus = &"SFX"
+bus = &"UI SFX"
 
 [node name="OnClickDiabled" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_75icv")
-bus = &"SFX"
+bus = &"UI SFX"
 
 [node name="OnHover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_vpnl2")
-bus = &"SFX"
+bus = &"UI SFX"
 
 [node name="OnHoverDisabled" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_75icv")
-bus = &"SFX"
+bus = &"UI SFX"
