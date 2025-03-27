@@ -9,13 +9,17 @@ public partial class VolumeSlider : HSlider {
 	public override void _Ready() {
 		base._Ready();
 
-		this.Value = AudioServer.GetBusVolumeLinear(AudioServer.GetBusIndex(bus));
+		Reset();
 		this.ValueChanged += this.OnValueChanged;
 
 		this.MouseEntered += () => {
 			audio.Play();
 		};
 
+	}
+
+	public void Reset() {
+		this.Value = AudioServer.GetBusVolumeLinear(AudioServer.GetBusIndex(bus));
 	}
 
 	private void OnValueChanged(double value) {

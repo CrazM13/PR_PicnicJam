@@ -180,7 +180,6 @@ public class GameManager {
 		VaultManager.SaveVault("settings");
 
 		LoadSettings();
-		SceneManager.Instance.ReloadScene();
 	}
 
 }

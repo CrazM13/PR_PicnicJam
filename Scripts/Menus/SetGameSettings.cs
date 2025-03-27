@@ -3,6 +3,8 @@ using System;
 
 public partial class SetGameSettings : Node {
 
+	[Export] private VolumeSlider[] volumeSliders;
+	[Export] private MuteBusButton[] muteButtons;
 	[Export] private BetterOptionButton invertControls;
 
 	public override void _Ready() {
@@ -49,6 +51,14 @@ public partial class SetGameSettings : Node {
 
 	public void ResetSettings() {
 		GameManager.Instance.DeleteSavedSettings();
+
+		SetInvertControlsButtonState();
+		foreach (VolumeSlider slider in volumeSliders) {
+			slider.Reset();
+		}
+		foreach (MuteBusButton btn in muteButtons) {
+			btn.Reset();
+		}
 	}
 
 	public void ResetGame() {

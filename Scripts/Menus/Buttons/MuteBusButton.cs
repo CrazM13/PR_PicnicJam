@@ -13,13 +13,17 @@ public partial class MuteBusButton : BetterButton {
 	public override void _Ready() {
 		base._Ready();
 
+		Reset();
+
+		this.Toggled += this.ToggleMute;
+	}
+
+	public void Reset() {
 		if (AudioServer.IsBusMute(AudioServer.GetBusIndex(bus))) {
 			this.ButtonPressed = true;
 			icon.Texture = muteIcon;
 			slider.Editable = false;
 		}
-
-		this.Toggled += this.ToggleMute;
 	}
 
 	private void ToggleMute(bool toggledOn) {

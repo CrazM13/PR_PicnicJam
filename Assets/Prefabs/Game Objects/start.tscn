@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cam3y2ededhf5"]
+[gd_scene load_steps=6 format=3 uid="uid://cam3y2ededhf5"]
 
 [ext_resource type="PackedScene" uid="uid://c5xnjc82lv7ht" path="res://Assets/Prefabs/Entities/player.tscn" id="1_22o35"]
+[ext_resource type="PackedScene" uid="uid://bpyjf6homaiyi" path="res://Assets/Prefabs/UI/PauseMenu.tscn" id="1_i5ukv"]
 [ext_resource type="Script" uid="uid://c74heej8g33b4" path="res://Scripts/Entity/HeldObject.cs" id="2_i5ukv"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hqaqg"]
@@ -10,6 +11,9 @@ size = Vector2(32, 32)
 radius = 16.0
 
 [node name="Start" type="Node2D"]
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_i5ukv")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_22o35")]
 
