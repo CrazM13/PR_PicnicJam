@@ -79,7 +79,7 @@ grow_vertical = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 script = ExtResource("2_1qomi")
-speed = 400.0
+speed = 800.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer"]
 clip_contents = true

@@ -14,6 +14,7 @@ namespace DataVault {
 		#endregion
 
 		public string VaultName { get; set; }
+		public bool IsModified { get; set; }
 
 		private Dictionary<string, Variant> data;
 
@@ -25,16 +26,15 @@ namespace DataVault {
 		public Vault(Json data) {
 			this.VaultName = data.Data.AsGodotDictionary()[LABEL_VAULT_NAME].AsString();
 			this.data = data.Data.AsGodotDictionary()[LABEL_DATA].AsGodotDictionary<string, Variant>();
+			if (data.Data.AsGodotDictionary().ContainsKey(LABEL_IS_MODIFIED)) {
+				this.IsModified = data.Data.AsGodotDictionary()[LABEL_IS_MODIFIED].AsBool();
+			}
 
 			// CheckSum
 			int checkSum = data.Data.AsGodotDictionary()[LABEL_CHECK_SUM].As<int>();
 			int targetCheckSum = Checksum.GetChecksum(this.data);
 			if (checkSum != targetCheckSum) {
-				if (this.data.ContainsKey(LABEL_IS_MODIFIED)) {
-					this.data[LABEL_IS_MODIFIED] = true;
-				} else {
-					this.data.Add(LABEL_IS_MODIFIED, true);
-				}
+				IsModified = true;
 			}
 		}
 
@@ -65,7 +65,8 @@ namespace DataVault {
 			Dictionary jsonData = new Dictionary {
 				{ LABEL_VAULT_NAME, VaultName },
 				{ LABEL_DATA, data },
-				{ LABEL_CHECK_SUM, Checksum.GetChecksum(data) }
+				{ LABEL_CHECK_SUM, Checksum.GetChecksum(data) },
+				{ LABEL_IS_MODIFIED, IsModified }
 			};
 
 			Json json = new() {
@@ -80,7 +81,8 @@ namespace DataVault {
 			Dictionary<string, Variant> jsonData = new Dictionary<string, Variant> {
 				{ LABEL_VAULT_NAME, VaultName },
 				{ LABEL_DATA, data },
-				{ LABEL_CHECK_SUM, Checksum.GetChecksum(data) }
+				{ LABEL_CHECK_SUM, Checksum.GetChecksum(data) },
+				{ LABEL_IS_MODIFIED, IsModified }
 			};
 
 			return Json.Stringify(jsonData);
