@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh6fod6uihi8w"]
+[gd_scene load_steps=11 format=3 uid="uid://bh6fod6uihi8w"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_chbko"]
 [ext_resource type="Script" uid="uid://d26tlfkv3g4dl" path="res://Scripts/Menus/LevelSelectScroll.cs" id="2_1qomi"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c8q1cr1ml3qm0" path="res://Assets/Prefabs/UI/LevelOption.tscn" id="3_1cx81"]
 [ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="5_8sr8g"]
 [ext_resource type="Texture2D" uid="uid://bb00tkhojykfy" path="res://Assets/Textures/Icons/star.svg" id="8_b56eh"]
+[ext_resource type="Script" uid="uid://ct8dvufbebeel" path="res://Scripts/Menus/DisplayStarCount.cs" id="9_qwtt3"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1qomi"]
 size = Vector2(256, 256)
@@ -148,6 +149,7 @@ layout_mode = 2
 text = "x000"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("9_qwtt3")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/BetterButton" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollLast"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/BetterButton2" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollNext"]

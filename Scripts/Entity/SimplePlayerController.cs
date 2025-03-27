@@ -10,6 +10,12 @@ public partial class SimplePlayerController : RigidBody2D {
 	[ExportGroup("References")]
 	[Export] public HeldObjectArea Basket { get; private set; }
 
+	[ExportSubgroup("Sprites")]
+	[Export] private Sprite2D springUp;
+	[Export] private Sprite2D springDown;
+	[Export] private Sprite2D springLeft;
+	[Export] private Sprite2D springRight;
+
 	[ExportSubgroup("Audio")]
 	[Export] private AudioStreamPlayer2D springLaunch;
 	[Export] private AudioStreamPlayer2D springBounce;
@@ -125,8 +131,16 @@ public partial class SimplePlayerController : RigidBody2D {
 			}
 		}
 
-		QueueRedraw();
+		UpdateSprites();
 
+	}
+
+	private void UpdateSprites() {
+		springUp.Scale = new Vector2(1 - upPullback, 1);
+		springDown.Scale = new Vector2(1 - downPullback, 1);
+
+		springLeft.Scale = new Vector2(1 - leftPullback, 1);
+		springRight.Scale = new Vector2(1 - rightPullback, 1);
 	}
 
 	private void CheckSpring(RayCast2D ray, float power) {
@@ -147,16 +161,6 @@ public partial class SimplePlayerController : RigidBody2D {
 
 			springLaunch.Play();
 		}
-	}
-
-	public override void _Draw() {
-		base._Draw();
-
-		DrawRect(new Rect2(downRay.Position - new Vector2(16, 0), new Vector2(32, 50 * (1 - downPullback))), Colors.Gray);
-		DrawRect(new Rect2(upRay.Position - new Vector2(16, 50 * (1 - upPullback)), new Vector2(32, 50 * (1 - upPullback))), Colors.Gray);
-		DrawRect(new Rect2(leftRay.Position - new Vector2(50 * (1 - leftPullback), 16), new Vector2(50 * (1 - leftPullback), 32)), Colors.Gray);
-		DrawRect(new Rect2(rightRay.Position - new Vector2(0, 16), new Vector2(50 * (1 - rightPullback), 32)), Colors.Gray);
-
 	}
 
 	public void AttemptHurt() {

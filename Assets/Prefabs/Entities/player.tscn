@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5xnjc82lv7ht"]
+[gd_scene load_steps=16 format=3 uid="uid://c5xnjc82lv7ht"]
 
 [ext_resource type="Script" uid="uid://cqgkb27xoej3o" path="res://Scripts/Entity/SimplePlayerController.cs" id="1_ebihn"]
 [ext_resource type="AudioStream" uid="uid://fx1a224r8yrm" path="res://Assets/Audio/SFX/SpringLaunchSFX.wav" id="2_bvj5f"]
-[ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_x4ukv"]
 [ext_resource type="AudioStream" uid="uid://byg75pnlpp73c" path="res://Assets/Audio/SFX/Sprong.wav" id="3_lhlxe"]
 [ext_resource type="Script" uid="uid://wdo661q1wrk7" path="res://Scripts/Entity/HeldObjectArea.cs" id="3_m0ojv"]
+[ext_resource type="Texture2D" uid="uid://bufxb4fsl0fbr" path="res://Assets/Textures/Testing/Basket.png" id="4_64x4u"]
+[ext_resource type="Texture2D" uid="uid://cq0ljgtf5uebb" path="res://Assets/Textures/Testing/Spring.png" id="5_64x4u"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3iclq"]
 friction = 0.25
@@ -34,7 +35,7 @@ size = Vector2(32, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mbfp"]
 size = Vector2(96, 96)
 
-[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("Basket", "springLaunch", "springBounce", "upRay", "downRay", "leftRay", "rightRay", "upCollider", "downCollider", "leftCollider", "rightCollider")]
+[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("Basket", "springUp", "springDown", "springLeft", "springRight", "springLaunch", "springBounce", "upRay", "downRay", "leftRay", "rightRay", "upCollider", "downCollider", "leftCollider", "rightCollider")]
 collision_layer = 64
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_3iclq")
@@ -46,6 +47,10 @@ script = ExtResource("1_ebihn")
 springCollisionForce = 300.0
 springEmptyForce = 50.0
 Basket = NodePath("Area2D")
+springUp = NodePath("Sprite2D/SpringUp")
+springDown = NodePath("Sprite2D/SpringDown")
+springLeft = NodePath("Sprite2D/SpringLeft")
+springRight = NodePath("Sprite2D/SpringRight")
 springLaunch = NodePath("Audio/SpringLaunch")
 springBounce = NodePath("Audio/SpringBounce")
 upRay = NodePath("UpRay")
@@ -100,7 +105,31 @@ position = Vector2(0, -56)
 shape = SubResource("RectangleShape2D_pylva")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_x4ukv")
+texture = ExtResource("4_64x4u")
+
+[node name="SpringDown" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(0, 64)
+rotation = 1.5708
+texture = ExtResource("5_64x4u")
+
+[node name="SpringLeft" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(-56, 0)
+texture = ExtResource("5_64x4u")
+offset = Vector2(-8, 0)
+
+[node name="SpringRight" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(56, 0)
+texture = ExtResource("5_64x4u")
+offset = Vector2(8, 0)
+
+[node name="SpringUp" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(0, -64)
+rotation = 1.5708
+texture = ExtResource("5_64x4u")
 
 [node name="UpSpringShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -64)

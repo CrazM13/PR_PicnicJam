@@ -602,6 +602,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("8_epf2j")
 toastPrefab = ExtResource("9_ngg20")
 
@@ -618,6 +619,7 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("8_epf2j")
 toastPrefab = ExtResource("9_ngg20")
 flip = true
