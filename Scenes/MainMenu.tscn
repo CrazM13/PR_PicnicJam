@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://qstt55birmxg"]
+[gd_scene load_steps=6 format=3 uid="uid://qstt55birmxg"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_tt5f1"]
 [ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="2_853f1"]
+[ext_resource type="Texture2D" uid="uid://bx3o2xpl6i00u" path="res://Assets/Textures/UI/MenuBG.tres" id="2_df05h"]
 [ext_resource type="Script" uid="uid://c07ekkm567x63" path="res://Scripts/Menus/Buttons/ButtonLockOnNewGame.cs" id="3_8saeu"]
 [ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="3_ghw46"]
 
@@ -14,14 +15,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_tt5f1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.173513, 0.16198, 0.258818, 1)
+texture = ExtResource("2_df05h")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

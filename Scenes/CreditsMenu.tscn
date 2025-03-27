@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dft3gukpa0p0q"]
+[gd_scene load_steps=9 format=3 uid="uid://dft3gukpa0p0q"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_211g1"]
+[ext_resource type="Texture2D" uid="uid://bx3o2xpl6i00u" path="res://Assets/Textures/UI/MenuBG.tres" id="2_cem8h"]
 [ext_resource type="Texture2D" uid="uid://dxbigpybq5wl5" path="res://Assets/Textures/Credits/8x16Joe.png" id="2_sino0"]
 [ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="2_staik"]
 [ext_resource type="Texture2D" uid="uid://oa5svi0oq87" path="res://Assets/Textures/Credits/8x16Jim.png" id="3_86ai6"]
@@ -19,14 +20,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_211g1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.173513, 0.16198, 0.258818, 1)
+texture = ExtResource("2_cem8h")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bej1o6i7ouvvm"]
+[gd_scene load_steps=20 format=3 uid="uid://bej1o6i7ouvvm"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_qqnya"]
 [ext_resource type="Script" uid="uid://do4q8u63uhe47" path="res://Scripts/Menus/Buttons/BetterTabMenu.cs" id="2_bdxpv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bcxnfwwxa5g3o" path="res://Scripts/Menus/SetGameSettings.cs" id="2_ksf6h"]
 [ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="3_5hy3q"]
 [ext_resource type="AudioStream" uid="uid://blmsi75mudt3u" path="res://Assets/Audio/SFX/Click On.wav" id="3_q4at1"]
+[ext_resource type="Texture2D" uid="uid://bx3o2xpl6i00u" path="res://Assets/Textures/UI/MenuBG.tres" id="3_viydq"]
 [ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="4_cbhj7"]
 [ext_resource type="AudioStream" uid="uid://bqv0ix4gvsko5" path="res://Assets/Audio/SFX/Click Off.wav" id="6_6f4k2"]
 [ext_resource type="Script" uid="uid://bsb3kjhxhknt0" path="res://Scripts/Menus/Buttons/MuteBusButton.cs" id="6_cja8r"]
@@ -32,14 +33,14 @@ volumeSliders = [NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBox
 muteButtons = [NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox/BetterButton"), NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox/BetterButton"), NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox/BetterButton")]
 invertControls = NodePath("VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.173513, 0.16198, 0.258818, 1)
+texture = ExtResource("3_viydq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -469,23 +470,23 @@ mouse_filter = 2
 script = ExtResource("14_mrk6e")
 toastPrefab = ExtResource("15_oa66i")
 
-[node name="OpenedFolderToast" type="Node" parent="Control" node_paths=PackedStringArray("container")]
+[node name="OpenedFolderToast" type="Node" parent="Control" node_paths=PackedStringArray("Container")]
 script = ExtResource("16_viydq")
-message = "Opened Folder"
-icon = ExtResource("17_oa66i")
-container = NodePath("../Toast Container")
+Message = "Opened Folder"
+Icon = ExtResource("17_oa66i")
+Container = NodePath("../Toast Container")
 
-[node name="ResetSettings" type="Node" parent="Control" node_paths=PackedStringArray("container")]
+[node name="ResetSettings" type="Node" parent="Control" node_paths=PackedStringArray("Container")]
 script = ExtResource("16_viydq")
-message = "Reset Settings"
-icon = ExtResource("18_oa66i")
-container = NodePath("../Toast Container")
+Message = "Reset Settings"
+Icon = ExtResource("18_oa66i")
+Container = NodePath("../Toast Container")
 
-[node name="DeletedSaveData" type="Node" parent="Control" node_paths=PackedStringArray("container")]
+[node name="DeletedSaveData" type="Node" parent="Control" node_paths=PackedStringArray("Container")]
 script = ExtResource("16_viydq")
-message = "Deleted"
-icon = ExtResource("18_oa66i")
-container = NodePath("../Toast Container")
+Message = "Deleted Save"
+Icon = ExtResource("18_oa66i")
+Container = NodePath("../Toast Container")
 
 [connection signal="item_selected" from="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton" to="." method="ChangeControlsInvert"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer/BetterButton" to="Control/OpenedFolderToast" method="SendNewToast"]

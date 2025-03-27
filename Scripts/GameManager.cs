@@ -21,14 +21,21 @@ public class GameManager {
 		public bool InvertLeftRight { get; set; } = false;
 	}
 
+	public class GameStats {
+		public uint StarCount { get; set; } = 0;
+	}
+
 	private Dictionary<string, LevelData> levelData;
 	private string lastLevelName;
+	private uint lastStarGain;
 
 	public GameSettings Settings { get; set; }
+	public GameStats Stats { get; set; }
 
 	private GameManager() {
 		levelData = new Dictionary<string, LevelData>();
 		Settings = new GameSettings();
+		Stats = new GameStats();
 
 		LoadSettings();
 		LoadGame();
@@ -42,6 +49,8 @@ public class GameManager {
 		UnlockLevel(thisLevelPath);
 		levelData[thisLevelPath].ScenePath = thisLevelPath;
 		levelData[thisLevelPath].NextLevelPath = nextLevelPath;
+
+		lastStarGain = 0;
 
 		lastLevelName = thisLevelPath;
 	}
@@ -59,7 +68,17 @@ public class GameManager {
 
 	public void CompleteLevel(string thisLevelPath, SimplePlayerController player) {
 		LevelData level = levelData[thisLevelPath];
-		level.Score = player.GetRemainingHealth();
+
+		int newScore = player.GetRemainingHealth();
+
+		if (newScore > level.Score) {
+			int difference = newScore - level.Score;
+			level.Score = newScore;
+
+			lastStarGain = (uint) difference;
+			Stats.StarCount += lastStarGain;
+		}
+		
 		level.WasWon = true;
 
 		UnlockLevel(level.NextLevelPath);
@@ -71,6 +90,10 @@ public class GameManager {
 
 	public LevelData GetLastLevelData() {
 		return levelData[lastLevelName];
+	}
+
+	public uint GetLastLevelStarGain() {
+		return lastStarGain;
 	}
 
 	public int GetUnlockedLevelCount() {
@@ -134,6 +157,12 @@ public class GameManager {
 			levelDataArray.Add(level.ConvertToVariant());
 		}
 
+		Godot.Collections.Dictionary<string, Variant> statsObj = new Godot.Collections.Dictionary<string, Variant> {
+			{ "star_count", Stats.StarCount }
+		};
+
+		gameSaveVault.SetValue("stats", statsObj);
+
 		gameSaveVault.SetValue("levels", levelDataArray);
 
 		VaultManager.SaveVault("save");
@@ -144,6 +173,12 @@ public class GameManager {
 		Vault gameSaveVault = VaultManager.GetVault("save");
 
 		if (gameSaveVault != null) {
+
+			Godot.Collections.Dictionary<string, Variant> statsObj = gameSaveVault.GetValue("stats").AsGodotDictionary<string, Variant>();
+			if (statsObj.TryGetValue("star_count", out Variant starCountValue)) {
+				Stats.StarCount = starCountValue.As<uint>();
+			}
+
 			levelData.Clear();
 			Godot.Collections.Array<Godot.Collections.Dictionary<string, Variant>> levelDataArray = gameSaveVault.GetValue("levels").AsGodotArray<Godot.Collections.Dictionary<string, Variant>>();
 
@@ -157,6 +192,7 @@ public class GameManager {
 
 	public void DeleteSavedGame() {
 		levelData.Clear();
+		Stats = new GameStats();
 		SaveGame();
 	}
 

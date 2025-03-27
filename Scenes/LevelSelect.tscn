@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh6fod6uihi8w"]
+[gd_scene load_steps=10 format=3 uid="uid://bh6fod6uihi8w"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_chbko"]
 [ext_resource type="Script" uid="uid://d26tlfkv3g4dl" path="res://Scripts/Menus/LevelSelectScroll.cs" id="2_1qomi"]
 [ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="2_045ii"]
 [ext_resource type="Script" uid="uid://bckjtmcsdgyu2" path="res://Scripts/Menus/ListLevels.cs" id="2_fo23m"]
+[ext_resource type="Texture2D" uid="uid://bx3o2xpl6i00u" path="res://Assets/Textures/UI/MenuBG.tres" id="2_w36p5"]
 [ext_resource type="PackedScene" uid="uid://c8q1cr1ml3qm0" path="res://Assets/Prefabs/UI/LevelOption.tscn" id="3_1cx81"]
 [ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="5_8sr8g"]
+[ext_resource type="Texture2D" uid="uid://bb00tkhojykfy" path="res://Assets/Textures/Icons/star.svg" id="8_b56eh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1qomi"]
 size = Vector2(256, 256)
@@ -19,14 +21,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_chbko")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.173513, 0.16198, 0.258818, 1)
+texture = ExtResource("2_w36p5")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -119,6 +121,33 @@ text = "Play"
 [node name="Control3" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
+
+[node name="Star Count" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 64.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Star Count"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Star Count/HBoxContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("8_b56eh")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Star Count/HBoxContainer"]
+layout_mode = 2
+text = "x000"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/BetterButton" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollLast"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/BetterButton2" to="CenterContainer/VBoxContainer/HBoxContainer/CenterContainer/TextureRect/ScrollContainer" method="ScrollNext"]

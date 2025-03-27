@@ -3,10 +3,10 @@ using System;
 
 public partial class SendToast : Node {
 
-	[Export] private string message;
-	[Export] private Texture2D icon;
+	[Export] protected string Message { get; set; }
+	[Export] protected Texture2D Icon { get; set; }
 
-	[Export] private ToastContainer container;
+	[Export] protected ToastContainer Container { get; set; }
 
 	[Export] private bool sendOnStart = false;
 
@@ -17,8 +17,8 @@ public partial class SendToast : Node {
 
 	}
 
-	public void SendNewToast() {
-		container.AddToast(3, message, icon);
+	public virtual Toast SendNewToast() {
+		return Container.AddToast(3, Message, Icon);
 	}
 
 }

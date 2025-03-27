@@ -8,6 +8,7 @@ public partial class BackgroundMusic : Node {
 	public override void _EnterTree() {
 		base._EnterTree();
 		Instance = this;
+		GameManager _ = GameManager.Instance;
 	}
 	#endregion
 
@@ -18,7 +19,6 @@ public partial class BackgroundMusic : Node {
 
 	public override void _Ready() {
 		base._Ready();
-
 		currentTrack = mainTrack.Stream.ResourcePath;
 	}
 

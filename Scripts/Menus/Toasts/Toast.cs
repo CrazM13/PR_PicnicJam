@@ -11,14 +11,16 @@ public partial class Toast : Control {
 	private float duration;
 	private float timer;
 
-	public void SetMessage(float duration, string message, Texture2D icon = null) {
+	public bool Flip { get; set; } = false;
+
+	public void SetMessage(float duration, string message, Texture2D icon = null, bool resetTimer = true) {
 		this.icon.Texture = icon;
 		this.text.Text = message;
 		this.duration = duration;
 
-		this.timer = 0;
+		if (resetTimer) this.timer = 0;
 
-		GetChild<Control>(0).Position = new Vector2(offset.Sample(timer / duration), 0);
+		GetChild<Control>(0).Position = new Vector2(offset.Sample(timer / duration) * (Flip ? -1 : 1), 0);
 	}
 
 	public override void _Process(double delta) {
@@ -26,7 +28,7 @@ public partial class Toast : Control {
 
 		timer += (float) delta;
 
-		GetChild<Control>(0).Position = new Vector2(offset.Sample(timer / duration), 0);
+		GetChild<Control>(0).Position = new Vector2(offset.Sample(timer / duration) * (Flip ? -1 : 1), 0);
 
 		if (timer >= duration) {
 			QueueFree();
