@@ -1,0 +1,273 @@
+[gd_scene load_steps=13 format=3 uid="uid://tej6b80mv0ou"]
+
+[ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_qjwie"]
+[ext_resource type="PackedScene" uid="uid://c24sshhqtr0b5" path="res://Assets/Prefabs/Game Objects/ramp.tscn" id="2_qjwie"]
+[ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="2_v531u"]
+[ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="3_n2f15"]
+[ext_resource type="PackedScene" uid="uid://crgkownqvx72k" path="res://Assets/Prefabs/Game Objects/spinning_blades.tscn" id="4_bydhi"]
+[ext_resource type="PackedScene" uid="uid://b4upa0rtvvrcs" path="res://Assets/Prefabs/Game Objects/rotator_gear.tscn" id="4_v531u"]
+[ext_resource type="PackedScene" uid="uid://b2iklat0xsrs2" path="res://Assets/Prefabs/Game Objects/box.tscn" id="6_n2f15"]
+[ext_resource type="PackedScene" uid="uid://3um3aluyef4x" path="res://Assets/Prefabs/Game Objects/button_level_object.tscn" id="7_bydhi"]
+[ext_resource type="PackedScene" uid="uid://b4v0es1p4o255" path="res://Assets/Prefabs/Game Objects/moveable_box.tscn" id="9_5xh4f"]
+[ext_resource type="PackedScene" uid="uid://da8yvwoaxgyy4" path="res://Assets/Prefabs/Entities/wasp.tscn" id="10_7bbb2"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5xh4f"]
+a = Vector2(-512, 0)
+b = Vector2(512, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq8bw"]
+size = Vector2(150, 150)
+
+[node name="LevelJ6" type="Node2D"]
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Platform" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(0, 320)
+
+[node name="Platform8" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(2176, 1344)
+
+[node name="Platform9" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(1152, 1344)
+
+[node name="Platform10" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(128, 1344)
+
+[node name="Platform2" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(0, -1600)
+
+[node name="Platform14" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(-1024, -1600)
+
+[node name="Platform13" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(-1024, 320)
+
+[node name="Platform11" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(0, -704)
+
+[node name="Platform3" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(1024, -1600)
+
+[node name="Platform4" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(2048, -1600)
+
+[node name="Platform5" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(2624, -1152)
+rotation = 1.57079
+
+[node name="Platform15" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(-1600, -1152)
+rotation = 1.57079
+
+[node name="Platform6" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(2624, -128)
+rotation = 1.57079
+
+[node name="Platform12" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(-1600, -128)
+rotation = 1.57079
+
+[node name="Platform16" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(-448, 896)
+rotation = 1.57079
+
+[node name="Platform7" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
+position = Vector2(2624, 896)
+rotation = 1.57079
+
+[node name="Start" parent="." instance=ExtResource("2_v531u")]
+
+[node name="Goal" parent="." instance=ExtResource("3_n2f15")]
+position = Vector2(2048, 1152)
+nextScene = "res://Scenes/Levels/LevelJ7.tscn"
+
+[node name="Rotator Gear" parent="." instance=ExtResource("4_v531u")]
+position = Vector2(512, 256)
+unpoweredRotation = 90.0
+poweredRotation = -90.0
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="Rotator Gear"]
+show_behind_parent = true
+position = Vector2(-512, -256)
+
+[node name="Platform2" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("1_qjwie")]
+position = Vector2(1792, 1344)
+
+[node name="Ramp" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(576, 320)
+
+[node name="Ramp2" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(704, 448)
+
+[node name="Ramp3" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(832, 576)
+
+[node name="Ramp4" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(960, 704)
+
+[node name="Ramp5" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(1088, 832)
+
+[node name="Ramp6" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(1216, 960)
+
+[node name="Ramp7" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(1344, 1088)
+
+[node name="Ramp8" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(576, 448)
+rotation = 3.14159
+
+[node name="Ramp9" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(704, 576)
+rotation = 3.14159
+
+[node name="Ramp10" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(832, 704)
+rotation = 3.14159
+
+[node name="Ramp11" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(960, 832)
+rotation = 3.14159
+
+[node name="Ramp12" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(1088, 960)
+rotation = 3.14159
+
+[node name="Ramp13" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
+position = Vector2(1216, 1088)
+rotation = 3.14159
+
+[node name="Box" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("6_n2f15")]
+position = Vector2(448, 320)
+
+[node name="Box2" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("6_n2f15")]
+position = Vector2(1344, 1216)
+
+[node name="Node2D" type="Node2D" parent="Rotator Gear"]
+
+[node name="SpinningBlades2" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(64, 64)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades3" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(128, 128)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades4" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(192, 192)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades5" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(256, 256)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades6" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(320, 320)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades7" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(384, 384)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades8" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(448, 448)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades9" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(512, 512)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades10" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(576, 576)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades11" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(640, 640)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades12" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(704, 704)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades13" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(768, 768)
+speed = 4.0
+invertPower = true
+
+[node name="SpinningBlades14" parent="Rotator Gear/Node2D" instance=ExtResource("4_bydhi")]
+position = Vector2(832, 832)
+speed = 4.0
+invertPower = true
+
+[node name="ButtonLO" parent="." node_paths=PackedStringArray("levelObjects") instance=ExtResource("7_bydhi")]
+position = Vector2(-448, -832)
+levelObjects = [NodePath("../Rotator Gear"), NodePath("../Rotator Gear2"), NodePath("../Rotator Gear3")]
+
+[node name="MoveableBox" parent="." instance=ExtResource("9_5xh4f")]
+position = Vector2(-448, -1344)
+
+[node name="Rotator Gear2" parent="." instance=ExtResource("4_v531u")]
+position = Vector2(384, -1536)
+unpoweredRotation = 90.0
+poweredRotation = -90.0
+
+[node name="Platform" parent="Rotator Gear2" instance=ExtResource("1_qjwie")]
+show_behind_parent = true
+position = Vector2(64, 384)
+rotation = 1.57079
+
+[node name="Rotator Gear3" parent="." instance=ExtResource("4_v531u")]
+position = Vector2(-1536, -640)
+invertPower = true
+
+[node name="Platform" parent="Rotator Gear3" instance=ExtResource("1_qjwie")]
+show_behind_parent = true
+position = Vector2(512, -64)
+
+[node name="OneWayWall" type="StaticBody2D" parent="."]
+position = Vector2(384, -1184)
+rotation = 4.71238
+collision_layer = 2
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayWall"]
+shape = SubResource("SegmentShape2D_5xh4f")
+one_way_collision = true
+
+[node name="OneWayWall2" type="StaticBody2D" parent="."]
+position = Vector2(-1024, -768)
+rotation = 6.28318
+collision_layer = 2
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayWall2"]
+shape = SubResource("SegmentShape2D_5xh4f")
+one_way_collision = true
+
+[node name="OneWayWall3" type="StaticBody2D" parent="."]
+position = Vector2(-448, -832)
+rotation = 3.14159
+collision_layer = 2
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayWall3"]
+shape = SubResource("RectangleShape2D_nq8bw")
+
+[node name="Wasp" parent="." instance=ExtResource("10_7bbb2")]
+position = Vector2(-832, -1184)
+
+[node name="Wasp2" parent="." instance=ExtResource("10_7bbb2")]
+position = Vector2(-128, -1280)

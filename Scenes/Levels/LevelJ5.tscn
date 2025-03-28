@@ -41,6 +41,7 @@ rotation = -1.57079
 
 [node name="Goal" parent="." instance=ExtResource("3_gspvx")]
 position = Vector2(2304, 128)
+nextScene = "res://Scenes/Levels/LevelJ6.tscn"
 
 [node name="ButtonLO" parent="." node_paths=PackedStringArray("levelObjects") instance=ExtResource("4_hd8am")]
 position = Vector2(-320, 192)

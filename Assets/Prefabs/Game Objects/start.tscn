@@ -33,7 +33,7 @@ region_rect = Rect2(32, 0, 32, 32)
 shape = SubResource("CircleShape2D_hqaqg")
 
 [node name="HeldObject2" type="CharacterBody2D" parent="."]
-position = Vector2(32, -192)
+position = Vector2(32, -160)
 collision_layer = 16
 collision_mask = 145
 platform_on_leave = 2
@@ -50,7 +50,7 @@ region_rect = Rect2(0, 0, 32, 64)
 shape = SubResource("CircleShape2D_hqaqg")
 
 [node name="HeldObject3" type="CharacterBody2D" parent="."]
-position = Vector2(-32, -256)
+position = Vector2(-32, -192)
 collision_layer = 16
 collision_mask = 145
 platform_on_leave = 2

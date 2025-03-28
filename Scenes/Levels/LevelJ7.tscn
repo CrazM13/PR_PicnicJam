@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn25ocydcvu8u"]
+
+[ext_resource type="PackedScene" uid="uid://b4upa0rtvvrcs" path="res://Assets/Prefabs/Game Objects/rotator_gear.tscn" id="1_5ptav"]
+[ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="2_2me7w"]
+[ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="3_qb25p"]
+[ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="4_2rxhk"]
+[ext_resource type="PackedScene" uid="uid://3um3aluyef4x" path="res://Assets/Prefabs/Game Objects/button_level_object.tscn" id="5_2rxhk"]
+
+[node name="LevelJ7" type="Node2D"]
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Start" parent="." instance=ExtResource("3_qb25p")]
+
+[node name="Rotator Gear" parent="." instance=ExtResource("1_5ptav")]
+speed = 90.0
+unpoweredRotation = 0.0
+poweredRotation = -90.0
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="Rotator Gear"]
+
+[node name="Platform" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(0, 832)
+
+[node name="Platform2" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(0, 448)
+
+[node name="Platform3" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(1024, 832)
+
+[node name="Platform4" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(-1024, 448)
+
+[node name="Platform17" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(-2048, 448)
+
+[node name="Platform5" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(-1024, 832)
+
+[node name="Platform16" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(-2048, 832)
+
+[node name="Platform6" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(576, 0)
+rotation = -1.57079
+
+[node name="Platform15" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(-2496, -128)
+rotation = -1.57079
+
+[node name="Platform20" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(-2496, 384)
+rotation = -1.57079
+
+[node name="Platform18" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(-2496, -1024)
+rotation = -1.57079
+
+[node name="Platform7" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(1472, 0)
+rotation = -1.57079
+
+[node name="Platform8" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(1472, 384)
+rotation = -1.57079
+
+[node name="Platform9" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(1472, -1024)
+rotation = -1.57079
+
+[node name="Platform10" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(128, -576)
+
+[node name="Platform11" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(896, -1472)
+
+[node name="Platform12" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(128, -1472)
+
+[node name="Platform13" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(-896, -1472)
+
+[node name="Platform19" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(-1920, -1472)
+
+[node name="Platform14" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_2me7w")]
+position = Vector2(-896, -576)
+
+[node name="Goal" parent="Rotator Gear" instance=ExtResource("4_2rxhk")]
+position = Vector2(-2304, 640)
+
+[node name="ButtonLO" parent="Rotator Gear" node_paths=PackedStringArray("levelObjects") instance=ExtResource("5_2rxhk")]
+position = Vector2(448, 320)
+levelObjects = [NodePath("..")]
+
+[node name="ButtonLO4" parent="Rotator Gear" node_paths=PackedStringArray("levelObjects") instance=ExtResource("5_2rxhk")]
+position = Vector2(-2368, -1088)
+rotation = 1.57079
+levelObjects = [NodePath("..")]
+
+[node name="ButtonLO2" parent="Rotator Gear" node_paths=PackedStringArray("levelObjects") instance=ExtResource("5_2rxhk")]
+position = Vector2(1344, 704)
+rotation = -1.57079
+levelObjects = [NodePath("..")]
+
+[node name="ButtonLO3" parent="Rotator Gear" node_paths=PackedStringArray("levelObjects") instance=ExtResource("5_2rxhk")]
+position = Vector2(960, -1344)
+rotation = -3.14159
+levelObjects = [NodePath("..")]

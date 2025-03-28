@@ -24,10 +24,12 @@ public partial class LevelObjectRotator : LevelObject {
 	private void OnPowerChange(LevelObject _) {
 		targetRotation += IsPowered ? poweredRotation : unpoweredRotation;
 
-		if (targetRotation > 360) {
-			targetRotation -= 360;
-		} else if (targetRotation < -360) {
-			targetRotation += 360;
+
+		int currSign = Mathf.Sign(this.RotationDegrees);
+		int targetSign = Mathf.Sign(this.targetRotation);
+		while (currSign != targetSign && currSign != 0 && targetSign != 0) {
+			targetRotation += -360 * targetSign;
+			targetSign = Mathf.Sign(this.targetRotation);
 		}
 	}
 }
