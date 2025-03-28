@@ -31,7 +31,7 @@ region_enabled = true
 region_rect = Rect2(128, 0, 128, 128)
 
 [node name="ButtonController" type="Area2D" parent="." node_paths=PackedStringArray("router", "sprite", "audioOn", "audioOff")]
-collision_mask = 248
+collision_mask = 232
 script = ExtResource("3_gaqwm")
 router = NodePath("..")
 sprite = NodePath("../Mask/Sprite2D")

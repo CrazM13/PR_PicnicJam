@@ -61,10 +61,10 @@ public partial class LevelObject : Node2D {
 			_ => false
 		};
 
-		if (toggleMode && ((invertPower && !powered) || (!invertPower && powered))) {
-			IsPowered = !IsPowered;
-		} else if (invertPower) {
-			IsPowered = !powered;
+		if (invertPower) powered = !powered;
+
+		if (toggleMode) {
+			if (powered) IsPowered = !IsPowered;
 		} else {
 			IsPowered = powered;
 		}

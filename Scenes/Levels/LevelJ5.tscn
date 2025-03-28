@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtaixwc47io3j"]
+
+[ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_mar8a"]
+[ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="2_jh2ui"]
+[ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="3_gspvx"]
+[ext_resource type="PackedScene" uid="uid://3um3aluyef4x" path="res://Assets/Prefabs/Game Objects/button_level_object.tscn" id="4_hd8am"]
+[ext_resource type="PackedScene" uid="uid://b4upa0rtvvrcs" path="res://Assets/Prefabs/Game Objects/rotator_gear.tscn" id="5_gspvx"]
+[ext_resource type="PackedScene" uid="uid://da8yvwoaxgyy4" path="res://Assets/Prefabs/Entities/wasp.tscn" id="6_hd8am"]
+
+[node name="LevelJ5" type="Node2D"]
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Platform" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
+position = Vector2(0, 320)
+
+[node name="Platform2" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
+position = Vector2(1024, 320)
+
+[node name="Platform3" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
+position = Vector2(2048, 320)
+
+[node name="Platform4" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
+position = Vector2(0, -832)
+
+[node name="Platform5" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
+position = Vector2(1024, -832)
+
+[node name="Platform6" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
+position = Vector2(2048, -832)
+
+[node name="Platform7" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
+position = Vector2(-448, -256)
+rotation = -1.57079
+
+[node name="Platform8" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
+position = Vector2(2496, -256)
+rotation = -1.57079
+
+[node name="Start" parent="." instance=ExtResource("2_jh2ui")]
+
+[node name="Goal" parent="." instance=ExtResource("3_gspvx")]
+position = Vector2(2304, 128)
+
+[node name="ButtonLO" parent="." node_paths=PackedStringArray("levelObjects") instance=ExtResource("4_hd8am")]
+position = Vector2(-320, 192)
+levelObjects = [NodePath("../Rotator Gear"), NodePath("../Rotator Gear4")]
+toggleMode = true
+
+[node name="Rotator Gear" parent="." instance=ExtResource("5_gspvx")]
+position = Vector2(576, -832)
+
+[node name="Platform11" parent="Rotator Gear" instance=ExtResource("1_mar8a")]
+show_behind_parent = true
+position = Vector2(0, 64)
+rotation = -1.57079
+
+[node name="Rotator Gear4" parent="." instance=ExtResource("5_gspvx")]
+position = Vector2(576, 320)
+unpoweredRotation = 90.0
+poweredRotation = -90.0
+
+[node name="Platform9" parent="Rotator Gear4" instance=ExtResource("1_mar8a")]
+show_behind_parent = true
+position = Vector2(0, -64)
+rotation = -1.57079
+
+[node name="ButtonLO2" parent="." node_paths=PackedStringArray("levelObjects") instance=ExtResource("4_hd8am")]
+position = Vector2(704, 192)
+levelObjects = [NodePath("../Rotator Gear2"), NodePath("../Rotator Gear3")]
+toggleMode = true
+
+[node name="Rotator Gear2" parent="." instance=ExtResource("5_gspvx")]
+position = Vector2(1600, -832)
+unpoweredRotation = 90.0
+poweredRotation = -90.0
+
+[node name="Platform12" parent="Rotator Gear2" instance=ExtResource("1_mar8a")]
+show_behind_parent = true
+position = Vector2(0, 64)
+rotation = -1.57079
+
+[node name="Rotator Gear3" parent="." instance=ExtResource("5_gspvx")]
+position = Vector2(1600, 320)
+
+[node name="Platform10" parent="Rotator Gear3" instance=ExtResource("1_mar8a")]
+show_behind_parent = true
+position = Vector2(0, -64)
+rotation = -1.57079
+
+[node name="Wasp" parent="." instance=ExtResource("6_hd8am")]
+position = Vector2(1152, 0)

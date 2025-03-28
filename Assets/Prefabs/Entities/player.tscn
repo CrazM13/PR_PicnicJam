@@ -37,6 +37,7 @@ size = Vector2(96, 96)
 
 [node name="Player" type="RigidBody2D" node_paths=PackedStringArray("Basket", "springUp", "springDown", "springLeft", "springRight", "springLaunch", "springBounce", "upRay", "downRay", "leftRay", "rightRay", "upCollider", "downCollider", "leftCollider", "rightCollider")]
 collision_layer = 64
+collision_mask = 9
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_3iclq")
 gravity_scale = 2.0

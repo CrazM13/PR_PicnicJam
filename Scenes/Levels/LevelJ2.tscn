@@ -64,4 +64,4 @@ levelObjects = [NodePath("../Rotator Gear")]
 
 [node name="Goal" parent="." instance=ExtResource("5_at54h")]
 position = Vector2(1152, -2048)
-nextScene = "res://Scenes/Levels/LevelJ3.tscn"
+nextScene = "res://Scenes/Levels/LevelJ4.tscn"

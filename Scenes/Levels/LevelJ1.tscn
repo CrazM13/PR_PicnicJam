@@ -108,4 +108,4 @@ rotation = 3.14159
 
 [node name="Goal" parent="." instance=ExtResource("3_ufkxq")]
 position = Vector2(0, -896)
-nextScene = "res://Scenes/Levels/LevelJ2.tscn"
+nextScene = "res://Scenes/Levels/LevelJ3.tscn"
