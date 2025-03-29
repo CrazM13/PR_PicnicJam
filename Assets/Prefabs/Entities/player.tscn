@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5xnjc82lv7ht"]
+[gd_scene load_steps=18 format=3 uid="uid://c5xnjc82lv7ht"]
 
 [ext_resource type="Script" uid="uid://cqgkb27xoej3o" path="res://Scripts/Entity/SimplePlayerController.cs" id="1_ebihn"]
 [ext_resource type="AudioStream" uid="uid://fx1a224r8yrm" path="res://Assets/Audio/SFX/SpringLaunchSFX.wav" id="2_bvj5f"]
@@ -34,6 +34,17 @@ size = Vector2(32, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mbfp"]
 size = Vector2(96, 96)
+
+[sub_resource type="Gradient" id="Gradient_ghw46"]
+colors = PackedColorArray(0.39906, 0.55912, 0.685758, 1, 0.2226, 0.448027, 0.53, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_64x4u"]
+gradient = SubResource("Gradient_ghw46")
+width = 1152
+height = 648
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="Player" type="RigidBody2D" node_paths=PackedStringArray("Basket", "springUp", "springDown", "springLeft", "springRight", "springLaunch", "springBounce", "upRay", "downRay", "leftRay", "rightRay", "upCollider", "downCollider", "leftCollider", "rightCollider")]
 collision_layer = 64
@@ -197,3 +208,14 @@ shape = SubResource("RectangleShape2D_1mbfp")
 [node name="Camera2D" type="Camera2D" parent="CameraRig"]
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CameraRig/Camera2D"]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="CameraRig/Camera2D/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_64x4u")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ygvn72rh065k"]
+
+[ext_resource type="Texture2D" uid="uid://htnvvhybjd5n" path="res://Assets/Textures/Testing/GrassOverlay.png" id="1_hv7gw"]
+
+[node name="GrassCoverBox" type="Sprite2D"]
+texture = ExtResource("1_hv7gw")

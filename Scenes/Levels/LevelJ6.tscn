@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://tej6b80mv0ou"]
+[gd_scene load_steps=15 format=3 uid="uid://tej6b80mv0ou"]
 
 [ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_qjwie"]
+[ext_resource type="PackedScene" uid="uid://b7cugx7mwcpoo" path="res://Assets/Prefabs/Game Objects/grass_cover_platform.tscn" id="2_1wxn1"]
 [ext_resource type="PackedScene" uid="uid://c24sshhqtr0b5" path="res://Assets/Prefabs/Game Objects/ramp.tscn" id="2_qjwie"]
 [ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="2_v531u"]
 [ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="3_n2f15"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://3um3aluyef4x" path="res://Assets/Prefabs/Game Objects/button_level_object.tscn" id="7_bydhi"]
 [ext_resource type="PackedScene" uid="uid://b4v0es1p4o255" path="res://Assets/Prefabs/Game Objects/moveable_box.tscn" id="9_5xh4f"]
 [ext_resource type="PackedScene" uid="uid://da8yvwoaxgyy4" path="res://Assets/Prefabs/Entities/wasp.tscn" id="10_7bbb2"]
+[ext_resource type="PackedScene" uid="uid://bdeqd4drnfqsq" path="res://Assets/Prefabs/Game Objects/metal_platform.tscn" id="10_nq8bw"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5xh4f"]
 a = Vector2(-512, 0)
@@ -25,32 +27,52 @@ size = Vector2(150, 150)
 [node name="Platform" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
 position = Vector2(0, 320)
 
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform" instance=ExtResource("2_1wxn1")]
+
 [node name="Platform8" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
 position = Vector2(2176, 1344)
+
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform8" instance=ExtResource("2_1wxn1")]
 
 [node name="Platform9" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
 position = Vector2(1152, 1344)
 
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform9" instance=ExtResource("2_1wxn1")]
+
 [node name="Platform10" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
 position = Vector2(128, 1344)
+
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform10" instance=ExtResource("2_1wxn1")]
 
 [node name="Platform2" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
 position = Vector2(0, -1600)
 
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform2" instance=ExtResource("2_1wxn1")]
+
 [node name="Platform14" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
 position = Vector2(-1024, -1600)
+
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform14" instance=ExtResource("2_1wxn1")]
 
 [node name="Platform13" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
 position = Vector2(-1024, 320)
 
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform13" instance=ExtResource("2_1wxn1")]
+
 [node name="Platform11" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
 position = Vector2(0, -704)
+
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform11" instance=ExtResource("2_1wxn1")]
 
 [node name="Platform3" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
 position = Vector2(1024, -1600)
 
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform3" instance=ExtResource("2_1wxn1")]
+
 [node name="Platform4" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
 position = Vector2(2048, -1600)
+
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform4" instance=ExtResource("2_1wxn1")]
 
 [node name="Platform5" parent="CanvasGroup" instance=ExtResource("1_qjwie")]
 position = Vector2(2624, -1152)
@@ -93,6 +115,8 @@ position = Vector2(-512, -256)
 
 [node name="Platform2" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("1_qjwie")]
 position = Vector2(1792, 1344)
+
+[node name="GrassCoverPlatform2" parent="Rotator Gear/CanvasGroup2/Platform2" instance=ExtResource("2_1wxn1")]
 
 [node name="Ramp" parent="Rotator Gear/CanvasGroup2" instance=ExtResource("2_qjwie")]
 position = Vector2(576, 320)
@@ -224,18 +248,20 @@ position = Vector2(384, -1536)
 unpoweredRotation = 90.0
 poweredRotation = -90.0
 
-[node name="Platform" parent="Rotator Gear2" instance=ExtResource("1_qjwie")]
+[node name="Metal Platform" parent="Rotator Gear2" instance=ExtResource("10_nq8bw")]
 show_behind_parent = true
 position = Vector2(64, 384)
 rotation = 1.57079
 
 [node name="Rotator Gear3" parent="." instance=ExtResource("4_v531u")]
 position = Vector2(-1536, -640)
-invertPower = true
+unpoweredRotation = 90.0
+poweredRotation = -90.0
 
-[node name="Platform" parent="Rotator Gear3" instance=ExtResource("1_qjwie")]
+[node name="Metal Platform" parent="Rotator Gear3" instance=ExtResource("10_nq8bw")]
 show_behind_parent = true
-position = Vector2(512, -64)
+position = Vector2(64, 512)
+rotation = 1.57079
 
 [node name="OneWayWall" type="StaticBody2D" parent="."]
 position = Vector2(384, -1184)

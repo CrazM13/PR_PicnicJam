@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdd17ivyw63o8"]
+[gd_scene load_steps=12 format=3 uid="uid://cdd17ivyw63o8"]
 
 [ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_qx7uw"]
+[ext_resource type="PackedScene" uid="uid://b7cugx7mwcpoo" path="res://Assets/Prefabs/Game Objects/grass_cover_platform.tscn" id="2_ghs18"]
 [ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="2_gmrvj"]
 [ext_resource type="PackedScene" uid="uid://3um3aluyef4x" path="res://Assets/Prefabs/Game Objects/button_level_object.tscn" id="3_qcsb4"]
 [ext_resource type="PackedScene" uid="uid://rkitjpdn4ejj" path="res://Assets/Prefabs/Game Objects/router_gear.tscn" id="4_87ef0"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b4upa0rtvvrcs" path="res://Assets/Prefabs/Game Objects/rotator_gear.tscn" id="7_g27wx"]
 [ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="8_n143u"]
 [ext_resource type="PackedScene" uid="uid://da8yvwoaxgyy4" path="res://Assets/Prefabs/Entities/wasp.tscn" id="9_n143u"]
+[ext_resource type="PackedScene" uid="uid://bdeqd4drnfqsq" path="res://Assets/Prefabs/Game Objects/metal_platform.tscn" id="10_qxb40"]
 
 [node name="LevelJ9" type="Node2D"]
 
@@ -17,20 +19,30 @@
 [node name="Platform" parent="CanvasGroup" instance=ExtResource("1_qx7uw")]
 position = Vector2(0, 320)
 
+[node name="GrassCoverPlatform" parent="CanvasGroup/Platform" instance=ExtResource("2_ghs18")]
+
 [node name="Platform10" parent="CanvasGroup" instance=ExtResource("1_qx7uw")]
 position = Vector2(0, -2880)
 
 [node name="Platform2" parent="CanvasGroup" instance=ExtResource("1_qx7uw")]
 position = Vector2(1024, 320)
 
+[node name="GrassCoverPlatform" parent="CanvasGroup/Platform2" instance=ExtResource("2_ghs18")]
+
 [node name="Platform3" parent="CanvasGroup" instance=ExtResource("1_qx7uw")]
 position = Vector2(-1024, 320)
+
+[node name="GrassCoverPlatform" parent="CanvasGroup/Platform3" instance=ExtResource("2_ghs18")]
 
 [node name="Platform4" parent="CanvasGroup" instance=ExtResource("1_qx7uw")]
 position = Vector2(1024, -832)
 
+[node name="GrassCoverPlatform" parent="CanvasGroup/Platform4" instance=ExtResource("2_ghs18")]
+
 [node name="Platform5" parent="CanvasGroup" instance=ExtResource("1_qx7uw")]
 position = Vector2(-1024, -832)
+
+[node name="GrassCoverPlatform" parent="CanvasGroup/Platform5" instance=ExtResource("2_ghs18")]
 
 [node name="Platform6" parent="CanvasGroup" instance=ExtResource("1_qx7uw")]
 position = Vector2(-448, -1280)
@@ -99,8 +111,7 @@ speed = 40.0
 unpoweredRotation = -180.0
 poweredRotation = 180.0
 
-[node name="Platform" parent="Rotator Gear/Rotator Gear2/Rotator Gear3" instance=ExtResource("1_qx7uw")]
-show_behind_parent = true
+[node name="Metal Platform" parent="Rotator Gear/Rotator Gear2/Rotator Gear3" instance=ExtResource("10_qxb40")]
 position = Vector2(-448, 0)
 
 [node name="Goal" parent="Rotator Gear/Rotator Gear2/Rotator Gear3" instance=ExtResource("8_n143u")]

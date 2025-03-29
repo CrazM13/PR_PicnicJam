@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://rkitjpdn4ejj"]
 
 [ext_resource type="Script" uid="uid://c7pe7yae6hhcs" path="res://Scripts/LevelObjects/LevelObjectRouting.cs" id="1_u1k6a"]
-[ext_resource type="Texture2D" uid="uid://dqe46l80eupuk" path="res://Assets/Textures/Testing/TestShapes.png" id="2_elbrs"]
+[ext_resource type="Texture2D" uid="uid://bm47bh0o8g7b0" path="res://Assets/Textures/Testing/Gear.png" id="2_u1k6a"]
 [ext_resource type="Script" uid="uid://c2i8j7eo4v2d" path="res://Scripts/LevelObjects/SpinningLevelObject.cs" id="3_pfrid"]
 
 [node name="Router Gear" type="Node2D" node_paths=PackedStringArray("levelObjects")]
@@ -9,8 +9,5 @@ script = ExtResource("1_u1k6a")
 levelObjects = []
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_elbrs")
-hframes = 4
-vframes = 2
-frame = 7
+texture = ExtResource("2_u1k6a")
 script = ExtResource("3_pfrid")

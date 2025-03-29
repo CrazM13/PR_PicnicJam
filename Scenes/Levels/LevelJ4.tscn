@@ -1,13 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgyhwt51mvtjf"]
+[gd_scene load_steps=13 format=3 uid="uid://cgyhwt51mvtjf"]
 
 [ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_8qoql"]
 [ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="2_k7trf"]
+[ext_resource type="PackedScene" uid="uid://b7cugx7mwcpoo" path="res://Assets/Prefabs/Game Objects/grass_cover_platform.tscn" id="2_p84jj"]
 [ext_resource type="PackedScene" uid="uid://c24sshhqtr0b5" path="res://Assets/Prefabs/Game Objects/ramp.tscn" id="2_ua5i6"]
 [ext_resource type="PackedScene" uid="uid://b4upa0rtvvrcs" path="res://Assets/Prefabs/Game Objects/rotator_gear.tscn" id="3_k7trf"]
 [ext_resource type="PackedScene" uid="uid://b2iklat0xsrs2" path="res://Assets/Prefabs/Game Objects/box.tscn" id="3_lu751"]
 [ext_resource type="PackedScene" uid="uid://3um3aluyef4x" path="res://Assets/Prefabs/Game Objects/button_level_object.tscn" id="4_f4vgy"]
 [ext_resource type="PackedScene" uid="uid://b4v0es1p4o255" path="res://Assets/Prefabs/Game Objects/moveable_box.tscn" id="5_j5361"]
+[ext_resource type="PackedScene" uid="uid://ygvn72rh065k" path="res://Assets/Prefabs/Game Objects/grass_cover_box.tscn" id="5_wkjbt"]
 [ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="6_gve4b"]
+[ext_resource type="PackedScene" uid="uid://bdeqd4drnfqsq" path="res://Assets/Prefabs/Game Objects/metal_platform.tscn" id="7_ex2s7"]
 [ext_resource type="PackedScene" uid="uid://rkitjpdn4ejj" path="res://Assets/Prefabs/Game Objects/router_gear.tscn" id="7_vpnxo"]
 
 [node name="LevelJ4" type="Node2D"]
@@ -17,8 +20,12 @@
 [node name="Platform3" parent="CanvasGroup" instance=ExtResource("1_8qoql")]
 position = Vector2(-128, 320)
 
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform3" instance=ExtResource("2_p84jj")]
+
 [node name="Platform5" parent="CanvasGroup" instance=ExtResource("1_8qoql")]
 position = Vector2(-128, -448)
+
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform5" instance=ExtResource("2_p84jj")]
 
 [node name="Platform11" parent="CanvasGroup" instance=ExtResource("1_8qoql")]
 position = Vector2(-704, 0)
@@ -55,14 +62,21 @@ rotation = 1.57079
 [node name="Platform6" parent="CanvasGroup" instance=ExtResource("1_8qoql")]
 position = Vector2(896, -448)
 
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform6" instance=ExtResource("2_p84jj")]
+position = Vector2(-128, 0)
+
 [node name="Platform7" parent="CanvasGroup" instance=ExtResource("1_8qoql")]
 position = Vector2(896, 448)
 
 [node name="Platform8" parent="CanvasGroup" instance=ExtResource("1_8qoql")]
 position = Vector2(1920, 448)
 
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform8" instance=ExtResource("2_p84jj")]
+
 [node name="Platform19" parent="CanvasGroup" instance=ExtResource("1_8qoql")]
 position = Vector2(768, -1472)
+
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform19" instance=ExtResource("2_p84jj")]
 
 [node name="Platform20" parent="CanvasGroup" instance=ExtResource("1_8qoql")]
 position = Vector2(896, -2496)
@@ -95,6 +109,18 @@ position = Vector2(704, 320)
 [node name="Box4" parent="CanvasGroup" instance=ExtResource("3_lu751")]
 position = Vector2(832, 320)
 
+[node name="GrassCoverPlatform4" parent="CanvasGroup" instance=ExtResource("2_p84jj")]
+position = Vector2(-512, -448)
+
+[node name="GrassCoverPlatform3" parent="CanvasGroup" instance=ExtResource("2_p84jj")]
+position = Vector2(1536, 448)
+
+[node name="GrassCoverPlatform2" parent="CanvasGroup" instance=ExtResource("2_p84jj")]
+position = Vector2(384, 320)
+
+[node name="GrassCoverBox" parent="CanvasGroup" instance=ExtResource("5_wkjbt")]
+position = Vector2(1344, -1472)
+
 [node name="Start" parent="." instance=ExtResource("2_k7trf")]
 
 [node name="Rotator Gear" parent="." instance=ExtResource("3_k7trf")]
@@ -102,7 +128,7 @@ position = Vector2(320, -512)
 unpoweredRotation = 180.0
 poweredRotation = -180.0
 
-[node name="Platform" parent="Rotator Gear" instance=ExtResource("1_8qoql")]
+[node name="Metal Platform" parent="Rotator Gear" instance=ExtResource("7_ex2s7")]
 show_behind_parent = true
 position = Vector2(0, 512)
 rotation = -1.57079
@@ -126,7 +152,7 @@ nextScene = "res://Scenes/Levels/LevelJ5.tscn"
 position = Vector2(1344, -1216)
 speed = 45.0
 
-[node name="Platform3" parent="Rotator Gear Puzzel1" instance=ExtResource("1_8qoql")]
+[node name="Metal Platform" parent="Rotator Gear Puzzel1" instance=ExtResource("7_ex2s7")]
 show_behind_parent = true
 position = Vector2(576, 0)
 

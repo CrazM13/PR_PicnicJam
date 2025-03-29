@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://lxxk84y7bifm"]
+[gd_scene load_steps=7 format=3 uid="uid://lxxk84y7bifm"]
 
 [ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_bauor"]
 [ext_resource type="PackedScene" uid="uid://c24sshhqtr0b5" path="res://Assets/Prefabs/Game Objects/ramp.tscn" id="2_0in62"]
+[ext_resource type="PackedScene" uid="uid://b7cugx7mwcpoo" path="res://Assets/Prefabs/Game Objects/grass_cover_platform.tscn" id="2_ivqcu"]
 [ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="2_ufkxq"]
 [ext_resource type="PackedScene" uid="uid://b2iklat0xsrs2" path="res://Assets/Prefabs/Game Objects/box.tscn" id="3_ivqcu"]
 [ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="3_ufkxq"]
@@ -13,14 +14,22 @@
 [node name="Platform" parent="Collision" instance=ExtResource("1_bauor")]
 position = Vector2(384, 192)
 
+[node name="GrassCoverPlatform" parent="Collision/Platform" instance=ExtResource("2_ivqcu")]
+
 [node name="Platform3" parent="Collision" instance=ExtResource("1_bauor")]
 position = Vector2(384, -704)
+
+[node name="GrassCoverPlatform2" parent="Collision/Platform3" instance=ExtResource("2_ivqcu")]
 
 [node name="Platform4" parent="Collision" instance=ExtResource("1_bauor")]
 position = Vector2(1408, 192)
 
+[node name="GrassCoverPlatform2" parent="Collision/Platform4" instance=ExtResource("2_ivqcu")]
+
 [node name="Platform5" parent="Collision" instance=ExtResource("1_bauor")]
 position = Vector2(1280, -704)
+
+[node name="GrassCoverPlatform2" parent="Collision/Platform5" instance=ExtResource("2_ivqcu")]
 
 [node name="Platform13" parent="Collision" instance=ExtResource("1_bauor")]
 position = Vector2(1408, -576)
@@ -45,6 +54,8 @@ rotation = -1.57079
 
 [node name="Platform6" parent="Collision" instance=ExtResource("1_bauor")]
 position = Vector2(2432, 192)
+
+[node name="GrassCoverPlatform2" parent="Collision/Platform6" instance=ExtResource("2_ivqcu")]
 
 [node name="Platform9" parent="Collision" instance=ExtResource("1_bauor")]
 position = Vector2(2432, -1728)

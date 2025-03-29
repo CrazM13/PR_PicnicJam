@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7cugx7mwcpoo"]
+
+[ext_resource type="PackedScene" uid="uid://ygvn72rh065k" path="res://Assets/Prefabs/Game Objects/grass_cover_box.tscn" id="1_f7s6c"]
+
+[node name="GrassCoverPlatform" instance=ExtResource("1_f7s6c")]
+texture_repeat = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 1024, 128)

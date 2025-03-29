@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4upa0rtvvrcs"]
 
 [ext_resource type="Script" uid="uid://dodrj0ncrjj4g" path="res://Scripts/LevelObjects/LevelObjectRotator.cs" id="1_xc7rq"]
-[ext_resource type="Texture2D" uid="uid://dqe46l80eupuk" path="res://Assets/Textures/Testing/TestShapes.png" id="2_rnnc2"]
+[ext_resource type="Texture2D" uid="uid://bm47bh0o8g7b0" path="res://Assets/Textures/Testing/Gear.png" id="2_xc7rq"]
 
 [node name="Rotator Gear" type="Node2D"]
 script = ExtResource("1_xc7rq")
@@ -9,7 +9,4 @@ speed = 180.0
 unpoweredRotation = -90.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_rnnc2")
-hframes = 4
-vframes = 2
-frame = 7
+texture = ExtResource("2_xc7rq")

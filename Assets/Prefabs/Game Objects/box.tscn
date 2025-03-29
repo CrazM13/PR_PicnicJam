@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2iklat0xsrs2"]
 
-[ext_resource type="Texture2D" uid="uid://dqe46l80eupuk" path="res://Assets/Textures/Testing/TestShapes.png" id="1_5ir1n"]
+[ext_resource type="Texture2D" uid="uid://cubhmvatlxc3j" path="res://Assets/Textures/Testing/Dirt.png" id="1_1u8ct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmkjr"]
 size = Vector2(128, 128)
@@ -8,10 +8,7 @@ size = Vector2(128, 128)
 [node name="Box" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_5ir1n")
-hframes = 4
-vframes = 2
-frame = 2
+texture = ExtResource("1_1u8ct")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bmkjr")
