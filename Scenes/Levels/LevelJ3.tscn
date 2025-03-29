@@ -98,8 +98,12 @@ rotation = -1.57079
 [node name="Platform2" parent="CanvasGroup" instance=ExtResource("1_typ6y")]
 position = Vector2(2048, 192)
 
+[node name="GrassCoverPlatform" parent="CanvasGroup/Platform2" instance=ExtResource("2_nusx6")]
+
 [node name="Platform3" parent="CanvasGroup" instance=ExtResource("1_typ6y")]
 position = Vector2(3072, 192)
+
+[node name="GrassCoverPlatform" parent="CanvasGroup/Platform3" instance=ExtResource("2_nusx6")]
 
 [node name="Start" parent="." instance=ExtResource("2_2g1c2")]
 
