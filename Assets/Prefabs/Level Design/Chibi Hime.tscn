@@ -1,3 +1,243 @@
-[gd_scene format=3 uid="uid://brappjkpgp8dq"]
+[gd_scene load_steps=4 format=3 uid="uid://brappjkpgp8dq"]
 
-[node name="ChibiHime" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://c5hn11s77yhtw" path="res://Assets/Textures/Characters/Chibi Hime/base_Chibi_Hime_Flattened.svg" id="1_u8fco"]
+[ext_resource type="Texture2D" uid="uid://7lp55813lfsc" path="res://Assets/Textures/Characters/Chibi Hime/base_Chibi_Hime.svg" id="2_w8jjs"]
+[ext_resource type="Texture2D" uid="uid://ccwyq6r2b4330" path="res://Assets/Textures/Characters/Chibi Hime/base_Chibi_Hime_Spritesheet.svg" id="3_f3pst"]
+
+[node name="Chibi_Hime" type="CharacterBody2D"]
+
+[node name="ref" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, -143)
+
+[node name="BaseChibiHimeFlattened" type="Sprite2D" parent="ref"]
+visible = false
+texture = ExtResource("1_u8fco")
+
+[node name="BaseChibiHime" type="Sprite2D" parent="ref"]
+visible = false
+modulate = Color(0, 1, 1, 1)
+texture = ExtResource("2_w8jjs")
+
+[node name="Chibi_Hime_Polygons" type="Node2D" parent="."]
+
+[node name="Hair_Back" type="Polygon2D" parent="Chibi_Hime_Polygons"]
+position = Vector2(-400, -606)
+texture = ExtResource("3_f3pst")
+polygon = PackedVector2Array(392, 312, 304, 344, 320, 424, 312, 504, 496, 504, 480, 416, 488, 328, 400, 416, 400, 504)
+uv = PackedVector2Array(392, 312, 304, 344, 320, 424, 312, 504, 496, 504, 480, 416, 488, 328, 400, 416, 400, 504)
+polygons = [PackedInt32Array(2, 7, 0, 1), PackedInt32Array(3, 2, 7, 8), PackedInt32Array(8, 4, 5, 7), PackedInt32Array(7, 0, 6, 5)]
+internal_vertex_count = 2
+
+[node name="Leg_R" type="Polygon2D" parent="Chibi_Hime_Polygons"]
+position = Vector2(-254, -434)
+texture = ExtResource("3_f3pst")
+polygon = PackedVector2Array(200, 352, 264, 352, 264, 440, 200, 440, 200, 392, 264, 392, 200, 416, 264, 416)
+uv = PackedVector2Array(200, 352, 264, 352, 264, 440, 200, 440, 200, 392, 264, 392, 200, 416, 264, 416)
+polygons = [PackedInt32Array(6, 7, 2, 3), PackedInt32Array(4, 6, 7, 5), PackedInt32Array(4, 0, 1, 5)]
+internal_vertex_count = 4
+
+[node name="Leg_L" type="Polygon2D" parent="Chibi_Hime_Polygons"]
+position = Vector2(-107, -434)
+texture = ExtResource("3_f3pst")
+polygon = PackedVector2Array(96, 344, 160, 344, 160, 440, 96, 440, 96, 416, 160, 416, 96, 392, 160, 392)
+uv = PackedVector2Array(96, 344, 160, 344, 160, 440, 96, 440, 96, 416, 160, 416, 96, 392, 160, 392)
+polygons = [PackedInt32Array(6, 7, 5, 4), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 0, 1, 7)]
+internal_vertex_count = 4
+
+[node name="Arm_R" type="Polygon2D" parent="Chibi_Hime_Polygons"]
+position = Vector2(-494, -384)
+texture = ExtResource("3_f3pst")
+polygon = PackedVector2Array(408.877, 290.586, 402.545, 307.472, 440.538, 321.402, 451.936, 296.918, 471.352, 276.662, 496.679, 245.004, 473.883, 229.385, 448.555, 255.98, 427.025, 277.087, 405.083, 271.177, 399.595, 285.53, 446.33, 306.787)
+uv = PackedVector2Array(408.877, 290.586, 402.545, 307.472, 440.538, 321.402, 451.936, 296.918, 471.352, 276.662, 496.679, 245.004, 473.883, 229.385, 448.555, 255.98, 427.025, 277.087, 405.083, 271.177, 399.595, 285.53, 446.33, 306.787)
+polygons = [PackedInt32Array(0, 1, 2, 11), PackedInt32Array(0, 8, 9, 10), PackedInt32Array(8, 3, 11, 0), PackedInt32Array(3, 4, 7, 8), PackedInt32Array(6, 7, 4, 5)]
+internal_vertex_count = 1
+
+[node name="Arm_L" type="Polygon2D" parent="Chibi_Hime_Polygons"]
+position = Vector2(-299, -385)
+texture = ExtResource("3_f3pst")
+polygon = PackedVector2Array(389.921, 305.752, 355.608, 322.194, 346.314, 311.232, 345.123, 298.841, 323.441, 278.349, 295.56, 244.988, 312.002, 234.027, 347.505, 259.761, 364.42, 276.68, 383.245, 273.105, 390.869, 285.022, 382.052, 293.124)
+uv = PackedVector2Array(389.921, 305.752, 355.608, 322.194, 346.314, 311.232, 345.123, 298.841, 323.441, 278.349, 295.56, 244.988, 312.002, 234.027, 347.505, 259.761, 364.42, 276.68, 383.245, 273.105, 390.869, 285.022, 382.052, 293.124)
+polygons = [PackedInt32Array(3, 8, 11, 2), PackedInt32Array(2, 1, 0, 11), PackedInt32Array(11, 10, 9, 8), PackedInt32Array(8, 7, 4, 3), PackedInt32Array(7, 6, 5, 4)]
+
+[node name="Torso" type="Polygon2D" parent="Chibi_Hime_Polygons"]
+position = Vector2(-244, -389)
+texture = ExtResource("3_f3pst")
+polygon = PackedVector2Array(224, 232, 192, 304, 200, 336, 288, 336, 296, 304, 264, 232)
+uv = PackedVector2Array(224, 232, 192, 304, 200, 336, 288, 336, 296, 304, 264, 232)
+polygons = [PackedInt32Array(1, 4, 3, 2), PackedInt32Array(1, 0, 5, 4)]
+
+[node name="Neck" type="Polygon2D" parent="Chibi_Hime_Polygons"]
+position = Vector2(-125, -439)
+texture = ExtResource("3_f3pst")
+polygon = PackedVector2Array(104, 264, 144, 264, 144, 304, 104, 304)
+uv = PackedVector2Array(104, 264, 144, 264, 144, 304, 104, 304)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="Head" type="Polygon2D" parent="Chibi_Hime_Polygons"]
+position = Vector2(-445, -355)
+texture = ExtResource("3_f3pst")
+polygon = PackedVector2Array(384, 96, 504, 96, 504, 208, 384, 208)
+uv = PackedVector2Array(384, 96, 504, 96, 504, 208, 384, 208)
+polygons = [PackedInt32Array(0, 3, 2, 1)]
+
+[node name="Eyes" type="Polygon2D" parent="Chibi_Hime_Polygons"]
+position = Vector2(-308, -355)
+texture = ExtResource("3_f3pst")
+polygon = PackedVector2Array(272, 136, 368, 136, 368, 168, 272, 168)
+uv = PackedVector2Array(272, 136, 368, 136, 368, 168, 272, 168)
+polygons = [PackedInt32Array(0, 3, 2, 1)]
+
+[node name="Mouth" type="Polygon2D" parent="Chibi_Hime_Polygons"]
+position = Vector2(-221, -350)
+texture = ExtResource("3_f3pst")
+polygon = PackedVector2Array(208, 160, 256, 160, 256, 192, 208, 192)
+uv = PackedVector2Array(208, 160, 256, 160, 256, 192, 208, 192)
+polygons = [PackedInt32Array(0, 3, 2, 1)]
+
+[node name="Hair_Front" type="Polygon2D" parent="Chibi_Hime_Polygons"]
+position = Vector2(-122, -375)
+texture = ExtResource("3_f3pst")
+polygon = PackedVector2Array(120, 96, 80, 104, 48, 136, 64, 224, 96, 240, 120, 160, 144, 160, 152, 248, 192, 224, 200, 128, 168, 96, 131.677, 159.995)
+uv = PackedVector2Array(120, 96, 80, 104, 48, 136, 64, 224, 96, 240, 120, 160, 144, 160, 152, 248, 192, 224, 200, 128, 168, 96, 131.677, 159.995)
+polygons = [PackedInt32Array(7, 8, 9, 6), PackedInt32Array(5, 2, 3, 4), PackedInt32Array(11, 5, 2, 1), PackedInt32Array(11, 6, 9, 10), PackedInt32Array(0, 1, 11, 10)]
+internal_vertex_count = 1
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Root_Bone" type="Bone2D" parent="Skeleton2D"]
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = -90.0
+
+[node name="Torso_Lower" type="Bone2D" parent="Skeleton2D/Root_Bone"]
+position = Vector2(-1, -71)
+auto_calculate_length_and_angle = false
+length = 26.0
+bone_angle = -90.0
+
+[node name="Torso_Upper" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower"]
+position = Vector2(0, -30)
+auto_calculate_length_and_angle = false
+length = 35.0
+bone_angle = -90.0
+
+[node name="Neck" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
+position = Vector2(0, -40)
+auto_calculate_length_and_angle = false
+length = 15.0
+bone_angle = -90.0
+
+[node name="Head" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Neck"]
+position = Vector2(0, -17)
+auto_calculate_length_and_angle = false
+length = 90.0
+bone_angle = -90.0
+
+[node name="Hair_Front" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Neck/Head"]
+position = Vector2(0, -98)
+auto_calculate_length_and_angle = false
+length = 40.0
+bone_angle = 0.0
+
+[node name="Hair_Back" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Neck/Head"]
+position = Vector2(0, -98)
+auto_calculate_length_and_angle = false
+length = 40.0
+bone_angle = -180.0
+
+[node name="Arm_R_Upper" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
+position = Vector2(-13, -35)
+rotation = 0.000227673
+auto_calculate_length_and_angle = false
+length = 35.0
+bone_angle = -225.0
+
+[node name="Arm_R_Lower" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_R_Upper"]
+position = Vector2(-25.9948, 23.0059)
+auto_calculate_length_and_angle = false
+length = 25.0
+bone_angle = -225.0
+
+[node name="Hand_R" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_R_Upper/Arm_R_Lower"]
+position = Vector2(-17.9957, 19.0041)
+auto_calculate_length_and_angle = false
+length = 10.0
+bone_angle = -225.0
+
+[node name="Hand_R_Fingers" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_R_Upper/Arm_R_Lower/Hand_R"]
+position = Vector2(-8.99772, 10.002)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = -225.0
+
+[node name="Hand_R_Thumb" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_R_Upper/Arm_R_Lower/Hand_R"]
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = -160.0
+
+[node name="Arm_L_Upper" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
+position = Vector2(13, -36)
+rotation = 0.000227673
+auto_calculate_length_and_angle = false
+length = 35.0
+bone_angle = 225.0
+
+[node name="Arm_L_Lower" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_L_Upper"]
+position = Vector2(25.995, 23.006)
+auto_calculate_length_and_angle = false
+length = 25.0
+bone_angle = 225.0
+
+[node name="Hand_L" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_L_Upper/Arm_L_Lower"]
+position = Vector2(17.996, 19.004)
+auto_calculate_length_and_angle = false
+length = 10.0
+bone_angle = 225.0
+
+[node name="Hand_L_Fingers" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_L_Upper/Arm_L_Lower/Hand_L"]
+position = Vector2(8.998, 10.002)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 40.0
+
+[node name="Hand_L_Thumb" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_L_Upper/Arm_L_Lower/Hand_L"]
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = -12.0
+
+[node name="Leg_R_Upper" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower"]
+position = Vector2(-18, 1)
+auto_calculate_length_and_angle = false
+length = 25.0
+bone_angle = 90.0
+
+[node name="Leg_R_Lower" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Leg_R_Upper"]
+position = Vector2(0, 30)
+auto_calculate_length_and_angle = false
+length = 30.0
+bone_angle = 90.0
+
+[node name="Leg_R_Foot" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Leg_R_Upper/Leg_R_Lower"]
+position = Vector2(0, 29)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 180.0
+
+[node name="Leg_L_Upper" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower"]
+position = Vector2(18, 1)
+auto_calculate_length_and_angle = false
+length = 25.0
+bone_angle = 90.0
+
+[node name="Leg_L_Lower" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Leg_L_Upper"]
+position = Vector2(0, 30)
+auto_calculate_length_and_angle = false
+length = 30.0
+bone_angle = 90.0
+
+[node name="Leg_L_Foot" type="Bone2D" parent="Skeleton2D/Root_Bone/Torso_Lower/Leg_L_Upper/Leg_L_Lower"]
+position = Vector2(0, 29)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 8.571
