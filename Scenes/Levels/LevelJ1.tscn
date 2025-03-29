@@ -20,16 +20,16 @@ position = Vector2(384, -704)
 position = Vector2(1408, 192)
 
 [node name="Platform5" parent="Collision" instance=ExtResource("1_bauor")]
-position = Vector2(1408, -704)
+position = Vector2(1280, -704)
 
 [node name="Platform13" parent="Collision" instance=ExtResource("1_bauor")]
-position = Vector2(1536, -576)
+position = Vector2(1408, -576)
 
 [node name="Platform14" parent="Collision" instance=ExtResource("1_bauor")]
-position = Vector2(1664, -448)
+position = Vector2(1536, -448)
 
 [node name="Platform15" parent="Collision" instance=ExtResource("1_bauor")]
-position = Vector2(1792, -320)
+position = Vector2(1664, -320)
 
 [node name="Platform16" parent="Collision" instance=ExtResource("1_bauor")]
 position = Vector2(2624, -1152)
@@ -72,13 +72,13 @@ position = Vector2(-192, -256)
 rotation = -1.57079
 
 [node name="Ramp" parent="Collision" instance=ExtResource("2_0in62")]
-position = Vector2(2240, -448)
+position = Vector2(2112, -448)
 
 [node name="Ramp2" parent="Collision" instance=ExtResource("2_0in62")]
-position = Vector2(2112, -576)
+position = Vector2(1984, -576)
 
 [node name="Ramp3" parent="Collision" instance=ExtResource("2_0in62")]
-position = Vector2(1984, -704)
+position = Vector2(1856, -704)
 
 [node name="Ramp4" parent="Collision" instance=ExtResource("2_0in62")]
 position = Vector2(2624, -576)

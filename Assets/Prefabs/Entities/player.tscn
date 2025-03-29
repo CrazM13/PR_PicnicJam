@@ -135,7 +135,6 @@ texture = ExtResource("5_64x4u")
 [node name="UpSpringShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_pwq28")
-one_way_collision = true
 
 [node name="Body" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ebihn")
@@ -144,19 +143,16 @@ shape = SubResource("RectangleShape2D_ebihn")
 position = Vector2(0, 64)
 rotation = -3.14159
 shape = SubResource("RectangleShape2D_3iclq")
-one_way_collision = true
 
 [node name="LeftSpringShape" type="CollisionShape2D" parent="."]
 position = Vector2(-64, 0)
 rotation = -1.57079
 shape = SubResource("RectangleShape2D_bmkjr")
-one_way_collision = true
 
 [node name="RightSpringShape" type="CollisionShape2D" parent="."]
 position = Vector2(64, 0)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_n2slp")
-one_way_collision = true
 
 [node name="UpRay" type="RayCast2D" parent="."]
 position = Vector2(0, -64)

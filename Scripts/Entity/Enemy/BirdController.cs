@@ -7,6 +7,7 @@ public partial class BirdController : Area2D {
 
 	[ExportGroup("References")]
 	[Export] private EnemyBase enemy;
+	[Export] private Sprite2D sprite;
 	[ExportSubgroup("Audio")]
 	[Export] private AudioStreamPlayer2D ambient;
 	[Export] private AudioStreamPlayer2D attack;
@@ -45,6 +46,8 @@ public partial class BirdController : Area2D {
 		if (player != null) {
 			enemy.Velocity += enemy.GlobalPosition.DirectionTo(player.GlobalPosition) * speed;
 		}
+
+		sprite.FlipH = enemy.Velocity.X < 0;
 
 	}
 

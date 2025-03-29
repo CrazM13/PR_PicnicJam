@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4v0es1p4o255"]
+[gd_scene load_steps=4 format=3 uid="uid://b4v0es1p4o255"]
 
 [ext_resource type="Texture2D" uid="uid://dqe46l80eupuk" path="res://Assets/Textures/Testing/TestShapes.png" id="1_nyglk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ift8v"]
+bounce = 1.0
+absorbent = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2slp"]
 size = Vector2(128, 128)
 
 [node name="MoveableBox" type="RigidBody2D"]
 collision_layer = 8
-collision_mask = 9
+collision_mask = 201
+physics_material_override = SubResource("PhysicsMaterial_ift8v")
+continuous_cd = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nyglk")
