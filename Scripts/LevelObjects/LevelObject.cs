@@ -30,12 +30,14 @@ public partial class LevelObject : Node2D {
 		ID = NEXT_ID++;
 		base._Ready();
 
-		PowerSources = new Dictionary<uint, bool>();
+		PowerSources ??= new Dictionary<uint, bool>();
 
+		IsPowered = invertPower;
 		UpdatePowerState();
 	}
 
 	public void SetPower(bool powered, uint id) {
+		PowerSources ??= new Dictionary<uint, bool>();
 
 		if (PowerSources.ContainsKey(id)) {
 			PowerSources[id] = powered;
@@ -83,6 +85,8 @@ public partial class LevelObject : Node2D {
 	}
 
 	private static bool TryAnd(bool[] bools) {
+		if (bools.Length == 0) return false;
+
 		foreach (bool b in bools) {
 			if (!b) return false;
 		}

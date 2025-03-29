@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bshgty37j1gu3"]
+
+[ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_m2dkh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bh57n"]
+rough = true
+bounce = 2.0
+absorbent = true
+
+[node name="StickyPlatform" instance=ExtResource("1_m2dkh")]
+physics_material_override = SubResource("PhysicsMaterial_bh57n")
+
+[node name="Sprite2D" parent="." index="0"]
+self_modulate = Color(1, 0.733333, 0, 1)

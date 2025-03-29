@@ -88,6 +88,7 @@ position = Vector2(-896, -576)
 
 [node name="Goal" parent="Rotator Gear" instance=ExtResource("4_2rxhk")]
 position = Vector2(-2304, 640)
+nextScene = "res://Scenes/Levels/LevelJ8.tscn"
 
 [node name="ButtonLO" parent="Rotator Gear" node_paths=PackedStringArray("levelObjects") instance=ExtResource("5_2rxhk")]
 position = Vector2(448, 320)

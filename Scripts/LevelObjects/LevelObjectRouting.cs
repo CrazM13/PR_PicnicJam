@@ -10,6 +10,8 @@ public partial class LevelObjectRouting : LevelObject {
 		this.PowerChange += this.OnPowerChange;
 
 		base._Ready();
+
+		OnPowerChange(this);
 	}
 
 	private void OnPowerChange(LevelObject _) {
