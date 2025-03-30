@@ -31,6 +31,12 @@ position = Vector2(2048, 320)
 [node name="GrassCoverPlatform2" parent="CanvasGroup/Platform3" instance=ExtResource("2_1libi")]
 position = Vector2(-128, 0)
 
+[node name="Platform10" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
+position = Vector2(2432, 320)
+
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform10" instance=ExtResource("2_1libi")]
+position = Vector2(-128, 0)
+
 [node name="Platform4" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
 position = Vector2(0, -832)
 
@@ -46,18 +52,23 @@ position = Vector2(2048, -832)
 
 [node name="GrassCoverPlatform2" parent="CanvasGroup/Platform6" instance=ExtResource("2_1libi")]
 
+[node name="Platform9" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
+position = Vector2(2432, -832)
+
+[node name="GrassCoverPlatform2" parent="CanvasGroup/Platform9" instance=ExtResource("2_1libi")]
+
 [node name="Platform7" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
 position = Vector2(-448, -256)
 rotation = -1.57079
 
 [node name="Platform8" parent="CanvasGroup" instance=ExtResource("1_mar8a")]
-position = Vector2(2496, -256)
+position = Vector2(2880, -256)
 rotation = -1.57079
 
 [node name="Start" parent="." instance=ExtResource("2_jh2ui")]
 
 [node name="Goal" parent="." instance=ExtResource("3_gspvx")]
-position = Vector2(2304, 128)
+position = Vector2(2240, 128)
 nextScene = "res://Scenes/Levels/Level 6.tscn"
 
 [node name="ButtonLO" parent="." node_paths=PackedStringArray("levelObjects") instance=ExtResource("4_hd8am")]
@@ -127,14 +138,7 @@ position = Vector2(896, 128)
 [node name="Arrow" parent="WoodenArrow2" index="1"]
 rotation = -0.430407
 
-[node name="WoodenArrow3" parent="." instance=ExtResource("9_uuqjm")]
-position = Vector2(1920, 128)
-
-[node name="Arrow" parent="WoodenArrow3" index="1"]
-flip_h = true
-
 [editable path="ButtonLO"]
 [editable path="ButtonLO2"]
 [editable path="WoodenArrow"]
 [editable path="WoodenArrow2"]
-[editable path="WoodenArrow3"]

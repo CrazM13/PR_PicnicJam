@@ -76,7 +76,7 @@ position = Vector2(320, 64)
 levelObjects = [NodePath("../Rotator Gear")]
 
 [node name="Goal" parent="." instance=ExtResource("7_7o78n")]
-position = Vector2(1152, -2048)
+position = Vector2(928, -2048)
 nextScene = "res://Scenes/Levels/Level 4.tscn"
 
 [node name="WoodenArrow" parent="." instance=ExtResource("8_4inpg")]

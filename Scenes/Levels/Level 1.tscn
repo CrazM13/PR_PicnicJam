@@ -120,7 +120,7 @@ rotation = 3.14159
 [node name="Start" parent="." instance=ExtResource("5_ak4ck")]
 
 [node name="Goal" parent="." instance=ExtResource("6_uvw2q")]
-position = Vector2(0, -896)
+position = Vector2(512, -896)
 nextScene = "res://Scenes/Levels/Level 2.tscn"
 
 [node name="WoodenArrow" parent="." instance=ExtResource("7_d80xo")]
@@ -130,7 +130,7 @@ position = Vector2(2560, 0)
 rotation = 0.598648
 
 [node name="WoodenArrow2" parent="." instance=ExtResource("7_d80xo")]
-position = Vector2(512, -896)
+position = Vector2(1280, -896)
 
 [node name="WoodenArrow3" parent="." instance=ExtResource("7_d80xo")]
 position = Vector2(448, 0)

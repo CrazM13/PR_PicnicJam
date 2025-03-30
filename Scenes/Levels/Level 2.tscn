@@ -132,7 +132,7 @@ position = Vector2(0, 512)
 rotation = 1.57079
 
 [node name="Goal" parent="." instance=ExtResource("6_1nrmx")]
-position = Vector2(4480, 0)
+position = Vector2(3968, 0)
 nextScene = "res://Scenes/Levels/Level 3.tscn"
 
 [node name="WoodenArrow" parent="." instance=ExtResource("7_gw5wf")]

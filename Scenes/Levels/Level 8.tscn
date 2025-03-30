@@ -174,7 +174,7 @@ rotation = -1.57079
 [node name="Start" parent="." instance=ExtResource("1_4cidc")]
 
 [node name="Goal" parent="." instance=ExtResource("3_32mkd")]
-position = Vector2(-1024, -7168)
+position = Vector2(-960, -7168)
 nextScene = "res://Scenes/Levels/Level 9.tscn"
 
 [node name="Wasp" parent="." instance=ExtResource("4_3hj66")]
