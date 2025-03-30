@@ -5,13 +5,52 @@
 [ext_resource type="Script" uid="uid://dcj5asn4jceh8" path="res://Scripts/Entity/Enemy/BirdController.cs" id="3_muu2e"]
 [ext_resource type="AudioStream" uid="uid://bp1uam5n8md1t" path="res://Assets/Audio/SFX/WaspBuzz.wav" id="4_muu2e"]
 [ext_resource type="AudioStream" uid="uid://cvdcfamngfjio" path="res://Assets/Audio/SFX/WaspSting.wav" id="5_yywu3"]
-[ext_resource type="Texture2D" uid="uid://u5tmy64n6uqj" path="res://Assets/Textures/Characters/Wasp.png" id="6_yywu3"]
+[ext_resource type="Texture2D" uid="uid://dc0mrvlhyqlu2" path="res://Assets/Textures/Characters/Wasp_Red_Eye.png" id="6_yywu3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1mbfp"]
 radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n1u3k"]
 radius = 256.0
+
+[sub_resource type="Animation" id="Animation_eqxki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Root/Head/Thorax/Wing_L:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Root/Head/Thorax/Wing_R:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Root/Head/Thorax/Abdomen_Upper:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_yywu3"]
 resource_name = "idle"
@@ -51,45 +90,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.340339, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_eqxki"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/Root/Head/Thorax/Wing_L:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D/Root/Head/Thorax/Wing_R:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton2D/Root/Head/Thorax/Abdomen_Upper:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ah3wb"]

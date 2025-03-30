@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://chl8pnamccmpf"]
+[gd_scene load_steps=7 format=3 uid="uid://6024kb0v135s"]
 
 [ext_resource type="Script" uid="uid://brx1df2cf7j65" path="res://Scripts/GoalArea.cs" id="1_g7lvs"]
 [ext_resource type="Texture2D" uid="uid://bg4g1j51pxsbm" path="res://icon.svg" id="2_s3ero"]
 [ext_resource type="AudioStream" uid="uid://cmmp1fwa5uy80" path="res://Assets/Audio/Music/Quiz.wav" id="2_tmplu"]
 [ext_resource type="AudioStream" uid="uid://0mfryuuj323i" path="res://Assets/Audio/Music/SpringChirp.wav" id="3_tmplu"]
+[ext_resource type="PackedScene" uid="uid://brappjkpgp8dq" path="res://Assets/Prefabs/Level Design/Chibi Hime.tscn" id="5_mja7c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqaqg"]
 size = Vector2(256, 256)
@@ -24,3 +25,9 @@ region_rect = Rect2(0, 0, 256, 256)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hqaqg")
+
+[node name="Chibi_Hime" parent="." instance=ExtResource("5_mja7c")]
+position = Vector2(-231, 131)
+
+[node name="Chibi_Hime2" parent="." instance=ExtResource("5_mja7c")]
+position = Vector2(233, 129)
