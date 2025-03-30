@@ -24,6 +24,10 @@ buses/default_bus_layout="uid://018cooqj03mt"
 SceneController="*res://Assets/Prefabs/scene_controller.tscn"
 BackgroundAudio="*res://Assets/Prefabs/background_audio.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="PR_PicnicJam"
