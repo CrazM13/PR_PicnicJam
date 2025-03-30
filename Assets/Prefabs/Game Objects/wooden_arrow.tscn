@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://tpu16g110784"]
+
+[ext_resource type="Texture2D" uid="uid://b07as8rm6wias" path="res://Assets/Textures/Testing/WoodenArrowSign.png" id="1_n6k5w"]
+
+[node name="WoodenArrow" type="Node2D"]
+
+[node name="Post" type="Sprite2D" parent="."]
+texture = ExtResource("1_n6k5w")
+region_enabled = true
+region_rect = Rect2(256, 0, 256, 256)
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(0, -26)
+texture = ExtResource("1_n6k5w")
+offset = Vector2(0, 26)
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 256)

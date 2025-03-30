@@ -20,7 +20,7 @@ public class GameManager {
 		public bool InvertUpDown { get; set; } = false;
 		public bool InvertLeftRight { get; set; } = false;
 		public float SpringPullbackSpeed { get; set; } = 1f;
-		public float CameraZoom { get; set; } = 1f;
+		public float CameraZoom { get; set; } = 0.5f;
 	}
 
 	public class GameStats {
