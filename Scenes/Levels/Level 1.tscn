@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://lxxk84y7bifm"]
+[gd_scene load_steps=9 format=3 uid="uid://lxxk84y7bifm"]
 
 [ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_e57xo"]
 [ext_resource type="PackedScene" uid="uid://b7cugx7mwcpoo" path="res://Assets/Prefabs/Game Objects/grass_cover_platform.tscn" id="2_d80xo"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="5_ak4ck"]
 [ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="6_uvw2q"]
 [ext_resource type="PackedScene" uid="uid://tpu16g110784" path="res://Assets/Prefabs/Game Objects/wooden_arrow.tscn" id="7_d80xo"]
+[ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="8_gk1sg"]
 
 [node name="LevelJ1" type="Node2D"]
 
@@ -136,6 +137,14 @@ position = Vector2(448, 0)
 
 [node name="Arrow" parent="WoodenArrow3" index="1"]
 flip_h = true
+
+[node name="Label" type="Label" parent="WoodenArrow3/Arrow" index="0"]
+offset_left = -77.0
+offset_top = -25.0
+offset_right = 65.0
+offset_bottom = 15.0
+theme = ExtResource("8_gk1sg")
+text = "W, A, S, D"
 
 [editable path="WoodenArrow"]
 [editable path="WoodenArrow3"]
