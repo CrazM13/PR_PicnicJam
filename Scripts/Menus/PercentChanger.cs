@@ -16,7 +16,7 @@ public partial class PercentChanger : Control {
 	[Export] private Label label;
 
 	public void RaisePercent() {
-		if (percentage + step <= maxPercent) {
+		if (percentage + step < maxPercent) {
 			percentage += step;
 			label.Text = percentage.ToString($"P{decimalPoints}");
 			EmitSignal(SignalName.PercentChanged, percentage);
@@ -24,7 +24,7 @@ public partial class PercentChanger : Control {
 	}
 
 	public void LowerPercent() {
-		if (percentage - step >= minPercent) {
+		if (percentage > minPercent) {
 			percentage -= step;
 			label.Text = percentage.ToString($"P{decimalPoints}");
 			EmitSignal(SignalName.PercentChanged, percentage);

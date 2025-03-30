@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://1n3haatbfyhc"]
+
+[ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_tbq4u"]
+[ext_resource type="PackedScene" uid="uid://b7cugx7mwcpoo" path="res://Assets/Prefabs/Game Objects/grass_cover_platform.tscn" id="2_4inpg"]
+[ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="3_ikf0v"]
+[ext_resource type="PackedScene" uid="uid://b4upa0rtvvrcs" path="res://Assets/Prefabs/Game Objects/rotator_gear.tscn" id="4_wyy5i"]
+[ext_resource type="PackedScene" uid="uid://bdeqd4drnfqsq" path="res://Assets/Prefabs/Game Objects/metal_platform.tscn" id="5_40yoi"]
+[ext_resource type="PackedScene" uid="uid://3um3aluyef4x" path="res://Assets/Prefabs/Game Objects/button_level_object.tscn" id="6_e55l1"]
+[ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="7_7o78n"]
+
+[node name="LevelJ2" type="Node2D"]
+
+[node name="Collision" type="CanvasGroup" parent="."]
+
+[node name="Platform" parent="Collision" instance=ExtResource("1_tbq4u")]
+position = Vector2(0, 192)
+
+[node name="GrassCoverPlatform2" parent="Collision/Platform" instance=ExtResource("2_4inpg")]
+
+[node name="Platform9" parent="Collision" instance=ExtResource("1_tbq4u")]
+position = Vector2(1024, -3008)
+
+[node name="GrassCoverPlatform2" parent="Collision/Platform9" instance=ExtResource("2_4inpg")]
+
+[node name="Platform10" parent="Collision" instance=ExtResource("1_tbq4u")]
+position = Vector2(0, -3008)
+
+[node name="GrassCoverPlatform2" parent="Collision/Platform10" instance=ExtResource("2_4inpg")]
+
+[node name="Platform2" parent="Collision" instance=ExtResource("1_tbq4u")]
+position = Vector2(-448, -384)
+rotation = 1.57079
+
+[node name="Platform3" parent="Collision" instance=ExtResource("1_tbq4u")]
+position = Vector2(448, -384)
+rotation = 1.57079
+
+[node name="Platform4" parent="Collision" instance=ExtResource("1_tbq4u")]
+position = Vector2(-448, -1408)
+rotation = 1.57079
+
+[node name="Platform7" parent="Collision" instance=ExtResource("1_tbq4u")]
+position = Vector2(-448, -2432)
+rotation = 1.57079
+
+[node name="Platform8" parent="Collision" instance=ExtResource("1_tbq4u")]
+position = Vector2(1472, -2432)
+rotation = 1.57079
+
+[node name="Platform5" parent="Collision" instance=ExtResource("1_tbq4u")]
+position = Vector2(448, -1408)
+rotation = 1.57079
+
+[node name="Platform6" parent="Collision" instance=ExtResource("1_tbq4u")]
+position = Vector2(1024, -1856)
+
+[node name="GrassCoverPlatform2" parent="Collision/Platform6" instance=ExtResource("2_4inpg")]
+position = Vector2(-128, 0)
+
+[node name="Start" parent="." instance=ExtResource("3_ikf0v")]
+
+[node name="Rotator Gear" parent="." instance=ExtResource("4_wyy5i")]
+position = Vector2(-384, -512)
+unpoweredRotation = 0.0
+poweredRotation = -90.0
+toggleMode = true
+
+[node name="Metal Platform" parent="Rotator Gear" instance=ExtResource("5_40yoi")]
+show_behind_parent = true
+position = Vector2(-64, 512)
+rotation = 1.57079
+
+[node name="ButtonLO" parent="." node_paths=PackedStringArray("levelObjects") instance=ExtResource("6_e55l1")]
+position = Vector2(320, 64)
+levelObjects = [NodePath("../Rotator Gear")]
+
+[node name="Goal" parent="." instance=ExtResource("7_7o78n")]
+position = Vector2(1152, -2048)
+nextScene = "res://Scenes/Levels/Level 4.tscn"

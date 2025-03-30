@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://6qcc5ewrobb7"]
+[gd_scene load_steps=20 format=3 uid="uid://6qcc5ewrobb7"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_1fdw2"]
 [ext_resource type="Script" uid="uid://nvbsryrw31lt" path="res://Scripts/Menus/ScoreStar.cs" id="2_42ghx"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://chow7vj3c1kwn" path="res://Assets/Audio/SFX/StarGlisten.wav" id="6_y8mp6"]
 [ext_resource type="AudioStream" uid="uid://dwjq2kmhva354" path="res://Assets/Audio/SFX/StarGain.wav" id="7_epf2j"]
 [ext_resource type="Script" uid="uid://bnh424i3vithq" path="res://Scripts/Menus/Toasts/ToastContainer.cs" id="8_epf2j"]
+[ext_resource type="Script" uid="uid://18yaofd163nn" path="res://Scripts/Menus/Buttons/ButtonLockIfNoNextLevel.cs" id="8_h7b7s"]
 [ext_resource type="PackedScene" uid="uid://3bk12b2ixl7o" path="res://Assets/Prefabs/UI/Toast.tscn" id="9_ngg20"]
 [ext_resource type="Script" uid="uid://cytij3y1yomcn" path="res://Scripts/Menus/Toasts/SendToast.cs" id="9_plu5i"]
 [ext_resource type="Texture2D" uid="uid://nkdkequldbrb" path="res://Assets/Textures/Icons/save.svg" id="11_72tyu"]
@@ -569,6 +570,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 text = "Next Level"
+script = ExtResource("8_h7b7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

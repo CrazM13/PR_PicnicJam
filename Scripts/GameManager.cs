@@ -44,10 +44,6 @@ public class GameManager {
 	}
 
 	public void StartLevel(string thisLevelPath, string nextLevelPath) {
-		if (string.IsNullOrEmpty(nextLevelPath)) {
-			nextLevelPath = thisLevelPath;
-		}
-
 		UnlockLevel(thisLevelPath);
 		levelData[thisLevelPath].ScenePath = thisLevelPath;
 		levelData[thisLevelPath].NextLevelPath = nextLevelPath;
@@ -83,7 +79,7 @@ public class GameManager {
 		
 		level.WasWon = true;
 
-		UnlockLevel(level.NextLevelPath);
+		if (!string.IsNullOrEmpty(level.NextLevelPath)) UnlockLevel(level.NextLevelPath);
 
 		lastLevelName = thisLevelPath;
 

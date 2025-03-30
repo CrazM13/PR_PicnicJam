@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=3 uid="uid://lxxk84y7bifm"]
+
+[ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_e57xo"]
+[ext_resource type="PackedScene" uid="uid://b7cugx7mwcpoo" path="res://Assets/Prefabs/Game Objects/grass_cover_platform.tscn" id="2_d80xo"]
+[ext_resource type="PackedScene" uid="uid://c24sshhqtr0b5" path="res://Assets/Prefabs/Game Objects/ramp.tscn" id="3_gk1sg"]
+[ext_resource type="PackedScene" uid="uid://b2iklat0xsrs2" path="res://Assets/Prefabs/Game Objects/box.tscn" id="4_st7rb"]
+[ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="5_ak4ck"]
+[ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="6_uvw2q"]
+
+[node name="LevelJ1" type="Node2D"]
+
+[node name="Collision" type="CanvasGroup" parent="."]
+
+[node name="Platform" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(384, 192)
+
+[node name="GrassCoverPlatform" parent="Collision/Platform" instance=ExtResource("2_d80xo")]
+
+[node name="Platform3" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(384, -704)
+
+[node name="GrassCoverPlatform2" parent="Collision/Platform3" instance=ExtResource("2_d80xo")]
+
+[node name="Platform4" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(1408, 192)
+
+[node name="GrassCoverPlatform2" parent="Collision/Platform4" instance=ExtResource("2_d80xo")]
+
+[node name="Platform5" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(1280, -704)
+
+[node name="GrassCoverPlatform2" parent="Collision/Platform5" instance=ExtResource("2_d80xo")]
+
+[node name="Platform13" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(1408, -576)
+
+[node name="Platform14" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(1536, -448)
+
+[node name="Platform15" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(1664, -320)
+
+[node name="Platform16" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(2624, -1152)
+rotation = -1.57079
+
+[node name="Platform17" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(2752, -1152)
+rotation = -1.57079
+
+[node name="Platform18" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(2880, -1152)
+rotation = -1.57079
+
+[node name="Platform6" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(2432, 192)
+
+[node name="GrassCoverPlatform2" parent="Collision/Platform6" instance=ExtResource("2_d80xo")]
+
+[node name="Platform9" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(2432, -1728)
+
+[node name="Platform10" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(1408, -1728)
+
+[node name="Platform11" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(384, -1728)
+
+[node name="Platform12" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(-192, -1280)
+rotation = -1.57079
+
+[node name="Platform7" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(3008, -256)
+rotation = -1.57079
+
+[node name="Platform8" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(3008, -1280)
+rotation = -1.57079
+
+[node name="Platform2" parent="Collision" instance=ExtResource("1_e57xo")]
+position = Vector2(-192, -256)
+rotation = -1.57079
+
+[node name="Ramp" parent="Collision" instance=ExtResource("3_gk1sg")]
+position = Vector2(2112, -448)
+
+[node name="Ramp2" parent="Collision" instance=ExtResource("3_gk1sg")]
+position = Vector2(1984, -576)
+
+[node name="Ramp3" parent="Collision" instance=ExtResource("3_gk1sg")]
+position = Vector2(1856, -704)
+
+[node name="Ramp4" parent="Collision" instance=ExtResource("3_gk1sg")]
+position = Vector2(2624, -576)
+rotation = 3.14159
+
+[node name="Ramp5" parent="Collision" instance=ExtResource("3_gk1sg")]
+position = Vector2(2752, -448)
+rotation = 3.14159
+
+[node name="Ramp6" parent="Collision" instance=ExtResource("3_gk1sg")]
+position = Vector2(2880, -320)
+rotation = 3.14159
+
+[node name="Box" parent="Collision" instance=ExtResource("4_st7rb")]
+position = Vector2(2752, -576)
+rotation = 3.14159
+
+[node name="Box2" parent="Collision" instance=ExtResource("4_st7rb")]
+position = Vector2(2880, -576)
+rotation = 3.14159
+
+[node name="Box3" parent="Collision" instance=ExtResource("4_st7rb")]
+position = Vector2(2880, -448)
+rotation = 3.14159
+
+[node name="Start" parent="." instance=ExtResource("5_ak4ck")]
+
+[node name="Goal" parent="." instance=ExtResource("6_uvw2q")]
+position = Vector2(0, -896)
+nextScene = "res://Scenes/Levels/Level 2.tscn"

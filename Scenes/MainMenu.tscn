@@ -85,7 +85,7 @@ text = "Credits"
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Play" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/Levels/LevelJ1.tscn"]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Play" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/Levels/Level 1.tscn"]]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/LevelSelect" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/LevelSelect.tscn"]]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Options" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/Options.tscn"]]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Credits" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/CreditsMenu.tscn"]]

@@ -102,7 +102,7 @@ rotation = 1.57079
 
 [node name="Goal" parent="." instance=ExtResource("3_n2f15")]
 position = Vector2(2048, 1152)
-nextScene = "res://Scenes/Levels/LevelJ7.tscn"
+nextScene = "res://Scenes/Levels/Level 7.tscn"
 
 [node name="Rotator Gear" parent="." instance=ExtResource("4_v531u")]
 position = Vector2(512, 256)
