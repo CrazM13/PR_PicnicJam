@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class SceneNavButton : Control {
+public partial class SceneNavButton : Node {
 
 	public void NavToScene(string path) {
 		SceneManager.Instance.LoadScene(path);
