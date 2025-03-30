@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://tej6b80mv0ou"]
+[gd_scene load_steps=17 format=3 uid="uid://tej6b80mv0ou"]
 
 [ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_qjwie"]
 [ext_resource type="PackedScene" uid="uid://b7cugx7mwcpoo" path="res://Assets/Prefabs/Game Objects/grass_cover_platform.tscn" id="2_1wxn1"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://b4v0es1p4o255" path="res://Assets/Prefabs/Game Objects/moveable_box.tscn" id="9_5xh4f"]
 [ext_resource type="PackedScene" uid="uid://da8yvwoaxgyy4" path="res://Assets/Prefabs/Entities/wasp.tscn" id="10_7bbb2"]
 [ext_resource type="PackedScene" uid="uid://bdeqd4drnfqsq" path="res://Assets/Prefabs/Game Objects/metal_platform.tscn" id="10_nq8bw"]
+[ext_resource type="PackedScene" uid="uid://tpu16g110784" path="res://Assets/Prefabs/Game Objects/wooden_arrow.tscn" id="13_4jooa"]
+[ext_resource type="Texture2D" uid="uid://b07as8rm6wias" path="res://Assets/Textures/Testing/WoodenArrowSign.png" id="14_i0vf8"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5xh4f"]
 a = Vector2(-512, 0)
@@ -297,3 +299,45 @@ position = Vector2(-832, -1184)
 
 [node name="Wasp2" parent="." instance=ExtResource("10_7bbb2")]
 position = Vector2(-128, -1280)
+
+[node name="WoodenArrow" parent="." instance=ExtResource("13_4jooa")]
+position = Vector2(256, 128)
+
+[node name="Arrow" parent="WoodenArrow" index="1"]
+rotation = -0.653553
+flip_h = true
+
+[node name="Arrow2" type="Sprite2D" parent="WoodenArrow"]
+rotation = 0.362427
+texture = ExtResource("14_i0vf8")
+offset = Vector2(0, 26)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 256)
+
+[node name="WoodenArrow2" parent="." instance=ExtResource("13_4jooa")]
+position = Vector2(1024, -1408)
+rotation = 3.14159
+
+[node name="Arrow" parent="WoodenArrow2" index="1"]
+rotation = 3.14159
+
+[node name="WoodenArrow3" parent="." instance=ExtResource("13_4jooa")]
+position = Vector2(-1408, -960)
+rotation = 1.57079
+
+[node name="Arrow" parent="WoodenArrow3" index="1"]
+position = Vector2(-6.77982e-05, 32)
+rotation = 3.14159
+flip_v = true
+
+[node name="WoodenArrow4" parent="." instance=ExtResource("13_4jooa")]
+position = Vector2(-160, -896)
+
+[node name="Arrow" parent="WoodenArrow4" index="1"]
+rotation = -0.39005
+
+[editable path="WoodenArrow"]
+[editable path="WoodenArrow2"]
+[editable path="WoodenArrow3"]
+[editable path="WoodenArrow4"]

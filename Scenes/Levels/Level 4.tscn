@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgyhwt51mvtjf"]
+[gd_scene load_steps=14 format=3 uid="uid://cgyhwt51mvtjf"]
 
 [ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_bwq1r"]
 [ext_resource type="PackedScene" uid="uid://b7cugx7mwcpoo" path="res://Assets/Prefabs/Game Objects/grass_cover_platform.tscn" id="2_xpnrn"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b4v0es1p4o255" path="res://Assets/Prefabs/Game Objects/moveable_box.tscn" id="10_65v2s"]
 [ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="11_dbiw4"]
 [ext_resource type="PackedScene" uid="uid://rkitjpdn4ejj" path="res://Assets/Prefabs/Game Objects/router_gear.tscn" id="12_44xtv"]
+[ext_resource type="PackedScene" uid="uid://tpu16g110784" path="res://Assets/Prefabs/Game Objects/wooden_arrow.tscn" id="13_xpnrn"]
 
 [node name="LevelJ4" type="Node2D"]
 
@@ -159,3 +160,25 @@ position = Vector2(576, 0)
 [node name="Router Gear" parent="." node_paths=PackedStringArray("levelObjects") instance=ExtResource("12_44xtv")]
 position = Vector2(1856, -192)
 levelObjects = [NodePath("../Rotator Gear Puzzel1")]
+
+[node name="WoodenArrow" parent="." instance=ExtResource("13_xpnrn")]
+position = Vector2(-384, 128)
+
+[node name="Arrow" parent="WoodenArrow" index="1"]
+rotation = -0.561679
+
+[node name="WoodenArrow2" parent="." instance=ExtResource("13_xpnrn")]
+position = Vector2(2112, 256)
+
+[node name="Arrow" parent="WoodenArrow2" index="1"]
+rotation = -0.467562
+
+[node name="WoodenArrow3" parent="." instance=ExtResource("13_xpnrn")]
+position = Vector2(1536, -448)
+rotation = 1.57079
+
+[node name="WoodenArrow4" parent="." instance=ExtResource("13_xpnrn")]
+position = Vector2(1344, -1664)
+
+[editable path="WoodenArrow"]
+[editable path="WoodenArrow2"]

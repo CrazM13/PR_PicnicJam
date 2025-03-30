@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn25ocydcvu8u"]
+[gd_scene load_steps=7 format=3 uid="uid://bn25ocydcvu8u"]
 
 [ext_resource type="PackedScene" uid="uid://b4upa0rtvvrcs" path="res://Assets/Prefabs/Game Objects/rotator_gear.tscn" id="1_5ptav"]
 [ext_resource type="PackedScene" uid="uid://bdeqd4drnfqsq" path="res://Assets/Prefabs/Game Objects/metal_platform.tscn" id="3_2rxhk"]
 [ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="3_qb25p"]
 [ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="4_2rxhk"]
 [ext_resource type="PackedScene" uid="uid://3um3aluyef4x" path="res://Assets/Prefabs/Game Objects/button_level_object.tscn" id="5_2rxhk"]
+[ext_resource type="PackedScene" uid="uid://tpu16g110784" path="res://Assets/Prefabs/Game Objects/wooden_arrow.tscn" id="6_nye00"]
 
 [node name="LevelJ7" type="Node2D"]
 
@@ -106,3 +107,12 @@ levelObjects = [NodePath("..")]
 position = Vector2(960, -1344)
 rotation = -3.14159
 levelObjects = [NodePath("..")]
+
+[node name="WoodenArrow" parent="Rotator Gear" instance=ExtResource("6_nye00")]
+position = Vector2(256, 256)
+
+[node name="Arrow" parent="Rotator Gear/WoodenArrow" index="1"]
+rotation = 0.361863
+flip_h = true
+
+[editable path="Rotator Gear/WoodenArrow"]

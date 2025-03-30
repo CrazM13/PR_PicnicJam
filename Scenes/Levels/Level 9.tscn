@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdd17ivyw63o8"]
+[gd_scene load_steps=13 format=3 uid="uid://cdd17ivyw63o8"]
 
 [ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_qx7uw"]
 [ext_resource type="PackedScene" uid="uid://b7cugx7mwcpoo" path="res://Assets/Prefabs/Game Objects/grass_cover_platform.tscn" id="2_ghs18"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="8_n143u"]
 [ext_resource type="PackedScene" uid="uid://da8yvwoaxgyy4" path="res://Assets/Prefabs/Entities/wasp.tscn" id="9_n143u"]
 [ext_resource type="PackedScene" uid="uid://bdeqd4drnfqsq" path="res://Assets/Prefabs/Game Objects/metal_platform.tscn" id="10_qxb40"]
+[ext_resource type="PackedScene" uid="uid://tpu16g110784" path="res://Assets/Prefabs/Game Objects/wooden_arrow.tscn" id="12_e43ve"]
 
 [node name="LevelJ9" type="Node2D"]
 
@@ -139,3 +140,29 @@ position = Vector2(-768, -192)
 position = Vector2(-448, -96)
 
 [node name="Start" parent="." instance=ExtResource("2_gmrvj")]
+
+[node name="WoodenArrow" parent="." instance=ExtResource("12_e43ve")]
+position = Vector2(-1024, 128)
+
+[node name="WoodenArrow2" parent="." instance=ExtResource("12_e43ve")]
+position = Vector2(1024, 128)
+
+[node name="Arrow" parent="WoodenArrow2" index="1"]
+flip_h = true
+
+[node name="WoodenArrow3" parent="." instance=ExtResource("12_e43ve")]
+position = Vector2(256, 128)
+
+[node name="Arrow" parent="WoodenArrow3" index="1"]
+rotation = -5.49778
+
+[node name="WoodenArrow4" parent="." instance=ExtResource("12_e43ve")]
+position = Vector2(-256, 128)
+
+[node name="Arrow" parent="WoodenArrow4" index="1"]
+rotation = 5.49779
+flip_h = true
+
+[editable path="WoodenArrow2"]
+[editable path="WoodenArrow3"]
+[editable path="WoodenArrow4"]
