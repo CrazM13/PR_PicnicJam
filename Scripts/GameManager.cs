@@ -19,6 +19,8 @@ public class GameManager {
 	public class GameSettings {
 		public bool InvertUpDown { get; set; } = false;
 		public bool InvertLeftRight { get; set; } = false;
+		public float SpringPullbackSpeed { get; set; } = 1f;
+		public float CameraZoom { get; set; } = 1f;
 	}
 
 	public class GameStats {
@@ -116,6 +118,10 @@ public class GameManager {
 		// Controls
 		settingsVault.SetValue("invert_horizontal", Settings.InvertLeftRight);
 		settingsVault.SetValue("invert_vertical", Settings.InvertUpDown);
+		settingsVault.SetValue("spring_pullback_speed", Settings.SpringPullbackSpeed);
+
+		// Visuals
+		settingsVault.SetValue("camera_zoom", Settings.CameraZoom);
 
 		// Volume
 		settingsVault.SetValue("volume_master", AudioServer.GetBusVolumeLinear(AudioServer.GetBusIndex("Master")));
@@ -142,6 +148,9 @@ public class GameManager {
 		if (settingsVault != null) {
 			Settings.InvertLeftRight = settingsVault.GetValue("invert_horizontal").AsBool();
 			Settings.InvertUpDown = settingsVault.GetValue("invert_vertical").AsBool();
+
+			Settings.SpringPullbackSpeed = settingsVault.GetValue("spring_pullback_speed").As<float>();
+			Settings.CameraZoom = settingsVault.GetValue("camera_zoom").As<float>();
 
 			AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("Master"), settingsVault.GetValue("volume_master").As<float>());
 			AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("Music"), settingsVault.GetValue("volume_music").As<float>());

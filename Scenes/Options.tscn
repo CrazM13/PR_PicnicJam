@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bej1o6i7ouvvm"]
+[gd_scene load_steps=23 format=3 uid="uid://bej1o6i7ouvvm"]
 
 [ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_qqnya"]
 [ext_resource type="Script" uid="uid://do4q8u63uhe47" path="res://Scripts/Menus/Buttons/BetterTabMenu.cs" id="2_bdxpv"]
@@ -14,13 +14,16 @@
 [ext_resource type="Texture2D" uid="uid://bwhiutndow34t" path="res://Assets/Textures/Icons/volume-2.svg" id="8_kfnrp"]
 [ext_resource type="Script" uid="uid://oghw808aostu" path="res://Scripts/Menus/Buttons/BetterOptionButton.cs" id="10_34to5"]
 [ext_resource type="AudioStream" uid="uid://chyk5470gn71m" path="res://Assets/Audio/SFX/Click Failed.wav" id="10_ksf6h"]
+[ext_resource type="Texture2D" uid="uid://cg0h66kbt4kj0" path="res://Assets/Textures/Icons/zoom-out.svg" id="14_1k6i7"]
 [ext_resource type="Script" uid="uid://bnh424i3vithq" path="res://Scripts/Menus/Toasts/ToastContainer.cs" id="14_mrk6e"]
 [ext_resource type="PackedScene" uid="uid://3bk12b2ixl7o" path="res://Assets/Prefabs/UI/Toast.tscn" id="15_oa66i"]
+[ext_resource type="PackedScene" uid="uid://db884h4acc581" path="res://Assets/Prefabs/UI/PercentChanger.tscn" id="15_yfx2d"]
+[ext_resource type="Texture2D" uid="uid://becj6f22g7ecc" path="res://Assets/Textures/Icons/zoom-in.svg" id="16_cdyqt"]
 [ext_resource type="Script" uid="uid://cytij3y1yomcn" path="res://Scripts/Menus/Toasts/SendToast.cs" id="16_viydq"]
 [ext_resource type="Texture2D" uid="uid://cu2xrn0nxeaxf" path="res://Assets/Textures/Icons/folder.svg" id="17_oa66i"]
 [ext_resource type="Texture2D" uid="uid://bg32hq42kst3a" path="res://Assets/Textures/Icons/x.svg" id="18_oa66i"]
 
-[node name="Options" type="Control" node_paths=PackedStringArray("volumeSliders", "muteButtons", "invertControls")]
+[node name="Options" type="Control" node_paths=PackedStringArray("volumeSliders", "muteButtons", "invertControls", "pullbackSpeed", "cameraZoom")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +35,8 @@ script = ExtResource("2_ksf6h")
 volumeSliders = [NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox/HSlider"), NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox/HSlider"), NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox/HSlider")]
 muteButtons = [NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox/BetterButton"), NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox/BetterButton"), NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox/BetterButton")]
 invertControls = NodePath("VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton")
+pullbackSpeed = NodePath("VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer2/PercentChanger")
+cameraZoom = NodePath("VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer3/PercentChanger")
 
 [node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -53,12 +58,13 @@ grow_vertical = 2
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer" node_paths=PackedStringArray("clickSFX", "hoverSFX")]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 1
 script = ExtResource("2_bdxpv")
 clickSFX = NodePath("../../TabAudioContainer/OnClick")
 hoverSFX = NodePath("../../TabAudioContainer/OnHover")
 
 [node name="Audio" type="Control" parent="VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -433,7 +439,6 @@ layout_mode = 2
 texture = ExtResource("8_kfnrp")
 
 [node name="Controls" type="Control" parent="VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -510,6 +515,40 @@ bus = &"SFX"
 [node name="OnHoverDisabled" type="AudioStreamPlayer" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton"]
 stream = ExtResource("10_ksf6h")
 bus = &"SFX"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Spring Pullback Speed"
+
+[node name="PercentChanger" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("15_yfx2d")]
+layout_mode = 2
+maxPercent = 2.0
+minPercent = 0.5
+step = 0.05
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Camera Zoom"
+
+[node name="PercentChanger" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("15_yfx2d")]
+layout_mode = 2
+maxPercent = 1.25
+minPercent = 0.25
+step = 0.05
+
+[node name="TextureRect" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer3/PercentChanger/ZoomOut/MarginContainer" index="0"]
+texture = ExtResource("14_1k6i7")
+
+[node name="TextureRect" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer3/PercentChanger/ZoomIn/MarginContainer" index="0"]
+texture = ExtResource("16_cdyqt")
 
 [node name="Game Data" type="Control" parent="VBoxContainer/TabContainer"]
 visible = false
@@ -660,6 +699,8 @@ Icon = ExtResource("18_oa66i")
 Container = NodePath("../Toast Container")
 
 [connection signal="item_selected" from="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton" to="." method="ChangeControlsInvert"]
+[connection signal="PercentChanged" from="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer2/PercentChanger" to="." method="ChangePullbackSpeed"]
+[connection signal="PercentChanged" from="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer3/PercentChanger" to="." method="ChangeZoom"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer/BetterButton" to="Control/OpenedFolderToast" method="SendNewToast"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer/BetterButton" to="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer" method="NavToFileDialogue" binds= ["user://vaults"]]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer2/BetterButton" to="." method="ResetSettings"]
@@ -667,3 +708,5 @@ Container = NodePath("../Toast Container")
 [connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer3/BetterButton" to="." method="ResetGame"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer3/BetterButton" to="Control/DeletedSaveData" method="SendNewToast"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BetterButton" to="VBoxContainer/HBoxContainer" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]
+
+[editable path="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer3/PercentChanger"]

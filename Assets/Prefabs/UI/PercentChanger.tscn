@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://db884h4acc581"]
+
+[ext_resource type="Script" uid="uid://dqujpsgicavvk" path="res://Scripts/Menus/PercentChanger.cs" id="1_hkr02"]
+[ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="2_rxo3e"]
+[ext_resource type="Texture2D" uid="uid://bfh8hey1387eu" path="res://Assets/Textures/Icons/minus.svg" id="3_hkr02"]
+[ext_resource type="Texture2D" uid="uid://cvv2f30ekbt2y" path="res://Assets/Textures/Icons/plus.svg" id="4_rxo3e"]
+
+[node name="PercentChanger" type="HBoxContainer" node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(256, 0)
+alignment = 1
+script = ExtResource("1_hkr02")
+label = NodePath("ZoomLabel")
+
+[node name="ZoomOut" parent="." instance=ExtResource("2_rxo3e")]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ZoomOut"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="ZoomOut/MarginContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("3_hkr02")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ZoomLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 1
+
+[node name="ZoomIn" parent="." instance=ExtResource("2_rxo3e")]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ZoomIn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="ZoomIn/MarginContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_rxo3e")
+expand_mode = 2
+stretch_mode = 5
+
+[connection signal="pressed" from="ZoomOut" to="." method="LowerPercent"]
+[connection signal="pressed" from="ZoomIn" to="." method="RaisePercent"]

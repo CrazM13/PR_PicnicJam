@@ -77,9 +77,11 @@ public partial class SimplePlayerController : RigidBody2D {
 	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
 
+		float springPullbackSpeed = GameManager.Instance.Settings.SpringPullbackSpeed;
+
 		if (IsReadingInputs) {
 			if (Input.IsActionPressed(GetDownInput())) {
-				downPullback = Mathf.MoveToward(downPullback, 1, (float) delta);
+				downPullback = Mathf.MoveToward(downPullback, 1, (float) delta * springPullbackSpeed);
 				if (downCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(32, 100 * (1 - downPullback));
 				}
@@ -92,7 +94,7 @@ public partial class SimplePlayerController : RigidBody2D {
 			}
 
 			if (Input.IsActionPressed(GetUpInput())) {
-				upPullback = Mathf.MoveToward(upPullback, 1, (float) delta);
+				upPullback = Mathf.MoveToward(upPullback, 1, (float) delta * springPullbackSpeed);
 				if (upCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(32, 100 * (1 - upPullback));
 				}
@@ -105,7 +107,7 @@ public partial class SimplePlayerController : RigidBody2D {
 			}
 
 			if (Input.IsActionPressed(GetLeftInput())) {
-				leftPullback = Mathf.MoveToward(leftPullback, 1, (float) delta);
+				leftPullback = Mathf.MoveToward(leftPullback, 1, (float) delta * springPullbackSpeed);
 				if (leftCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(100 * (1 - leftPullback), 32);
 				}
@@ -118,7 +120,7 @@ public partial class SimplePlayerController : RigidBody2D {
 			}
 
 			if (Input.IsActionPressed(GetRightInput())) {
-				rightPullback = Mathf.MoveToward(rightPullback, 1, (float) delta);
+				rightPullback = Mathf.MoveToward(rightPullback, 1, (float) delta * springPullbackSpeed);
 				if (rightCollider.Shape is RectangleShape2D shape) {
 					shape.Size = new Vector2(100 * (1 - rightPullback), 32);
 				}

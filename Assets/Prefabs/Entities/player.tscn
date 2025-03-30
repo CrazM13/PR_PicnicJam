@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5xnjc82lv7ht"]
+[gd_scene load_steps=19 format=3 uid="uid://c5xnjc82lv7ht"]
 
 [ext_resource type="Script" uid="uid://cqgkb27xoej3o" path="res://Scripts/Entity/SimplePlayerController.cs" id="1_ebihn"]
 [ext_resource type="AudioStream" uid="uid://fx1a224r8yrm" path="res://Assets/Audio/SFX/SpringLaunchSFX.wav" id="2_bvj5f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://wdo661q1wrk7" path="res://Scripts/Entity/HeldObjectArea.cs" id="3_m0ojv"]
 [ext_resource type="Texture2D" uid="uid://bufxb4fsl0fbr" path="res://Assets/Textures/Testing/Basket.png" id="4_64x4u"]
 [ext_resource type="Texture2D" uid="uid://cq0ljgtf5uebb" path="res://Assets/Textures/Testing/Spring.png" id="5_64x4u"]
+[ext_resource type="Script" uid="uid://cwfbbeqmra37" path="res://Scripts/GameCamera.cs" id="7_3mij7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3iclq"]
 friction = 0.25
@@ -203,7 +204,9 @@ script = ExtResource("3_m0ojv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_1mbfp")
 
-[node name="CameraRig" type="Node2D" parent="."]
+[node name="CameraRig" type="Node2D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("7_3mij7")
+camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="CameraRig"]
 zoom = Vector2(0.25, 0.25)

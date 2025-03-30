@@ -1,20 +1,15 @@
 using Godot;
 using System;
 
-public partial class VolumeSlider : HSlider {
+public partial class VolumeSlider : BetterHSlider {
 
 	[Export(PropertyHint.EnumSuggestion, "Master,Music,SFX,UI SFX,Player SFX,Enemy SFX")] private StringName bus = "Master";
-	[Export] private AudioStreamPlayer audio;
 
 	public override void _Ready() {
 		base._Ready();
 
 		Reset();
 		this.ValueChanged += this.OnValueChanged;
-
-		this.MouseEntered += () => {
-			audio.Play();
-		};
 
 	}
 
@@ -24,7 +19,6 @@ public partial class VolumeSlider : HSlider {
 
 	private void OnValueChanged(double value) {
 		AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex(bus), (float) value);
-		audio.Play();
 
 		GameManager.Instance.SaveSettings();
 	}
