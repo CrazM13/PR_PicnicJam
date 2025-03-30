@@ -35,7 +35,7 @@ public partial class LevelObjectButton : Area2D {
 		level++;
 
 		router.SetPower(true, 0);
-		sprite.Offset = sprite.Offset = new Vector2(0, 64);
+		sprite.Offset = sprite.Offset = new Vector2(0, 32);
 	}
 
 }

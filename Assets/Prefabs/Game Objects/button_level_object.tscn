@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://3um3aluyef4x"]
 
 [ext_resource type="Script" uid="uid://c7pe7yae6hhcs" path="res://Scripts/LevelObjects/LevelObjectRouting.cs" id="1_ao1tu"]
-[ext_resource type="Texture2D" uid="uid://3h2ymj84xxse" path="res://Assets/Textures/Testing/TestButton.png" id="2_1ee61"]
+[ext_resource type="Texture2D" uid="uid://b6dggcjgh820q" path="res://Assets/Textures/Testing/HoldButton.png" id="2_gaqwm"]
 [ext_resource type="Script" uid="uid://b6tfyaidj4eqx" path="res://Scripts/LevelObjects/LevelObjectButton.cs" id="3_gaqwm"]
 [ext_resource type="AudioStream" uid="uid://blmsi75mudt3u" path="res://Assets/Audio/SFX/Click On.wav" id="4_gaqwm"]
 [ext_resource type="AudioStream" uid="uid://bqv0ix4gvsko5" path="res://Assets/Audio/SFX/Click Off.wav" id="5_1ee61"]
@@ -21,12 +21,12 @@ clip_children = 1
 texture = SubResource("PlaceholderTexture2D_n1u3k")
 
 [node name="Sprite2D" type="Sprite2D" parent="Mask"]
-texture = ExtResource("2_1ee61")
+texture = ExtResource("2_gaqwm")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 128)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Mask"]
-texture = ExtResource("2_1ee61")
+texture = ExtResource("2_gaqwm")
 region_enabled = true
 region_rect = Rect2(128, 0, 128, 128)
 

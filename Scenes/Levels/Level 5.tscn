@@ -64,6 +64,9 @@ position = Vector2(-320, 192)
 levelObjects = [NodePath("../Rotator Gear"), NodePath("../Rotator Gear4")]
 toggleMode = true
 
+[node name="Sprite2D" parent="ButtonLO/Mask" index="0"]
+self_modulate = Color(1, 0, 0, 1)
+
 [node name="Rotator Gear" parent="." instance=ExtResource("5_gspvx")]
 position = Vector2(576, -832)
 
@@ -87,6 +90,9 @@ position = Vector2(704, 192)
 levelObjects = [NodePath("../Rotator Gear2"), NodePath("../Rotator Gear3")]
 toggleMode = true
 
+[node name="Sprite2D" parent="ButtonLO2/Mask" index="0"]
+self_modulate = Color(1, 0, 0, 1)
+
 [node name="Rotator Gear2" parent="." instance=ExtResource("5_gspvx")]
 position = Vector2(1600, -832)
 unpoweredRotation = 90.0
@@ -107,3 +113,6 @@ rotation = -1.57079
 
 [node name="Wasp" parent="." instance=ExtResource("6_hd8am")]
 position = Vector2(1152, 0)
+
+[editable path="ButtonLO"]
+[editable path="ButtonLO2"]
