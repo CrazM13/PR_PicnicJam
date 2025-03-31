@@ -7,6 +7,8 @@ public partial class GoalArea : Area2D {
 	[Export] private AudioStream scoreMusic;
 	[Export] private string nextScene;
 
+	[Export] private AnimationPlayer[] puppets;
+
 	private string levelName;
 
 	public override void _Ready() {
@@ -26,7 +28,12 @@ public partial class GoalArea : Area2D {
 			Engine.TimeScale = 0.05f;
 			BackgroundMusic.Instance.ChangeTrack(scoreMusic);
 
-			GetTree().CreateTimer(0.05f).Timeout += () => {
+			foreach(AnimationPlayer puppet in puppets) {
+				puppet.SpeedScale = 1 / (float)Engine.TimeScale;
+				puppet.Play("cheer");
+			}
+
+			GetTree().CreateTimer(3 * Engine.TimeScale).Timeout += () => {
 				Engine.TimeScale = 1f;
 				SceneManager.Instance.LoadScene("res://Scenes/ScoreScene.tscn");
 			};

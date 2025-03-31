@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class ButtonLockIfNoNextLevel : BetterButton {
+public partial class ButtonLockIfNoNextLevel : BetterTextButton {
 
 	private bool shouldUnlock;
 
@@ -10,14 +10,9 @@ public partial class ButtonLockIfNoNextLevel : BetterButton {
 
 		string path = GameManager.Instance.GetLastLevelData().NextLevelPath;
 
-		shouldUnlock = !string.IsNullOrEmpty(path);
-
-	}
-
-	public override void _Process(double delta) {
-		base._Process(delta);
-
-		if (!this.Disabled && !shouldUnlock) this.Disabled = true;
+		if (string.IsNullOrEmpty(path)) {
+			this.Text = "Next";
+		}
 
 	}
 

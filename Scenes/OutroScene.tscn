@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bm5uihj82bb0m"]
+[gd_scene load_steps=16 format=3 uid="uid://c7ihhdirtt0vm"]
 
-[ext_resource type="Script" uid="uid://dom5s8qlt4b0q" path="res://Scripts/Menus/SkipCutscene.cs" id="1_pseuf"]
-[ext_resource type="Texture2D" uid="uid://ccwyq6r2b4330" path="res://Assets/Textures/Characters/Chibi Hime/base_Chibi_Hime_Spritesheet.svg" id="1_y0wha"]
-[ext_resource type="Texture2D" uid="uid://c4sgoqboqluvg" path="res://Assets/Textures/Testing/DialogueBox.png" id="2_qef2n"]
-[ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="3_d4qc4"]
+[ext_resource type="Script" uid="uid://dom5s8qlt4b0q" path="res://Scripts/Menus/SkipCutscene.cs" id="1_0urcp"]
+[ext_resource type="Texture2D" uid="uid://ccwyq6r2b4330" path="res://Assets/Textures/Characters/Chibi Hime/base_Chibi_Hime_Spritesheet.svg" id="2_j6ovi"]
+[ext_resource type="Texture2D" uid="uid://c4sgoqboqluvg" path="res://Assets/Textures/Testing/DialogueBox.png" id="3_5soav"]
+[ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="4_n62jn"]
 
 [sub_resource type="Gradient" id="Gradient_ghw46"]
 colors = PackedColorArray(0.39906, 0.55912, 0.685758, 1, 0.2226, 0.448027, 0.53, 1)
@@ -244,7 +244,316 @@ _data = {
 &"Talking": SubResource("Animation_h8frj")
 }
 
+[sub_resource type="Animation" id="Animation_d4qc4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(416, 288)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogueBox:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Puppet2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1024, 640)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Puppet1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, 640)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 320)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera2D:zoom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DialogueBox2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(736, 352)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DialogueBox2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("DialogueBox/DB1 Text:text")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Wanna go for a picnic?"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("DialogueBox2/DB 2 Text:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Yeah! That sounds fun!"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Puppet1/AnimationPlayer:current_animation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Puppet2/AnimationPlayer:current_animation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
 [sub_resource type="Animation" id="Animation_y0wha"]
+resource_name = "Outro Animation"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(358.49, 408), Vector2(576, 320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Puppet1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(212, 644), Vector2(212, 644)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Puppet2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(514.355, 644), Vector2(944, 644)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DialogueBox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 1.76667, 2.06667, 4, 4.4, 5.1333),
+"transitions": PackedFloat32Array(1, 1, 2, 1, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(-194, -12), Vector2(-194, -12), Vector2(473.955, 260.87), Vector2(416, 288), Vector2(416, 288), Vector2(473.955, 260.87), Vector2(-194, -12)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DialogueBox:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 1.76667, 2.06667, 4, 4.4, 5.1333),
+"transitions": PackedFloat32Array(1, 1, 2, 1, 1, 0.5, 1),
+"update": 0,
+"values": [-2.26369, -2.26369, 0.338594, 0.0, 0.0, 0.338594, -2.26369]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DialogueBox2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.06667, 2.86667, 3.16667, 5.66667, 6, 6.96667),
+"transitions": PackedFloat32Array(1, 1, 2, 1, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(1353, -6), Vector2(1353, -6), Vector2(692.375, 307.55), Vector2(736, 352), Vector2(736, 352), Vector2(692.375, 307.55), Vector2(1353, -6)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DialogueBox2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.06667, 2.86667, 3.16667, 5.66667, 6, 6.96667),
+"transitions": PackedFloat32Array(1, 1, 2, 1, 1, 0.5, 1),
+"update": 0,
+"values": [2.30034, 2.30034, -0.226893, 0.0, 0.0, -0.226893, 2.30034]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("DialogueBox/DB1 Text:text")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["That was fun!"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("DialogueBox2/DB 2 Text:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Your picnic basket was sooo cool!"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Puppet1/AnimationPlayer:current_animation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Show Off", &"Talking"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Puppet2/AnimationPlayer:current_animation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Amazed", &"Talking"]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(6.96667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["res://Scenes/MainMenu.tscn"],
+"method": &"NavToScene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0urcp"]
 resource_name = "Intro Animation"
 length = 15.0
 tracks/0/type = "value"
@@ -406,162 +715,16 @@ tracks/12/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_d4qc4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBox:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(416, 288)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DialogueBox:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Puppet2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1024, 640)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Puppet1:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(96, 640)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Camera2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(576, 320)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Camera2D:zoom")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("DialogueBox2:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(736, 352)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("DialogueBox2:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("DialogueBox/DB1 Text:text")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Wanna go for a picnic?"]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("DialogueBox2/DB 2 Text:text")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Yeah! That sounds fun!"]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Puppet1/AnimationPlayer:current_animation")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [""]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Puppet2/AnimationPlayer:current_animation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [""]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qef2n"]
 _data = {
-&"Intro Animation": SubResource("Animation_y0wha"),
+&"Intro Animation": SubResource("Animation_0urcp"),
+&"Outro Animation": SubResource("Animation_y0wha"),
 &"RESET": SubResource("Animation_d4qc4")
 }
 
-[node name="IntroScene" type="Node2D"]
-script = ExtResource("1_pseuf")
-nextScene = "res://Scenes/Levels/Level 1.tscn"
+[node name="OutroScene" type="Node2D"]
+script = ExtResource("1_0urcp")
+nextScene = "res://Scenes/MainMenu.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -100
@@ -585,7 +748,7 @@ position = Vector2(96, 640)
 
 [node name="Hair_Back" type="Polygon2D" parent="Puppet1/Chibi_Hime_Polygons"]
 position = Vector2(-400, -606)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(392, 312, 304, 344, 320, 424, 312, 504, 496, 504, 480, 416, 488, 328, 400, 416, 400, 504)
 uv = PackedVector2Array(392, 312, 304, 344, 320, 424, 312, 504, 496, 504, 480, 416, 488, 328, 400, 416, 400, 504)
@@ -595,7 +758,7 @@ internal_vertex_count = 2
 
 [node name="Leg_R" type="Polygon2D" parent="Puppet1/Chibi_Hime_Polygons"]
 position = Vector2(-254, -434)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(208, 352, 214.368, 394.317, 219.567, 411.83, 208.348, 419.218, 209.717, 435.364, 249.668, 434.816, 249.942, 418.398, 250.489, 411.831, 253.776, 392.946, 258.702, 351.9, 230.398, 434.518, 229.495, 418.264, 230.398, 411.943, 232.505, 392.679, 231.903, 351.441)
 uv = PackedVector2Array(208, 352, 214.368, 394.317, 219.567, 411.83, 208.348, 419.218, 209.717, 435.364, 249.668, 434.816, 249.942, 418.398, 250.489, 411.831, 253.776, 392.946, 258.702, 351.9, 230.398, 434.518, 229.495, 418.264, 230.398, 411.943, 232.505, 392.679, 231.903, 351.441)
@@ -605,7 +768,7 @@ internal_vertex_count = 5
 
 [node name="Leg_L" type="Polygon2D" parent="Puppet1/Chibi_Hime_Polygons"]
 position = Vector2(-107, -434)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(153.4, 352.773, 147.109, 394.823, 141.481, 411.709, 152.075, 420.316, 151.744, 434.554, 111.349, 434.885, 110.356, 420.978, 108.7, 412.038, 106.383, 395.814, 100.423, 352.771, 132.214, 434.12, 131.597, 420.14, 130.158, 411.916, 129.751, 394.85, 129.55, 352.498)
 uv = PackedVector2Array(153.4, 352.773, 147.109, 394.823, 141.481, 411.709, 152.075, 420.316, 151.744, 434.554, 111.349, 434.885, 110.356, 420.978, 108.7, 412.038, 106.383, 395.814, 100.423, 352.771, 132.214, 434.12, 131.597, 420.14, 130.158, 411.916, 129.751, 394.85, 129.55, 352.498)
@@ -615,7 +778,7 @@ internal_vertex_count = 5
 
 [node name="Arm_R" type="Polygon2D" parent="Puppet1/Chibi_Hime_Polygons"]
 position = Vector2(-494, -384)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(408.877, 290.586, 402.545, 307.472, 440.538, 321.402, 451.936, 296.918, 471.352, 276.662, 496.679, 245.004, 473.883, 229.385, 448.555, 255.98, 427.025, 277.087, 405.083, 271.177, 399.595, 285.53, 446.33, 306.787)
 uv = PackedVector2Array(408.877, 290.586, 402.545, 307.472, 440.538, 321.402, 451.936, 296.918, 471.352, 276.662, 496.679, 245.004, 473.883, 229.385, 448.555, 255.98, 427.025, 277.087, 405.083, 271.177, 399.595, 285.53, 446.33, 306.787)
@@ -625,7 +788,7 @@ internal_vertex_count = 1
 
 [node name="Arm_L" type="Polygon2D" parent="Puppet1/Chibi_Hime_Polygons"]
 position = Vector2(-299, -385)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(389.921, 305.752, 355.608, 322.194, 346.314, 311.232, 345.123, 298.841, 323.441, 278.349, 295.56, 244.988, 312.002, 234.027, 347.505, 259.761, 364.42, 276.68, 383.245, 273.105, 390.869, 285.022, 382.052, 293.124)
 uv = PackedVector2Array(389.921, 305.752, 355.608, 322.194, 346.314, 311.232, 345.123, 298.841, 323.441, 278.349, 295.56, 244.988, 312.002, 234.027, 347.505, 259.761, 364.42, 276.68, 383.245, 273.105, 390.869, 285.022, 382.052, 293.124)
@@ -634,7 +797,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "R
 
 [node name="Torso" type="Polygon2D" parent="Puppet1/Chibi_Hime_Polygons"]
 position = Vector2(-244, -389)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(224, 232, 192, 304, 200, 336, 288, 336, 296, 304, 264, 232)
 uv = PackedVector2Array(224, 232, 192, 304, 200, 336, 288, 336, 296, 304, 264, 232)
@@ -643,7 +806,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Root_Bone/Torso_Low
 
 [node name="Neck" type="Polygon2D" parent="Puppet1/Chibi_Hime_Polygons"]
 position = Vector2(-125, -439)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(104, 264, 144, 264, 144, 304, 104, 304)
 uv = PackedVector2Array(104, 264, 144, 264, 144, 304, 104, 304)
@@ -652,7 +815,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0), "Root_Bone/Torso_Lower", P
 
 [node name="Head" type="Polygon2D" parent="Puppet1/Chibi_Hime_Polygons"]
 position = Vector2(-445, -355)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(384, 96, 504, 96, 504, 208, 384, 208)
 uv = PackedVector2Array(384, 96, 504, 96, 504, 208, 384, 208)
@@ -661,7 +824,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0), "Root_Bone/Torso_Lower", P
 
 [node name="Eyes" type="Polygon2D" parent="Puppet1/Chibi_Hime_Polygons"]
 position = Vector2(-308, -355)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(272, 136, 368, 136, 368, 168, 272, 168)
 uv = PackedVector2Array(272, 136, 368, 136, 368, 168, 272, 168)
@@ -670,7 +833,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0), "Root_Bone/Torso_Lower", P
 
 [node name="Mouth" type="Polygon2D" parent="Puppet1/Chibi_Hime_Polygons"]
 position = Vector2(-221, -350)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(208, 160, 256, 160, 256, 192, 208, 192)
 uv = PackedVector2Array(208, 160, 256, 160, 256, 192, 208, 192)
@@ -679,7 +842,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0), "Root_Bone/Torso_Lower", P
 
 [node name="Hair_Front" type="Polygon2D" parent="Puppet1/Chibi_Hime_Polygons"]
 position = Vector2(-122, -375)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(120, 96, 80, 104, 48, 136, 64, 224, 96, 240, 120, 160, 144, 160, 152, 248, 192, 224, 200, 128, 168, 96, 131.677, 159.995)
 uv = PackedVector2Array(120, 96, 80, 104, 48, 136, 64, 224, 96, 240, 120, 160, 144, 160, 152, 248, 192, 224, 200, 128, 168, 96, 131.677, 159.995)
@@ -705,6 +868,7 @@ bone_angle = -90.0
 
 [node name="Torso_Upper" type="Bone2D" parent="Puppet1/Skeleton2D/Root_Bone/Torso_Lower"]
 position = Vector2(0, -30)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, -30)
 auto_calculate_length_and_angle = false
 length = 35.0
@@ -741,6 +905,7 @@ bone_angle = -180.0
 
 [node name="Arm_R_Upper" type="Bone2D" parent="Puppet1/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(-13, -35)
+rotation = 0.000227673
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, -13, -35)
 auto_calculate_length_and_angle = false
@@ -777,6 +942,7 @@ bone_angle = -160.0
 
 [node name="Arm_L_Upper" type="Bone2D" parent="Puppet1/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(13, -36)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, 13, -36)
 auto_calculate_length_and_angle = false
 length = 35.0
@@ -784,6 +950,7 @@ bone_angle = 225.0
 
 [node name="Arm_L_Lower" type="Bone2D" parent="Puppet1/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_L_Upper"]
 position = Vector2(25.995, 23.006)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 25.995, 23.006)
 auto_calculate_length_and_angle = false
 length = 25.0
@@ -864,7 +1031,7 @@ scale = Vector2(-1, 1)
 
 [node name="Hair_Back" type="Polygon2D" parent="Puppet2/Chibi_Hime_Polygons"]
 position = Vector2(-400, -606)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(392, 312, 304, 344, 320, 424, 312, 504, 496, 504, 480, 416, 488, 328, 400, 416, 400, 504)
 uv = PackedVector2Array(392, 312, 304, 344, 320, 424, 312, 504, 496, 504, 480, 416, 488, 328, 400, 416, 400, 504)
@@ -874,7 +1041,7 @@ internal_vertex_count = 2
 
 [node name="Leg_R" type="Polygon2D" parent="Puppet2/Chibi_Hime_Polygons"]
 position = Vector2(-254, -434)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(208, 352, 214.368, 394.317, 219.567, 411.83, 208.348, 419.218, 209.717, 435.364, 249.668, 434.816, 249.942, 418.398, 250.489, 411.831, 253.776, 392.946, 258.702, 351.9, 230.398, 434.518, 229.495, 418.264, 230.398, 411.943, 232.505, 392.679, 231.903, 351.441)
 uv = PackedVector2Array(208, 352, 214.368, 394.317, 219.567, 411.83, 208.348, 419.218, 209.717, 435.364, 249.668, 434.816, 249.942, 418.398, 250.489, 411.831, 253.776, 392.946, 258.702, 351.9, 230.398, 434.518, 229.495, 418.264, 230.398, 411.943, 232.505, 392.679, 231.903, 351.441)
@@ -884,7 +1051,7 @@ internal_vertex_count = 5
 
 [node name="Leg_L" type="Polygon2D" parent="Puppet2/Chibi_Hime_Polygons"]
 position = Vector2(-107, -434)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(153.4, 352.773, 147.109, 394.823, 141.481, 411.709, 152.075, 420.316, 151.744, 434.554, 111.349, 434.885, 110.356, 420.978, 108.7, 412.038, 106.383, 395.814, 100.423, 352.771, 132.214, 434.12, 131.597, 420.14, 130.158, 411.916, 129.751, 394.85, 129.55, 352.498)
 uv = PackedVector2Array(153.4, 352.773, 147.109, 394.823, 141.481, 411.709, 152.075, 420.316, 151.744, 434.554, 111.349, 434.885, 110.356, 420.978, 108.7, 412.038, 106.383, 395.814, 100.423, 352.771, 132.214, 434.12, 131.597, 420.14, 130.158, 411.916, 129.751, 394.85, 129.55, 352.498)
@@ -894,7 +1061,7 @@ internal_vertex_count = 5
 
 [node name="Arm_R" type="Polygon2D" parent="Puppet2/Chibi_Hime_Polygons"]
 position = Vector2(-494, -384)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(408.877, 290.586, 402.545, 307.472, 440.538, 321.402, 451.936, 296.918, 471.352, 276.662, 496.679, 245.004, 473.883, 229.385, 448.555, 255.98, 427.025, 277.087, 405.083, 271.177, 399.595, 285.53, 446.33, 306.787)
 uv = PackedVector2Array(408.877, 290.586, 402.545, 307.472, 440.538, 321.402, 451.936, 296.918, 471.352, 276.662, 496.679, 245.004, 473.883, 229.385, 448.555, 255.98, 427.025, 277.087, 405.083, 271.177, 399.595, 285.53, 446.33, 306.787)
@@ -904,7 +1071,7 @@ internal_vertex_count = 1
 
 [node name="Arm_L" type="Polygon2D" parent="Puppet2/Chibi_Hime_Polygons"]
 position = Vector2(-299, -385)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(389.921, 305.752, 355.608, 322.194, 346.314, 311.232, 345.123, 298.841, 323.441, 278.349, 295.56, 244.988, 312.002, 234.027, 347.505, 259.761, 364.42, 276.68, 383.245, 273.105, 390.869, 285.022, 382.052, 293.124)
 uv = PackedVector2Array(389.921, 305.752, 355.608, 322.194, 346.314, 311.232, 345.123, 298.841, 323.441, 278.349, 295.56, 244.988, 312.002, 234.027, 347.505, 259.761, 364.42, 276.68, 383.245, 273.105, 390.869, 285.022, 382.052, 293.124)
@@ -913,7 +1080,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "R
 
 [node name="Torso" type="Polygon2D" parent="Puppet2/Chibi_Hime_Polygons"]
 position = Vector2(-244, -389)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(224, 232, 192, 304, 200, 336, 288, 336, 296, 304, 264, 232)
 uv = PackedVector2Array(224, 232, 192, 304, 200, 336, 288, 336, 296, 304, 264, 232)
@@ -922,7 +1089,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Root_Bone/Torso_Low
 
 [node name="Neck" type="Polygon2D" parent="Puppet2/Chibi_Hime_Polygons"]
 position = Vector2(-125, -439)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(104, 264, 144, 264, 144, 304, 104, 304)
 uv = PackedVector2Array(104, 264, 144, 264, 144, 304, 104, 304)
@@ -931,7 +1098,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0), "Root_Bone/Torso_Lower", P
 
 [node name="Head" type="Polygon2D" parent="Puppet2/Chibi_Hime_Polygons"]
 position = Vector2(-445, -355)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(384, 96, 504, 96, 504, 208, 384, 208)
 uv = PackedVector2Array(384, 96, 504, 96, 504, 208, 384, 208)
@@ -940,7 +1107,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0), "Root_Bone/Torso_Lower", P
 
 [node name="Eyes" type="Polygon2D" parent="Puppet2/Chibi_Hime_Polygons"]
 position = Vector2(-308, -355)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(272, 136, 368, 136, 368, 168, 272, 168)
 uv = PackedVector2Array(272, 136, 368, 136, 368, 168, 272, 168)
@@ -949,7 +1116,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0), "Root_Bone/Torso_Lower", P
 
 [node name="Mouth" type="Polygon2D" parent="Puppet2/Chibi_Hime_Polygons"]
 position = Vector2(-221, -350)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(208, 160, 256, 160, 256, 192, 208, 192)
 uv = PackedVector2Array(208, 160, 256, 160, 256, 192, 208, 192)
@@ -958,7 +1125,7 @@ bones = ["Root_Bone", PackedFloat32Array(0, 0, 0, 0), "Root_Bone/Torso_Lower", P
 
 [node name="Hair_Front" type="Polygon2D" parent="Puppet2/Chibi_Hime_Polygons"]
 position = Vector2(-122, -375)
-texture = ExtResource("1_y0wha")
+texture = ExtResource("2_j6ovi")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(120, 96, 80, 104, 48, 136, 64, 224, 96, 240, 120, 160, 144, 160, 152, 248, 192, 224, 200, 128, 168, 96, 131.677, 159.995)
 uv = PackedVector2Array(120, 96, 80, 104, 48, 136, 64, 224, 96, 240, 120, 160, 144, 160, 152, 248, 192, 224, 200, 128, 168, 96, 131.677, 159.995)
@@ -984,6 +1151,7 @@ bone_angle = -90.0
 
 [node name="Torso_Upper" type="Bone2D" parent="Puppet2/Skeleton2D/Root_Bone/Torso_Lower"]
 position = Vector2(0, -30)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, -30)
 auto_calculate_length_and_angle = false
 length = 35.0
@@ -998,6 +1166,7 @@ bone_angle = -90.0
 
 [node name="Head" type="Bone2D" parent="Puppet2/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Neck"]
 position = Vector2(0, -17)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, -17)
 auto_calculate_length_and_angle = false
 length = 90.0
@@ -1019,6 +1188,7 @@ bone_angle = -180.0
 
 [node name="Arm_R_Upper" type="Bone2D" parent="Puppet2/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(-13, -35)
+rotation = 0.000227673
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, -13, -35)
 auto_calculate_length_and_angle = false
@@ -1055,6 +1225,8 @@ bone_angle = -160.0
 
 [node name="Arm_L_Upper" type="Bone2D" parent="Puppet2/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(13, -36)
+rotation = 0.000227673
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, 13, -36)
 auto_calculate_length_and_angle = false
 length = 35.0
@@ -1137,7 +1309,7 @@ libraries = {
 
 [node name="DialogueBox" type="Sprite2D" parent="."]
 position = Vector2(416, 288)
-texture = ExtResource("2_qef2n")
+texture = ExtResource("3_5soav")
 
 [node name="DB1 Text" type="Label" parent="DialogueBox"]
 custom_minimum_size = Vector2(200, 128)
@@ -1145,13 +1317,13 @@ offset_left = -98.1344
 offset_top = -100.968
 offset_right = 101.866
 offset_bottom = 27.0315
-theme = ExtResource("3_d4qc4")
+theme = ExtResource("4_n62jn")
 text = "Wanna go for a picnic?"
 autowrap_mode = 3
 
 [node name="DialogueBox2" type="Sprite2D" parent="."]
 position = Vector2(736, 352)
-texture = ExtResource("2_qef2n")
+texture = ExtResource("3_5soav")
 flip_h = true
 
 [node name="DB 2 Text" type="Label" parent="DialogueBox2"]
@@ -1160,7 +1332,7 @@ offset_left = -98.1344
 offset_top = -100.968
 offset_right = 101.866
 offset_bottom = 27.0315
-theme = ExtResource("3_d4qc4")
+theme = ExtResource("4_n62jn")
 text = "Yeah! That sounds fun!"
 autowrap_mode = 3
 
@@ -1168,5 +1340,5 @@ autowrap_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_qef2n")
 }
-autoplay = "Intro Animation"
+autoplay = "Outro Animation"
 speed_scale = 0.5

@@ -14,7 +14,11 @@ public partial class SceneNavButton : Node {
 	public void NavToNextLevel() {
 		string path = GameManager.Instance.GetLastLevelData().NextLevelPath;
 
-		SceneManager.Instance.LoadScene(path);
+		if (string.IsNullOrEmpty(path)) {
+			SceneManager.Instance.LoadScene("res://Scenes/OutroScene.tscn");
+		} else {
+			SceneManager.Instance.LoadScene(path);
+		}
 	}
 
 	public void NavToLastLevel() {

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cam3y2ededhf5" path="res://Assets/Prefabs/Game Objects/start.tscn" id="1_4cidc"]
 [ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_8nqtq"]
-[ext_resource type="PackedScene" uid="uid://chl8pnamccmpf" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="3_32mkd"]
+[ext_resource type="PackedScene" uid="uid://6024kb0v135s" path="res://Assets/Prefabs/Game Objects/goal.tscn" id="3_32mkd"]
 [ext_resource type="PackedScene" uid="uid://b7cugx7mwcpoo" path="res://Assets/Prefabs/Game Objects/grass_cover_platform.tscn" id="3_m7wc1"]
 [ext_resource type="PackedScene" uid="uid://da8yvwoaxgyy4" path="res://Assets/Prefabs/Entities/wasp.tscn" id="4_3hj66"]
 [ext_resource type="PackedScene" uid="uid://bshgty37j1gu3" path="res://Assets/Prefabs/Game Objects/sticky_platform.tscn" id="5_3hj66"]
@@ -181,13 +181,13 @@ nextScene = "res://Scenes/Levels/Level 9.tscn"
 position = Vector2(1216, -6976)
 
 [node name="Wasp2" parent="." instance=ExtResource("4_3hj66")]
-position = Vector2(-1216, -5952)
+position = Vector2(320, -5952)
 
 [node name="Wasp3" parent="." instance=ExtResource("4_3hj66")]
-position = Vector2(576, -4928)
+position = Vector2(1216, -4928)
 
 [node name="Wasp4" parent="." instance=ExtResource("4_3hj66")]
-position = Vector2(192, -2880)
+position = Vector2(1216, -2880)
 
 [node name="WoodenArrow" parent="." instance=ExtResource("7_df62f")]
 position = Vector2(256, 128)
