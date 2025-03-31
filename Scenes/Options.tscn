@@ -58,13 +58,12 @@ grow_vertical = 2
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer" node_paths=PackedStringArray("clickSFX", "hoverSFX")]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 1
+current_tab = 0
 script = ExtResource("2_bdxpv")
 clickSFX = NodePath("../../TabAudioContainer/OnClick")
 hoverSFX = NodePath("../../TabAudioContainer/OnHover")
 
 [node name="Audio" type="Control" parent="VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -439,6 +438,7 @@ layout_mode = 2
 texture = ExtResource("8_kfnrp")
 
 [node name="Controls" type="Control" parent="VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
