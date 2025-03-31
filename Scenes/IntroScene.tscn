@@ -16,6 +16,22 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="Animation" id="Animation_ge4sb"]
+resource_name = "Amazed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Neck/Head:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.602139]
+}
+
 [sub_resource type="Animation" id="Animation_pseuf"]
 length = 0.001
 tracks/0/type = "value"
@@ -89,6 +105,58 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2liv2"]
+resource_name = "Show Off"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.113446]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_L_Upper:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.1397, -0.949459]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_L_Upper/Arm_L_Lower:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.792379]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Neck/Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.584685]
 }
 
 [sub_resource type="Animation" id="Animation_h8frj"]
@@ -166,74 +234,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.113446, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_2liv2"]
-resource_name = "Show Off"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -0.113446]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_L_Upper:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.1397, -0.949459]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Arm_L_Upper/Arm_L_Lower:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -0.792379]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Neck/Head:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, -0.584685]
-}
-
-[sub_resource type="Animation" id="Animation_ge4sb"]
-resource_name = "Amazed"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Neck/Head:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -0.602139]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ge4sb"]
@@ -741,8 +741,6 @@ bone_angle = -180.0
 
 [node name="Arm_R_Upper" type="Bone2D" parent="Puppet1/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(-13, -35)
-rotation = 0.000227673
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, -13, -35)
 auto_calculate_length_and_angle = false
 length = 35.0
@@ -778,6 +776,7 @@ bone_angle = -160.0
 
 [node name="Arm_L_Upper" type="Bone2D" parent="Puppet1/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(13, -36)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, 13, -36)
 auto_calculate_length_and_angle = false
 length = 35.0
@@ -986,6 +985,7 @@ bone_angle = -90.0
 
 [node name="Torso_Upper" type="Bone2D" parent="Puppet2/Skeleton2D/Root_Bone/Torso_Lower"]
 position = Vector2(0, -30)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, -30)
 auto_calculate_length_and_angle = false
 length = 35.0
@@ -1000,7 +1000,6 @@ bone_angle = -90.0
 
 [node name="Head" type="Bone2D" parent="Puppet2/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Neck"]
 position = Vector2(0, -17)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, -17)
 auto_calculate_length_and_angle = false
 length = 90.0
@@ -1022,7 +1021,6 @@ bone_angle = -180.0
 
 [node name="Arm_R_Upper" type="Bone2D" parent="Puppet2/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(-13, -35)
-rotation = 0.000227673
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, -13, -35)
 auto_calculate_length_and_angle = false
 length = 35.0
@@ -1058,7 +1056,6 @@ bone_angle = -160.0
 
 [node name="Arm_L_Upper" type="Bone2D" parent="Puppet2/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(13, -36)
-rotation = 0.000227673
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, 13, -36)
 auto_calculate_length_and_angle = false
@@ -1142,7 +1139,6 @@ libraries = {
 
 [node name="DialogueBox" type="Sprite2D" parent="."]
 position = Vector2(416, 288)
-scale = Vector2(1, 1)
 texture = ExtResource("2_qef2n")
 
 [node name="DB1 Text" type="Label" parent="DialogueBox"]
@@ -1175,3 +1171,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_qef2n")
 }
 autoplay = "Intro Animation"
+speed_scale = 0.5
