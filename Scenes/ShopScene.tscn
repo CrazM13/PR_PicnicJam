@@ -1,0 +1,320 @@
+[gd_scene load_steps=18 format=3 uid="uid://c0gs3shdp1v1x"]
+
+[ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_s85eg"]
+[ext_resource type="Texture2D" uid="uid://bx3o2xpl6i00u" path="res://Assets/Textures/UI/MenuBG.tres" id="1_ymdee"]
+[ext_resource type="Script" uid="uid://dsd4ay6s6lhbq" path="res://Scripts/Menus/Shop/Shop.cs" id="2_aph2w"]
+[ext_resource type="Script" uid="uid://hltchkp4qiwd" path="res://Scripts/Menus/SceneNavButton.cs" id="3_je6ka"]
+[ext_resource type="PackedScene" uid="uid://b3m5d737rwqqm" path="res://Assets/Prefabs/UI/ShopItem.tscn" id="3_medpt"]
+[ext_resource type="Texture2D" uid="uid://bwb3p017u6mpt" path="res://Assets/Textures/Testing/PicnicContents/Pie.tres" id="4_3qq02"]
+[ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="4_medpt"]
+[ext_resource type="Texture2D" uid="uid://oyiavckeb53o" path="res://Assets/Textures/Testing/PicnicContents/Wine.tres" id="5_3qq02"]
+[ext_resource type="Texture2D" uid="uid://7qfmk3yx1vt4" path="res://Assets/Textures/Testing/PicnicContents/GoldenApple.tres" id="6_1qm6p"]
+[ext_resource type="Texture2D" uid="uid://ce0nguwmswe7x" path="res://Assets/Textures/Testing/PicnicContents/Hotdog.tres" id="7_1itlx"]
+[ext_resource type="Texture2D" uid="uid://bygchmxw55n0r" path="res://Assets/Textures/Testing/PicnicContents/OliveOil.tres" id="8_k8c1k"]
+[ext_resource type="Texture2D" uid="uid://cj12qxomv6qqu" path="res://Assets/Textures/Testing/PicnicContents/Pumpkin.tres" id="9_03ylq"]
+[ext_resource type="Texture2D" uid="uid://o6sd4okol52l" path="res://Assets/Textures/Testing/PicnicContents/Tulip.tres" id="10_6mlxe"]
+[ext_resource type="Texture2D" uid="uid://bhp6fiu4qde3y" path="res://Assets/Textures/Testing/PicnicContents/Corn.tres" id="11_aph2w"]
+[ext_resource type="Texture2D" uid="uid://wajh6yyf1ebh" path="res://Assets/Textures/Testing/PicnicContents/Hand.tres" id="12_0eno8"]
+[ext_resource type="Texture2D" uid="uid://bb00tkhojykfy" path="res://Assets/Textures/Icons/star.svg" id="16_jqa5i"]
+[ext_resource type="Script" uid="uid://ct8dvufbebeel" path="res://Scripts/Menus/DisplayStarCount.cs" id="17_8jnln"]
+
+[node name="ShopScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s85eg")
+script = ExtResource("2_aph2w")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ymdee")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelBar" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/LabelBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/LabelBar"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 67
+text = "Shop"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/LabelBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="Apple" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_medpt")]
+layout_mode = 2
+
+[node name="Cost" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Apple/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+text = "0 ★"
+
+[node name="Buy Button" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Apple/MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("shop")]
+shop = NodePath("../../../../../../../../..")
+content = "Apple"
+
+[node name="Pie" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_medpt")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Pie/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Pie"
+
+[node name="Cost" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Pie/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+text = "0 ★"
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Pie/MarginContainer/VBoxContainer" index="1"]
+text = "Not the cutie variety"
+
+[node name="TextureRect" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Pie/MarginContainer/VBoxContainer/MarginContainer" index="0"]
+texture = ExtResource("4_3qq02")
+
+[node name="Buy Button" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Pie/MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("shop")]
+shop = NodePath("../../../../../../../../..")
+content = "Pie"
+
+[node name="Wine" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_medpt")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Wine/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Wine"
+
+[node name="Cost" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Wine/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+text = "0 ★"
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Wine/MarginContainer/VBoxContainer" index="1"]
+text = "Drink in moderation!"
+
+[node name="TextureRect" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Wine/MarginContainer/VBoxContainer/MarginContainer" index="0"]
+texture = ExtResource("5_3qq02")
+
+[node name="Buy Button" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Wine/MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("shop")]
+shop = NodePath("../../../../../../../../..")
+content = "Wine"
+
+[node name="Hotdog" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_medpt")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Hotdog/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Hotdog"
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Hotdog/MarginContainer/VBoxContainer" index="1"]
+text = "Hey, I'm walking here!"
+
+[node name="TextureRect" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Hotdog/MarginContainer/VBoxContainer/MarginContainer" index="0"]
+texture = ExtResource("7_1itlx")
+
+[node name="Buy Button" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Hotdog/MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("shop")]
+shop = NodePath("../../../../../../../../..")
+content = "Hotdog"
+cost = 3
+
+[node name="Corn" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_medpt")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Corn/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Corn"
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Corn/MarginContainer/VBoxContainer" index="1"]
+text = "[Insert corny joke]"
+
+[node name="TextureRect" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Corn/MarginContainer/VBoxContainer/MarginContainer" index="0"]
+texture = ExtResource("11_aph2w")
+
+[node name="Buy Button" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Corn/MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("shop")]
+shop = NodePath("../../../../../../../../..")
+content = "Corn"
+cost = 3
+
+[node name="Olive Oil" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_medpt")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Olive Oil/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Olive Oil"
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Olive Oil/MarginContainer/VBoxContainer" index="1"]
+text = "I don't judge"
+
+[node name="TextureRect" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Olive Oil/MarginContainer/VBoxContainer/MarginContainer" index="0"]
+texture = ExtResource("8_k8c1k")
+
+[node name="Buy Button" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Olive Oil/MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("shop")]
+shop = NodePath("../../../../../../../../..")
+content = "OliveOil"
+cost = 3
+
+[node name="Pumpkin" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_medpt")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Pumpkin/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Pumpkin"
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Pumpkin/MarginContainer/VBoxContainer" index="1"]
+text = "Spices sold seperately"
+
+[node name="TextureRect" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Pumpkin/MarginContainer/VBoxContainer/MarginContainer" index="0"]
+texture = ExtResource("9_03ylq")
+
+[node name="Buy Button" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Pumpkin/MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("shop")]
+shop = NodePath("../../../../../../../../..")
+content = "Pumpkin"
+cost = 3
+
+[node name="Tulip" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_medpt")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Tulip/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Tulip"
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Tulip/MarginContainer/VBoxContainer" index="1"]
+text = "Hallo Nederland!"
+
+[node name="TextureRect" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Tulip/MarginContainer/VBoxContainer/MarginContainer" index="0"]
+texture = ExtResource("10_6mlxe")
+
+[node name="Buy Button" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Tulip/MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("shop")]
+shop = NodePath("../../../../../../../../..")
+content = "Tulip"
+cost = 3
+
+[node name="GoldenApple" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_medpt")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/GoldenApple/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Gold Apple"
+
+[node name="Cost" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/GoldenApple/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+text = "12★"
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/GoldenApple/MarginContainer/VBoxContainer" index="1"]
+text = "Is it safe to eat?"
+
+[node name="TextureRect" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/GoldenApple/MarginContainer/VBoxContainer/MarginContainer" index="0"]
+texture = ExtResource("6_1qm6p")
+
+[node name="Buy Button" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/GoldenApple/MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("shop")]
+shop = NodePath("../../../../../../../../..")
+content = "GoldenApple"
+cost = 12
+
+[node name="Hand" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_medpt")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Hand/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Hand?"
+
+[node name="Cost" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Hand/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+text = "27★"
+
+[node name="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Hand/MarginContainer/VBoxContainer" index="1"]
+text = "How did that get here?"
+
+[node name="TextureRect" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Hand/MarginContainer/VBoxContainer/MarginContainer" index="0"]
+texture = ExtResource("12_0eno8")
+
+[node name="Buy Button" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Hand/MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("shop")]
+shop = NodePath("../../../../../../../../..")
+content = "Hand"
+cost = 27
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_je6ka")
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="BetterButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource("4_medpt")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Star Count" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 64)
+offset_right = 128.0
+offset_bottom = 64.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Star Count"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Star Count/HBoxContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("16_jqa5i")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Star Count/HBoxContainer"]
+layout_mode = 2
+text = "x000"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("17_8jnln")
+updateLive = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BetterButton" to="." method="ReturnToMenu"]
+
+[editable path="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Apple"]
+[editable path="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Pie"]
+[editable path="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Wine"]
+[editable path="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Hotdog"]
+[editable path="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Corn"]
+[editable path="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Olive Oil"]
+[editable path="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Pumpkin"]
+[editable path="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Tulip"]
+[editable path="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/GoldenApple"]
+[editable path="VBoxContainer/Panel/MarginContainer/ScrollContainer/GridContainer/Hand"]

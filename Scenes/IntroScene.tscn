@@ -741,7 +741,7 @@ bone_angle = -180.0
 
 [node name="Arm_R_Upper" type="Bone2D" parent="Puppet1/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(-13, -35)
-scale = Vector2(1, 1)
+rotation = 0.000227673
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, -13, -35)
 auto_calculate_length_and_angle = false
 length = 35.0
@@ -777,6 +777,7 @@ bone_angle = -160.0
 
 [node name="Arm_L_Upper" type="Bone2D" parent="Puppet1/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(13, -36)
+rotation = 0.000227673
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, 13, -36)
 auto_calculate_length_and_angle = false
 length = 35.0
@@ -1019,7 +1020,7 @@ bone_angle = -180.0
 
 [node name="Arm_R_Upper" type="Bone2D" parent="Puppet2/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(-13, -35)
-scale = Vector2(1, 1)
+rotation = 0.000227673
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, -13, -35)
 auto_calculate_length_and_angle = false
 length = 35.0
@@ -1055,6 +1056,7 @@ bone_angle = -160.0
 
 [node name="Arm_L_Upper" type="Bone2D" parent="Puppet2/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper"]
 position = Vector2(13, -36)
+rotation = 0.000227673
 rest = Transform2D(1, 0.000227673, -0.000227673, 1, 13, -36)
 auto_calculate_length_and_angle = false
 length = 35.0

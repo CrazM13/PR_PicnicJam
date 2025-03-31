@@ -46,12 +46,14 @@ size_flags_horizontal = 3
 
 [node name="Label" type="RichTextLabel" parent="CenterContainer/HBoxContainer/LBox"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
 text = "[tornado radius=1.0 freq=10] Game
     Title[/tornado]"
 fit_content = true
 shortcut_keys_enabled = false
+vertical_alignment = 1
 justification_flags = 0
 
 [node name="VSeparator" type="VSeparator" parent="CenterContainer/HBoxContainer"]
@@ -77,6 +79,11 @@ script = ExtResource("3_8saeu")
 layout_mode = 2
 text = "Options"
 
+[node name="Shop" parent="CenterContainer/HBoxContainer/RBox" instance=ExtResource("3_ghw46")]
+layout_mode = 2
+text = "Shop
+"
+
 [node name="Credits" parent="CenterContainer/HBoxContainer/RBox" instance=ExtResource("3_ghw46")]
 layout_mode = 2
 text = "Credits"
@@ -88,5 +95,6 @@ text = "Quit"
 [connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Play" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/IntroScene.tscn"]]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/LevelSelect" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/LevelSelect.tscn"]]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Options" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/Options.tscn"]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Shop" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/ShopScene.tscn"]]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Credits" to="CenterContainer/HBoxContainer/RBox" method="NavToScene" binds= ["res://Scenes/CreditsMenu.tscn"]]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/RBox/Quit" to="CenterContainer/HBoxContainer/RBox" method="Quit"]

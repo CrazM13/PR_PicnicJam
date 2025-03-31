@@ -32,6 +32,8 @@ public class GameManager {
 	private uint lastStarGain;
 	public bool IsInLevel { get; set; } = false;
 
+	private List<string> unlockedContent;
+
 	public GameSettings Settings { get; set; }
 	public GameStats Stats { get; set; }
 
@@ -39,6 +41,11 @@ public class GameManager {
 		levelData = new Dictionary<string, LevelData>();
 		Settings = new GameSettings();
 		Stats = new GameStats();
+		unlockedContent = new List<string>() {
+			"Apple",
+			"Wine",
+			"Pie"
+		};
 
 		LoadSettings();
 		LoadGame();
@@ -174,19 +181,29 @@ public class GameManager {
 
 		gameSaveVault ??= VaultManager.CreateVault("save");
 
+		// Level Save
 		Godot.Collections.Array<Godot.Collections.Dictionary<string, Variant>> levelDataArray = new Godot.Collections.Array<Godot.Collections.Dictionary<string, Variant>>();
 
 		foreach (LevelData level in this.levelData.Values) {
 			levelDataArray.Add(level.ConvertToVariant());
 		}
 
+		gameSaveVault.SetValue("levels", levelDataArray);
+
+		// Stats
 		Godot.Collections.Dictionary<string, Variant> statsObj = new Godot.Collections.Dictionary<string, Variant> {
 			{ "star_count", Stats.StarCount }
 		};
 
 		gameSaveVault.SetValue("stats", statsObj);
 
-		gameSaveVault.SetValue("levels", levelDataArray);
+		// Content
+		Godot.Collections.Array<string> unlockedContentArray = new Godot.Collections.Array<string>();
+		foreach (string content in this.unlockedContent) {
+			unlockedContentArray.Add(content);
+		}
+
+		gameSaveVault.SetValue("unlocked_content", unlockedContentArray);
 
 		VaultManager.SaveVault("save");
 	}
@@ -210,12 +227,24 @@ public class GameManager {
 				levelData.Add(newLevelData.ScenePath, newLevelData);
 			}
 
+			Godot.Collections.Array<string> unlockedContentArray = gameSaveVault.GetValue("unlocked_content").AsGodotArray<string>();
+			if (unlockedContentArray != null) {
+				this.unlockedContent.Clear();
+				foreach (string content in unlockedContentArray) {
+					this.unlockedContent.Add(content);
+				}
+			}
 		}
 	}
 
 	public void DeleteSavedGame() {
 		levelData.Clear();
 		Stats = new GameStats();
+		unlockedContent = new List<string>() {
+			"Apple",
+			"Wine",
+			"Pie"
+		};
 		SaveGame();
 	}
 
@@ -239,6 +268,20 @@ public class GameManager {
 		VaultManager.SaveVault("settings");
 
 		LoadSettings();
+	}
+
+	public void UnlockContent(string content) {
+		unlockedContent.Add(content);
+
+		SaveGame();
+	}
+
+	public bool IsUnlocked(string content) {
+		return unlockedContent.Contains(content);
+	}
+
+	public List<string> GetAllUnlocked() {
+		return unlockedContent;
 	}
 
 }

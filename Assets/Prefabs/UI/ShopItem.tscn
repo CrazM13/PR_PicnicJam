@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3m5d737rwqqm"]
+
+[ext_resource type="Theme" uid="uid://b0dysmdwob6v7" path="res://Assets/Themes/MenuTheme.tres" id="1_kiav3"]
+[ext_resource type="Texture2D" uid="uid://5vmnq4ydmfsv" path="res://Assets/Textures/Testing/PicnicContents/Apple.tres" id="1_w3wq5"]
+[ext_resource type="PackedScene" uid="uid://lk1w8qmem6kt" path="res://Assets/Prefabs/UI/BetterButton.tscn" id="2_wuc0a"]
+[ext_resource type="Script" uid="uid://tsq6emkr25cb" path="res://Scripts/Menus/Shop/ShopButton.cs" id="3_wuc0a"]
+
+[node name="Shop Item" type="Panel"]
+custom_minimum_size = Vector2(256, 382)
+theme = ExtResource("1_kiav3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Apple"
+
+[node name="Cost" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3 ★"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Keep the doctor away!"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_w3wq5")
+stretch_mode = 5
+
+[node name="Buy Button" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_wuc0a")]
+layout_mode = 2
+text = "Buy"
+script = ExtResource("3_wuc0a")
+content = ""
+cost = 0

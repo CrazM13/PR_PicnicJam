@@ -115,7 +115,11 @@ theme_override_constants/margin_bottom = 16
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Stuff goes here"
+text = "- Programmer
+- Music / SFX
+- Art
+- Animation
+- Level Design"
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
@@ -196,7 +200,9 @@ theme_override_constants/margin_bottom = 16
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Panel2/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Stuff goes here"
+text = "- Character Art
+- Rigging
+- Animation"
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 32)

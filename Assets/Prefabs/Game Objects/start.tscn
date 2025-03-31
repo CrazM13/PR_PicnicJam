@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cam3y2ededhf5"]
+[gd_scene load_steps=8 format=3 uid="uid://cam3y2ededhf5"]
 
 [ext_resource type="PackedScene" uid="uid://c5xnjc82lv7ht" path="res://Assets/Prefabs/Entities/player.tscn" id="1_22o35"]
 [ext_resource type="PackedScene" uid="uid://bpyjf6homaiyi" path="res://Assets/Prefabs/UI/PauseMenu.tscn" id="1_i5ukv"]
 [ext_resource type="Script" uid="uid://c74heej8g33b4" path="res://Scripts/Entity/HeldObject.cs" id="2_i5ukv"]
-[ext_resource type="Texture2D" uid="uid://cla1t4k6dsla7" path="res://Assets/Textures/Testing/PicnicContents.png" id="4_hatq4"]
+[ext_resource type="Texture2D" uid="uid://5vmnq4ydmfsv" path="res://Assets/Textures/Testing/PicnicContents/Apple.tres" id="4_5vkud"]
+[ext_resource type="Texture2D" uid="uid://oyiavckeb53o" path="res://Assets/Textures/Testing/PicnicContents/Wine.tres" id="5_a0w6n"]
+[ext_resource type="Texture2D" uid="uid://bwb3p017u6mpt" path="res://Assets/Textures/Testing/PicnicContents/Pie.tres" id="6_kyr6j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqaqg"]
 radius = 16.0
@@ -15,52 +17,52 @@ visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_22o35")]
 
-[node name="HeldObject" type="CharacterBody2D" parent="."]
+[node name="HeldObject" type="CharacterBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(0, -128)
 collision_layer = 16
 collision_mask = 145
 platform_on_leave = 2
 script = ExtResource("2_i5ukv")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="HeldObject"]
 texture_filter = 3
 texture_repeat = 2
-texture = ExtResource("4_hatq4")
-region_enabled = true
+texture = ExtResource("4_5vkud")
 region_rect = Rect2(32, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeldObject"]
 shape = SubResource("CircleShape2D_hqaqg")
 
-[node name="HeldObject2" type="CharacterBody2D" parent="."]
+[node name="HeldObject2" type="CharacterBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(32, -160)
 collision_layer = 16
 collision_mask = 145
 platform_on_leave = 2
 script = ExtResource("2_i5ukv")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="HeldObject2"]
 texture_filter = 3
 texture_repeat = 2
-texture = ExtResource("4_hatq4")
-region_enabled = true
+texture = ExtResource("5_a0w6n")
 region_rect = Rect2(0, 0, 32, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeldObject2"]
 shape = SubResource("CircleShape2D_hqaqg")
 
-[node name="HeldObject3" type="CharacterBody2D" parent="."]
+[node name="HeldObject3" type="CharacterBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(-32, -192)
 collision_layer = 16
 collision_mask = 145
 platform_on_leave = 2
 script = ExtResource("2_i5ukv")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="HeldObject3"]
 texture_filter = 3
 texture_repeat = 2
-texture = ExtResource("4_hatq4")
-region_enabled = true
+texture = ExtResource("6_kyr6j")
 region_rect = Rect2(32, 32, 64, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeldObject3"]
