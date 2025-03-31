@@ -19,7 +19,6 @@ scoreMusic = ExtResource("3_tmplu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
-texture_repeat = 2
 position = Vector2(0, 130)
 texture = ExtResource("4_mja7c")
 region_rect = Rect2(0, 0, 256, 256)
