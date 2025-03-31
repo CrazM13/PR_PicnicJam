@@ -30,6 +30,7 @@ public class GameManager {
 	private Dictionary<string, LevelData> levelData;
 	private string lastLevelName;
 	private uint lastStarGain;
+	public bool IsInLevel { get; set; } = false;
 
 	public GameSettings Settings { get; set; }
 	public GameStats Stats { get; set; }
@@ -51,6 +52,8 @@ public class GameManager {
 		lastStarGain = 0;
 
 		lastLevelName = thisLevelPath;
+
+		IsInLevel = true;
 	}
 
 	public void UnlockLevel(string levelPath) {
@@ -82,6 +85,8 @@ public class GameManager {
 		if (!string.IsNullOrEmpty(level.NextLevelPath)) UnlockLevel(level.NextLevelPath);
 
 		lastLevelName = thisLevelPath;
+
+		IsInLevel = false;
 
 		SaveGame();
 	}

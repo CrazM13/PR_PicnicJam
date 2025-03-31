@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cu2xrn0nxeaxf" path="res://Assets/Textures/Icons/folder.svg" id="17_oa66i"]
 [ext_resource type="Texture2D" uid="uid://bg32hq42kst3a" path="res://Assets/Textures/Icons/x.svg" id="18_oa66i"]
 
-[node name="Options" type="Control" node_paths=PackedStringArray("volumeSliders", "muteButtons", "invertControls", "pullbackSpeed", "cameraZoom")]
+[node name="Options" type="Control" node_paths=PackedStringArray("tabContainer", "volumeSliders", "muteButtons", "invertControls", "pullbackSpeed", "cameraZoom")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_qqnya")
 script = ExtResource("2_ksf6h")
+tabContainer = NodePath("VBoxContainer/TabContainer")
 volumeSliders = [NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox/HSlider"), NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox/HSlider"), NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox/HSlider")]
 muteButtons = [NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterVolumeBox/BetterButton"), NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolumeBox/BetterButton"), NodePath("VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolumeBox/BetterButton")]
 invertControls = NodePath("VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer/BetterButton")
@@ -706,6 +707,6 @@ Container = NodePath("../Toast Container")
 [connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer2/BetterButton" to="Control/ResetSettings" method="SendNewToast"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer3/BetterButton" to="." method="ResetGame"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Game Data/MarginContainer/VBoxContainer/HBoxContainer3/BetterButton" to="Control/DeletedSaveData" method="SendNewToast"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BetterButton" to="VBoxContainer/HBoxContainer" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BetterButton" to="." method="GoToLastScene"]
 
 [editable path="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer/HBoxContainer3/PercentChanger"]

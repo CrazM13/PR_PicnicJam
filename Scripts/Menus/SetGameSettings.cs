@@ -1,7 +1,10 @@
 using Godot;
 using System;
+using System.IO;
 
 public partial class SetGameSettings : Node {
+
+	[Export] private TabContainer tabContainer;
 
 	[Export] private VolumeSlider[] volumeSliders;
 	[Export] private MuteBusButton[] muteButtons;
@@ -15,6 +18,8 @@ public partial class SetGameSettings : Node {
 		SetInvertControlsButtonState();
 		SetZoomState();
 		SetPullbackSpeedState();
+
+		tabContainer.SetTabDisabled(2, GameManager.Instance.IsInLevel);
 	}
 
 	private void SetInvertControlsButtonState() {
@@ -93,6 +98,16 @@ public partial class SetGameSettings : Node {
 
 	public void ResetGame() {
 		GameManager.Instance.DeleteSavedGame();
+	}
+
+	public void GoToLastScene() {
+		if (GameManager.Instance.IsInLevel) {
+			string path = GameManager.Instance.GetLastLevelData().ScenePath;
+
+			SceneManager.Instance.LoadScene(path);
+		} else {
+			SceneManager.Instance.LoadScene("res://Scenes/MainMenu.tscn");
+		}
 	}
 
 }

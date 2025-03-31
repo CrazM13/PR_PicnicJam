@@ -95,9 +95,18 @@ layout_mode = 2
 [node name="BetterButton3" parent="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_s8lu7")]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Restart"
+text = "Options"
 
 [node name="Spacer4" type="Control" parent="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="BetterButton4" parent="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_s8lu7")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Restart"
+
+[node name="Spacer5" type="Control" parent="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
@@ -111,6 +120,8 @@ bus = &"SFX"
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer/BetterButton" to="." method="Unpause"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer/BetterButton2" to="." method="Unpause"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer/BetterButton2" to="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer" method="NavToScene" binds= ["res://Scenes/MainMenu.tscn"]]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer/BetterButton2" to="." method="QuitLevel"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer/BetterButton3" to="." method="Unpause"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer/BetterButton3" to="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer" method="ReloadScene"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer/BetterButton3" to="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer" method="NavToScene" binds= ["res://Scenes/Options.tscn"]]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer/BetterButton4" to="." method="Unpause"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer/BetterButton4" to="PauseMenu/VBoxContainer/Panel/MarginContainer/HBoxContainer" method="ReloadScene"]

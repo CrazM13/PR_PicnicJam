@@ -25,4 +25,10 @@ public partial class PauseMenu : CanvasLayer {
 		GetTree().Paused = false;
 	}
 
+	private void QuitLevel() {
+		GameManager.Instance.IsInLevel = false;
+
+		SceneManager.Instance.LoadScene("res://Scenes/MainMenu.tscn");
+	}
+
 }

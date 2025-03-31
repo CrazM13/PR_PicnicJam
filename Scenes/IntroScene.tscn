@@ -1000,6 +1000,7 @@ bone_angle = -90.0
 
 [node name="Head" type="Bone2D" parent="Puppet2/Skeleton2D/Root_Bone/Torso_Lower/Torso_Upper/Neck"]
 position = Vector2(0, -17)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, -17)
 auto_calculate_length_and_angle = false
 length = 90.0
