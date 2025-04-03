@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bshgty37j1gu3"]
 
 [ext_resource type="PackedScene" uid="uid://6k27jgawopbf" path="res://Assets/Prefabs/Game Objects/platform.tscn" id="1_m2dkh"]
-[ext_resource type="Texture2D" uid="uid://c8dmhx4pb314a" path="res://Assets/Textures/Testing/Square.png" id="2_bh57n"]
+[ext_resource type="Texture2D" uid="uid://unxlaectgtnu" path="res://Assets/Textures/Testing/Honey.png" id="2_bh57n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bh57n"]
 rough = true
@@ -12,5 +12,4 @@ absorbent = true
 physics_material_override = SubResource("PhysicsMaterial_bh57n")
 
 [node name="Sprite2D" parent="." index="0"]
-self_modulate = Color(1, 0.733333, 0, 1)
 texture = ExtResource("2_bh57n")
