@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="PR_PicnicJam"
+config/name="Spring Into Action"
 run/main_scene="uid://qstt55birmxg"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="uid://bufxb4fsl0fbr"
 
 [audio]
 

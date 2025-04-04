@@ -49,8 +49,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
-text = "[tornado radius=1.0 freq=10] Game
-    Title[/tornado]"
+text = "[tornado radius=1.0 freq=10] Spring
+    Into
+  Action[/tornado]"
 fit_content = true
 shortcut_keys_enabled = false
 vertical_alignment = 1
